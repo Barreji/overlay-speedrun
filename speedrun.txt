@@ -1,0 +1,495 @@
+Clair Obscur
+Any% Glitchless Expert
+
+Act 0
+T:Prologue
+
+🛡️ Maelle
+(V) Attack > PARRY > (V) Attack > DODGE > (V) Surcharge
+(A) Si vous ratez un DODGE, 1 Shot
+(A) 1er PARRY crit ? Surcharge t2 + PARRY
+
+Act I
+T:Spring Meadows
+
+🛡️ Lancelier
+(V) Weak Spot > (V) Attack > PARRY
+
+🛡️ Portier
+(V) Weak Spot > (V) Attack > (L) Lance Glace > PARRY
+
+📦 Brûlures Critiques
+
+🛡️ 2 Lancelier(FS)
+(V) Weak Spot > (V) Attack > (L) Lance Glace
+PARRY > (V) Attack
+
+📦 $360 Chroma
+📦 Teinte Energie
+
+🛡️ 3 Volester
+Parry > Parry > (V) Shoot (5AP)
+
+📦 Energie Mortelle II.
+
+ARME
+(V) Lanceram
+PICTO
+(V) Brulures Critiques
+(V) Energy mortelle II
+(L) Insaisissable
+
+🛡️ 2 Volester + Abbest 
+(V) Shoot x3 > (V) Shoot x3 > (V) Shoot WS
+(V) Skip > (L) Ice Lance
+
+📦 Luminacolor sous le pont
+
+STAT
+(V) +9 Force (9)
+(L) +8 Force (8), +1 Agi (1)
+SORT
+(V) Tir Marquant, Surpuissance
+
+🎯Eveque
+(L) Shoot (last WS) > (L) Immolation > (V) Surpuissant 
+(L) Immolation > (V) Tir Marquant
+(L) Immolation > (V) Tir Marquant > DODGE
+(L) Teinte Énergie ? > (V) Surcharge
+
+T:Flying Waters
+
+📦 $333 Chroma sur la route
+
+🛡️ 3 Demineur
+(V) Shoot bombs
+(A) groupe de 2 aussi si tu manques xp
+
+PICTO
+(M) Brulures Critiques
+(M) Energie Mortelle II
+(M) Insaisissable
+STAT
+(V) +6 Agi (6)
+(M) +15 Force (15)
+(L) +6 Force (14)
+SORT
+(M) Foulée Vive
+(L) Feu Sauvage
+
+🛡️ The Curator
+(V) Skip > (M) Pivot offensif > (L) Skip > (V) Mark > (M) Percée
+🛡️ Noco
+(M) Pivot Offensif > PARRY > (M) Percée 
+💰 Attaque fragilisante
+
+🛡️ Démineur, Brûler, Luster
+(V) Shoot mine > (V) Mark Brûler > (L) Lance Luster
+(M)  shot brûler ws > (M) shot démineur 3 > (M) shot attack
+
+STAT
+(V) +4 Force (13), +1 Agi (7)
+(M) +2 Force (17), +1 Agi (1)
+(L) +3 Force (17), +3 Agi (4)
+
+📦 Après le drapeau $333 Chroma
+📦 Entre les algues $665 Chroma
+
+ARME
+(M) Bruleram
+(L) Luminerim
+PICTO
+(L) Attaque fragilisante
+LUMINA
+(L) +Brûlures critiques
+(L) +Energie Mortelle II
+(V) +Brûlures critiques
+(V) +Energie Mortelle II
+
+🎯 Goblu
+(L) Feu Sauv > (V) Surpui > (M) Foulée
+(L) Shoot all > (L) Attaque > (V) Mark > (M) Percée
+(L) Immo > (V) Surcharge > (M) Foulée
+(L) Shoot all > (L) Attaque > (V) Mark > (M) Percée
+
+T:Ancient Sanctuary
+
+🛡️ Robust Sakapatate
+(L) Immo (Fail) > (V) Surpui > (M) Foulée(Fail)
+(L) Attaque > (V) Mark > (M) Percée
+(A) PARRY que attack bouclier
+
+STAT
+(M) +9 Force (23)
+
+🎯 Ultimate Sakapatate
+(L) Immo > (V) Surpui > (M) Foulée
+(L) Shoot + 3 Shoot WS > (L) Attaque > (V) Mark > (M) Percée
+(L) Immo > (V) Surcharge/Surpui/Attaque > (M) Foulée
+(L) Attack > (V) Mark > (M) Percée
+(A) Gustave need 5 ap turn 3. DODGE “Attaque avec son compagnon mort”
+
+T:Gestral Village
+
+SORT
+(M) Inflammable, Déluge de Feu
+
+🛡️ Tournoi
+PARRY > (M) Inflammable > PARRY > (M) Déluge de Feu
+🛡️ Sciel
+PARRY > (M) Déluge de Feu > PARRY
+
+💰 Instant Critique, 2 Chroma Poli
+
+T:Nid d’Esquie
+
+ARME
+(M) Medalum
+PICTO
+(V) Instant Critique
+STAT
+(V) +13 Agi(20)
+(L) +15 Force(29)
+(M) +9 Force(32)
+(S) +45 Force(45)
+SORT
+(L) Danse Foudroyante (Bas Gauche)
+(S) Lame Spectrale, Intervention (Haut Gauche)
+
+🛡️ Francois
+DODGE
+(V) Mark > (L) Shoot x3 > (L) Attaque > (M) Percée
+
+T:The Continent
+
+📦 Luminacolor à coté combat
+
+UP ARME
+(L) Luminerim +6 (7)
+
+🛡️ Demineur, Crueler, Lancelier
+(V) Shoot WS > (V) Shoot Mine > (V) Mark Crueler
+(L) Feu Sauv(FAIL)
+(M) Headshot Mine  > (M) Shoot Lance x7 > (M) Percée
+
+📦 Energie de Depart I
+📦 $1305 Chroma avant les Falaises.
+
+T:Stone Wave Cliffs
+
+📦 $790 Chroma premier drapeau
+📦 Initiative
+📦 $790 Chroma corde gros tuyau
+📦 $790 Chroma après drapeau ferme
+📦 Luminacolor avant dernière corde
+
+FORMATION
+(M) -Maelle, (S) +Sciel
+PICTO
+(S) Initiative Améliorée
+(S) Fracture Améliorée
+(S) Energie de Départ
+(L) Initiative
+(L) Instant Critique
+LUMINA
+(L) +Insaisissable
+(V) -Brûlures Critiques
+(V) +Attaque Affaiblissante
+(S) +Energie Mortelle II
+(S) +Insaisissable
+
+🎯 Lampmaster
+(L) Immo > PARRY 
+(L) Lance de Glace > (V) Energie(Sciel) > (S) Interv(Lune) > (L) Attack > PARRY
+(V) Surpui > (L) Danse
+(S) teinte lune > DODGE
+(V) Attaque > (L) Feu Sauv > (S) Interv(Lune) > (L) Danse
+(A) Il faut 1/2 PARRY au début
+(A) T1 si Gustave pas focus, sinon T2.
+
+Act II
+
+STAT
+(L) +9 Agi (13)
+(V) +32 Force (32), +10 Agi (10)
+SORT
+(V) Tir Marquant, Récupération Parfaite, Attaque Rapide
+(V) Tranchée Berserk(Milieu Gauche), Frappe de Défi(Bas Droite)
+ARME
+(V) Lanceram
+PICTO
+(V) +Au Seuil de la mort
+(V) +Initiative
+
+T:Forgotten Battlefield
+
+🛡️ Chalier
+DODGE > (V) Frappe de Défi > DIE
+(L) Skip > (M) Percée(1.1)
+
+💰Affinité Inversée
+
+FORMATION
+(M) -Maelle, (S) +Sciel
+PICTO
+(V) Affinité Inversée
+LUMINA
+(V) -Attaque Affaiblissante
+(V) +Brûlures Critiques
+(V) +Insaisissable
+(V) +Instant Critique
+
+🎯 Dualiste
+(A) Si Verso ou Sciel Focus
+(V) Tranchée Berserk
+(L) Teinte Energie (Celui pas focus) > (V) Tranchée Berserk > (S) Interv(Verso) > (V) Frappe/ Berserk
+(L) Attack/ Teinte(Sciel) > (V) Berserk/ Frappe > (S) Interv(Verso) > (V) Berserk
+(L) Attaque > (V) Berserk > (S) Interv(Verso) > (V) Berserk
+
+🎯 Mediocre fight
+(A) Si Lune ou AOE T1
+(L) Teinte Verso > (V) Berserk > (L) Teinte Verso
+(L) Lance de Glace > (V) Berserk/ Frappe
+(S) Interv(Verso) > (V) Berserk 
+(L) Attaque > (V) Berserk > (S) Interv(Verso) > (V) Berserk
+
+UP ARME
+(L) Luminerim +2 (9)
+UP LUMINA
+(L) +2 Lumina(19)
+(S) +2 Lumina(20)
+
+T:The Continent
+
+🛡️ Demineur, Troubador, Gault
+ (V) Shoot mine > (V) Shoot him x3 > (V) Frappe Trouba
+ (L) Feu Sauv(FAIL)
+ (S) Lame Spectrale Gault
+
+T:Monoco Station
+
+ARME
+(V) Dualiso
+PICTO
+(V) Attaque Combo > Au seuil de la mort
+(V) Attaque fragilisante > Initiative (Swap)
+(V) Instant Critique > Affinité inversée (Swap)
+(L) Au seuil de la mort
+LUMINA
+(L) +Instant Critique
+
+🛡️ Monoco 
+(L) Immo > DODGE
+(V) Attaque > (V) Teinte Lune > (L) Lance de Glace > (S) Interv(Lune) > (L) Danse
+
+LUMINA
+(S) +Initiative
+(S) -Insaisissable
+STAT
+(L) RENOUVEAU : +11/14 Force, +37 Agi, +9 Chance
+(V) +18 Agi (28)
+(M) +18 Force (50)
+(S) +1 Force(46), +5 Agi, +9 Chance
+(A) Marchand vieille lumiere backup renouveau
+SORT
+(L) Cycle élémentaire(Haut Gauche)
+(V) Surpuissance(Haut Gauche), Commandement(Bas Gauche)
+
+🛡️ Stalact
+(L) Ice Lance (FAIL)> (S) Interv(Lune) > (L) Gradient > (L) Danse
+
+T:Old Lumiere
+
+PICTO
+(L) Energie de Départ > Initiative (No Swap)
+LUMINA
+(L) -Insaisissable
+(L) +Initiative
+(V) -Brûlures Critiques
+(V) -Insaisissable
+(V) +Initiative
+(V) +Affinité inversée
+(M) +Affinité inversée
+(M) +Initiative
+(Mo) +Initiative
+(S) +Affinité inversée
+(S) +Energie de Depart
+
+🛡️ Chevalières
+(M) Déluge de Feu >  (V) Shot > (V) Attaque > (V) Berserk
+
+📦 Rapidité Immédiate
+
+🎯 Renoir 1
+(M) Déluge de Feu > (L) Feu sauv(FAIL) > (V) Surpui
+(V) Teinte Lune > (L) Lance de Glace > (M) Teinte HEAL Lune / rien
+(V) Attaque > (V) Commandement > (L) Danse
+
+T:Visages
+
+📦 Hardiesse
+
+FORMATION
+(L) -Lune, (L) +Lune, (M) -Maelle, (S) +Sciel
+PICTO
+(S) Rapidité Immédiate
+(L) Initiative > Energie de Depart
+(L) Hardiesse > Au seuil de la mort
+LUMINA
+(L) +Energie de Depart
+(L) +Au seuil de la mort
+(V) +Au seuil de la mort
+ARME
+(V) Lanceram
+
+🛡️ 2 Moisonneusse + Hat Guy
+(V) Récupération Parfaite > (L) Feu Sauv(FAIL) > (S) Fuir
+
+ARME
+(V) Dualiso
+PICTO
+(V) +Rapidité immédiate > Attaque Combo (Swap)
+
+🎯 Visages
+(V) Attack > (V) Shoot x2 > (V) Berserk
+(L) Cycle Elem > (S) Interv(Lune) > (L) Danse 
+PARRY
+(V) Commandement > (L) Feu sauv
+(A) On peut attaquer avant commandement si on a manqué de crit pour assurer les degats
+🎯 Maître des Masques
+(S) Interv(Lune) > (L) Danse > PARRY
+(V) Attaque > (V) Commandement/ Surpui > (L) Feu sauv > (S) Interv(Lune) > (L) Danse
+(A) Command ou Surpui selon si il a fait son aoe pour les PA
+
+UP ARME
+(L) Luminerim +4 (13)
+(S) Scieleson +3 (8)
+
+T:Sirene
+
+STAT
+(S) +15 Force (61)
+(L) +15 Chance (24)
+(V) +18 Force (50)
+SORT
+(S) Sort Scellé(Bas Gauche), Tissage de Carte(Bas Droite)
+(S) +Entaille du Crépuscule(Milieu Droite)
+
+🛡️ Ballets(FS)
+(V) Skip > Feu (L) Sauv(FAIL) > (S) Skip > DIE
+(M) Headshot x3/ Fuir
+(A) Maelle tue si on manque d'xp
+
+PICTO
+(L) Au seuil de la mort > Hardiesse
+(S) Hardiesse > Initiative améliorée
+(S) Immaculé > Fracture améliorée
+LUMINA
+(S) -Energie de Depart
+(S) +Instant Critique
+(S) +Au seuil de la mort
+
+🛡️ Glissando
+(V) Attaque > (V) Teinte Sciel > (L) Cycle Elem
+(S) Tissage > (S) Interv(Lune) > (L) Danse
+PARRY
+(V) Attaque > (V) Shoot jusqu’a Rang C > (V) Commandement
+(L) Feu Sauv > (S) Gradient > (S) Interv(Lune) > (L) Danse
+(A) y a des scenarios ou faut tirer un peu avec verso si on PARRY enchantement juste
+
+🎯 Sirene
+(V) Attaque > (V) Berserk > (L) Cycle Elem > (S) Tissage > (S) Entaille
+PARRY
+(V) Attaque > (V) Commandement > (L) Danse > (S) Gradient > (S) Sort Scellé
+
+T:The Monolith
+
+FORMATION
+(L) -Lune, (V) -Verso, (Mo) +Monoco, (S) -Sciel
+
+📦 Energie Faiblesse fin de section Falaises Rochevague
+
+FORMATION
+(V) +Verso, (L) +Lune,  (Mo) -Monoco, (S)+Sciel
+ARME
+(S) Tisseron
+PICTO
+(S) +Energie Tour > Attaque Combo
+(V) +Attaque Combo > Instant Critique
+STAT
+(L) +9 Agi (46)
+(V) +6 Agi (35) 
+(S) +9 Chance (18)
+SORT
+(L) Appel de la Tempête(Haut Droite)
+(S) Préparation Finale(Haut Droite)
+
+🛡️ Chevaliers Lumiere
+(V) Skip > (L) Lance de Glace> (S) Skip > (M)Fuir
+
+🎯 Renoir 2
+(V) Attaque > (V) 1 Shot > (V) Commandement > (L) Appel Tempête > (S) Présage Ciblé > PARRY
+(V) Attaque > (V) Surpui > (S) Sort Scellé > (L) Lance de Glace > PARRY
+(V) Attack > (V) Shot? Berserk? Frappe? Attaque?
+(A) Il faut se rapprocher sans dépassé les 50% pv
+(S) Shoot until 2 PA > (S) Gradient > (S) Sort Scellé
+(A) Pensez au Headshot, il faut un moins une PARRY T1 ou 2
+
+PICTO
+(L) Energie Faiblesse > Affinité inversée
+LUMINA
+(L) +Affinité inversée
+
+🎯 The Paintress
+(V) Skip > (L) Cycle Elem > (S) Interv(Lune) > (L) Danse > DODGE
+(V) Shoot/Attaque Rang C > (V) Command. > (L) Cycle Elem >(S)  Prépa > PARRY
+(V) Berserk > (L) Danse > (S) Gradient > (S) Sort Scellé(NO Fail) > Parry
+(A) Transi askip on veut 2 parry sur l'aoe épée
+(V) Attaque > (V) Berserk > (L) Cycle Elem > (S) Gradient > (S) Sort Scellé
+PARRY > DODGE
+(L) Danse > (V) Attaque > (V) Surpuissance > (S) Gradient > (S) Sort Scellé
+(A) Verso pas soigné / Verso soigné
+(L) Skip/Attaque > (V) Berserk/Attaque-Skip > (S) Sort Scellé
+
+Act III
+
+T:Lumiere
+
+(A) N'importe quand avant Creation
+FORMATION
+-Everyone except (M) Maelle, (S) +Sciel
+PICTO
+(S) Attaque Combo > Hardiesse (No Swap)
+(S) Rapidité Immédiate > Immaculé (No Swap)
+(M) Puissance Surpeinte > Brûlures Critiques
+(M) Immaculé
+(M) Hardiesse > Énergie Mortelle II
+LUMINA
+(M) +Energie Mortelle II
+(M) +Instant Critique
+(M) +Au seuil de la mort
+(S) +Energie Depart
+
+💰 10 Chroma poli, 14 Chroma resplendissant, 1 Renouveau
+
+STAT
+(S) RENOUVEAU +96 Agi (96)
+(M) +6 Force (59) +18 Chance (18)
+(A) Sous le lvl 28, add un peu de force a Maelle (62 max LVL 28)
+SORT
+(M) Dernière Chance(Haut Gauche), Stendhal(Milieu Gauche)
+UP ARME
+(M) Medalum +11 (16)
+
+🛡️ Creation
+(M) Dernière Chance > (S) Interv(Maelle) > (M)Fuir
+
+FORMATION
+(V) +Verso, (M) -Maelle, (M) +Maelle
+
+🎯 Renoir Final
+(S) Prépa > (V) Attaque > (V) Shoot x2 > (V) Commandement > (M) Stendhal (1.2 + 1.1)
+(S) Interv(Maelle) > (M)Gradient > TRANSI > (M)Stendhal (1.2 + 1.2)
+
+🛡️ Verso
+(M) Déluge de Feu

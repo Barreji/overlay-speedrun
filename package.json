@@ -1,0 +1,80 @@
+{
+  "name": "speedrun-guide-overlay",
+  "version": "1.0.0",
+  "description": "An Electron.js app to display speedrun guides in a corner of the screen",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "npm run build && electron .",
+    "dev": "concurrently \"npm run watch\" \"electron .\"",
+    "package": "npm run build && electron-builder",
+    "build-exe": "npm run build && electron-builder --win --publish=never"
+  },
+  "keywords": [
+    "electron",
+    "speedrun",
+    "guide",
+    "overlay"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "concurrently": "^8.2.2",
+    "electron": "^27.1.0",
+    "electron-builder": "^24.6.4",
+    "typescript": "^5.3.0"
+  },
+  "build": {
+    "appId": "com.speedrun.guide",
+    "productName": "Speedrun Clair Obscur Guide",
+    "directories": {
+      "output": "Executable"
+    },
+    "files": [
+      "dist/**/*",
+      "renderer/**/*",
+      "clair-obscur-guide-complete.json",
+      "convert-guide.js",
+      "speedrun.txt",
+      "DOCUMENTATION.md",
+      "README.md",
+      "!node_modules/**/*",
+      "!**/*.map"
+    ],
+    "extraResources": [
+      {
+        "from": "clair-obscur-guide-complete.json",
+        "to": "clair-obscur-guide-complete.json"
+      },
+      {
+        "from": "convert-guide.js",
+        "to": "convert-guide.js"
+      },
+      {
+        "from": "speedrun.txt",
+        "to": "speedrun.txt"
+      },
+      {
+        "from": "DOCUMENTATION.md",
+        "to": "DOCUMENTATION.md"
+      },
+      {
+        "from": "README.md",
+        "to": "README.md"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "SpeedrunClairObscur.exe"
+    }
+  }
+}

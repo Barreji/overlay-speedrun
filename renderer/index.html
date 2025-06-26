@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedrun Guide Overlay</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="overlay-container">
+        <div class="guide-header">
+            <div class="header-row-1">
+                <div class="header-left">
+                    <span id="act-location"></span>
+                </div>
+                <div class="header-right">
+                    <button id="settings-btn" class="header-btn">
+                        <span class="gear-icon">⚙️</span>
+                    </button>
+                    <button id="close-btn" class="header-btn">
+                        <span class="close-icon">✕</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="step-display">
+            <div class="step-header">
+                <div id="step-title"></div>
+                <div id="step-number"></div>
+            </div>
+            <div id="step-content"></div>
+        </div>
+    </div>
+
+    <div id="options-menu" class="options-menu" style="display: none;">
+        <div class="options-title">Options</div>
+        <div class="binds-section">
+            <label>BIND étape suivante : <input type="text" id="bind-next" value="" maxlength="20" readonly></label>
+            <label>BIND étape précédente : <input type="text" id="bind-prev" value="" maxlength="20" readonly></label>
+            <label>BIND reset étape 0 : <input type="text" id="bind-reset" value="" maxlength="20" readonly></label>
+            <label>BIND menu chapitres : <input type="text" id="bind-chapter" value="" maxlength="20" readonly></label>
+            <label>BIND cacher/afficher overlay : <input type="text" id="bind-toggleOverlay" value="" maxlength="20" readonly></label>
+        </div>
+        <div class="option-actions">
+            <button id="reset-binds-btn">Reset</button>
+            <button id="close-options-btn">Fermer</button>
+        </div>
+    </div>
+
+    <div id="chapter-menu" class="chapter-menu" style="display: none;">
+        <!-- Les chapitres seront générés dynamiquement -->
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html> 

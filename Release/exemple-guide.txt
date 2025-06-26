@@ -1,0 +1,118 @@
+Chronos Quest
+100% All Collectibles Speedrun
+
+Act I
+T:Ancient Forest
+
+🛡️ Timber Wolf
+(A) Use fire magic to exploit weakness
+(V) Fire Bolt > (V) Dodge > (V) Fire Bolt
+(V) Critical Strike > (V) Fire Bolt
+
+📦 Ancient Scroll
+📦 Healing Potion x3
+
+💰 Iron Sword (150 gold)
+
+ARME
+(V) Iron Sword
+PICTO
+(V) Fire Bolt
+(V) Critical Strike
+STAT
+(V) +5 Strength (5), +2 Magic (2)
+
+🎯 Forest Guardian
+(V) Fire Bolt > (V) Dodge > (V) Critical Strike
+(V) Fire Bolt > (V) Fire Bolt > (V) Critical Strike
+(A) Parry the third attack to avoid damage
+
+T:Crystal Caverns
+
+📦 Crystal Shard
+📦 Magic Essence
+
+🛡️ Crystal Golem
+(V) Fire Bolt > (V) Fire Bolt > (V) Critical Strike
+(A) Golem is weak to fire magic
+
+SORT
+(V) Ice Shield, Lightning Bolt
+
+FORMATION
+(V) +Valeria, (M) -Marcus
+
+🎯 Crystal Queen
+(V) Fire Bolt > (M) Ice Shield > (V) Lightning Bolt
+(V) Critical Strike > (V) Fire Bolt > (M) Ice Shield
+(A) Use Lightning Bolt when she charges her attack
+
+Act II
+T:Desert Ruins
+
+📦 Desert Rose
+📦 Ancient Key
+
+🛡️ Sand Serpent
+(V) Lightning Bolt > (V) Dodge > (V) Critical Strike
+(A) Serpent is vulnerable to lightning
+
+UP ARME
+(V) Iron Sword +3 (8)
+
+STAT
+(V) +8 Strength (13), +5 Magic (7)
+
+🎯 Desert Pharaoh
+(V) Fire Bolt > (V) Lightning Bolt > (V) Critical Strike
+(V) Fire Bolt > (M) Ice Shield > (V) Lightning Bolt
+(V) Critical Strike > (V) Fire Bolt > (V) Lightning Bolt
+(A) Pharaoh has three phases, save your strongest attacks for the final phase
+
+T:Floating Islands
+
+📦 Sky Crystal
+📦 Wind Essence
+
+🛡️ Wind Elemental
+(V) Lightning Bolt > (V) Lightning Bolt > (V) Critical Strike
+(A) Wind Elementals are weak to lightning
+
+LUMINA
+(V) +Fire Mastery
+(V) +Lightning Mastery
+(M) +Ice Mastery
+
+🎯 Sky Dragon
+(V) Fire Bolt > (V) Lightning Bolt > (M) Ice Shield
+(V) Critical Strike > (V) Fire Bolt > (V) Lightning Bolt
+(V) Fire Bolt > (V) Critical Strike > (M) Ice Shield
+(A) Dragon alternates between fire and lightning attacks
+(A) Use Ice Shield to block the breath attacks
+
+Act III
+T:Time Temple
+
+📦 Time Crystal
+📦 Chronos Essence
+
+🛡️ Time Guardian
+(V) Lightning Bolt > (V) Fire Bolt > (V) Critical Strike
+(A) Guardian is immune to time magic
+
+UP LUMINA
+(V) +2 Time Mastery (2)
+
+STAT
+(V) +12 Strength (25), +8 Magic (15)
+
+SORT
+(V) Time Stop, Chronos Strike
+
+🎯 Chronos Lord
+(V) Time Stop > (V) Fire Bolt > (V) Lightning Bolt
+(V) Critical Strike > (V) Chronos Strike > (M) Ice Shield
+(V) Fire Bolt > (V) Lightning Bolt > (V) Critical Strike
+(V) Chronos Strike > (V) Time Stop > (V) Fire Bolt
+(A) Time Stop gives you an extra turn
+(A) Chronos Strike deals massive damage but has a long cooldown 

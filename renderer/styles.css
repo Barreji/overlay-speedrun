@@ -1,0 +1,658 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: transparent;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+}
+
+.overlay-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    color: white;
+    min-width: 300px;
+    max-width: 900px;
+    min-height: 100px;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    backdrop-filter: blur(10px);
+    box-sizing: border-box;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow: hidden;
+}
+
+.guide-info {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    -webkit-app-region: drag;
+}
+
+.guide-header {
+    background: rgba(0,0,0,0.85);
+    border-bottom: 1px solid #444;
+    padding: 8px 12px;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 10px;
+    -webkit-app-region: drag;
+}
+
+.header-row-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.header-left {
+    color: #a3a3a3;
+    font-style: italic;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    -webkit-app-region: no-drag;
+}
+
+#step-number {
+    font-size: 12px;
+    color: #888;
+    margin-right: 8px;
+}
+
+.header-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 3px;
+    transition: background 0.2s;
+    -webkit-app-region: no-drag;
+}
+
+.header-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.gear-icon {
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.close-icon {
+    font-size: 16px;
+    vertical-align: middle;
+    color: #f87171;
+}
+
+.header-row-2 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.header-row-3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #a3a3a3;
+    font-style: italic;
+}
+#act-location {
+    font-style: italic;
+    color: #a3a3a3;
+}
+#step-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #a78bfa;
+    flex-grow: 1;
+    margin-left: 10px;
+}
+#step-content {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #d1d5db;
+    word-break: break-word;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Combat styles */
+.combat-description {
+    margin-top: 8px;
+}
+
+.turn-container {
+    margin-bottom: 8px;
+}
+
+.turn-actions {
+    padding: 4px 0;
+}
+
+.action-sequence {
+    display: inline;
+    margin-right: 8px;
+}
+
+.action-sequence:not(:last-child)::after {
+    content: " > ";
+    color: #666;
+    margin-left: 4px;
+}
+
+/* Equipment styles */
+.equipment-description {
+    margin-top: 8px;
+}
+
+.equipment-item {
+    margin-bottom: 4px;
+    padding: 3px 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.equipment-type {
+    color: #fbbf24;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* Stats styles */
+.stats-description {
+    margin-top: 8px;
+}
+
+.stat-item {
+    margin-bottom: 4px;
+    padding: 3px 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.stat-type {
+    color: #60a5fa;
+    font-weight: bold;
+}
+
+/* Skills styles */
+.skills-description {
+    margin-top: 8px;
+}
+
+.skill-item {
+    margin-bottom: 4px;
+    padding: 3px 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.skill-name {
+    color: #a78bfa;
+    font-weight: bold;
+}
+
+/* Formation styles */
+.formation-item {
+    margin-bottom: 4px;
+    padding: 3px 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.formation-sign {
+    color: #fbbf24;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.formation-name {
+    color: #a78bfa;
+    font-weight: bold;
+}
+
+/* Loot and purchase styles */
+.loot-description, .purchase-description {
+    margin-top: 8px;
+    padding: 6px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    border-left: 3px solid #10b981;
+}
+
+/* Character colors */
+.character-verso {
+    color: #3b82f6;
+}
+
+.character-maelle {
+    color: #ec4899;
+}
+
+.character-lune {
+    color: #fde047;
+}
+
+.character-sciel {
+    color: #fb923c;
+}
+
+.character-monoco {
+    color: #fff;
+}
+
+.character-name {
+    color: #888;
+    font-size: 11px;
+    margin-left: 5px;
+}
+
+/* Fail action styling */
+.fail-action {
+    color: #ef4444 !important;
+    font-weight: bold;
+}
+
+/* Scrollbar styling */
+.step-display::-webkit-scrollbar {
+    width: 4px;
+}
+
+.step-display::-webkit-scrollbar-track {
+    background: #333;
+}
+
+.step-display::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 2px;
+}
+
+.step-display::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+@media (max-width: 450px) {
+    .overlay-container {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        max-width: none;
+    }
+}
+
+/* Gear icon and settings button */
+#settings-btn, #close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #aaa;
+    font-size: 20px;
+    padding: 2px 6px;
+    transition: color 0.2s;
+    -webkit-app-region: no-drag;
+}
+#settings-btn:hover .gear-icon {
+    color: #fbbf24;
+}
+#close-btn:hover .close-icon {
+    color: #f87171;
+}
+.gear-icon {
+    font-size: 22px;
+    vertical-align: middle;
+}
+.close-icon {
+    font-size: 22px;
+    vertical-align: middle;
+    color: #f87171;
+}
+
+.options-menu {
+    position: absolute;
+    top: 45px;
+    right: 20px;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 12px 16px;
+    z-index: 100;
+    min-width: 220px;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    -webkit-app-region: no-drag;
+}
+
+.options-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #fbbf24;
+    border-bottom: 1px solid #444;
+    padding-bottom: 8px;
+}
+
+.binds-section {
+    margin-bottom: 12px;
+}
+
+.options-menu label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 13px;
+    min-height: 20px;
+    padding: 4px 0;
+}
+.options-menu input[type="text"] {
+    margin-left: 8px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    background: #181818;
+    color: #fff;
+    width: 80px;
+}
+.option-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #444;
+}
+.options-menu button {
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+.options-menu button:hover {
+    background: #444;
+}
+
+/* Scrollbar pour le menu d'options */
+.options-menu::-webkit-scrollbar {
+    width: 4px;
+}
+
+.options-menu::-webkit-scrollbar-track {
+    background: #333;
+}
+
+.options-menu::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 2px;
+}
+
+.options-menu::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+/* Nouvelles sections du menu Options */
+.guide-management-section {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #444;
+}
+
+.section-title {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #fbbf24;
+}
+
+.guide-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.guide-btn {
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.2s;
+    text-align: left;
+}
+
+.guide-btn:hover {
+    background: #2563eb;
+}
+
+.current-guide-info {
+    font-size: 11px;
+    color: #888;
+    font-style: italic;
+}
+
+/* Notifications */
+.notification {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.chapter-menu {
+    position: absolute;
+    top: 45px;
+    right: 20px;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 12px 16px;
+    z-index: 101;
+    min-width: 220px;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    max-height: 300px;
+    overflow-y: auto;
+    -webkit-app-region: no-drag;
+}
+.chapter-menu .chapter-item {
+    padding: 5px 0;
+    cursor: pointer;
+    border-bottom: 1px solid #333;
+    font-size: 14px;
+}
+.chapter-menu .chapter-item:last-child {
+    border-bottom: none;
+}
+.chapter-menu .chapter-item:hover {
+    color: #fbbf24;
+    background: #181818;
+}
+
+/* Stat total value highlight */
+.stat-total {
+    color: #fbbf24;
+    font-weight: bold;
+}
+
+/* Minimalist step content */
+.step-display {
+    height: auto;
+    overflow-y: auto;
+    font-size: 13px;
+    padding: 0 2px 0 2px;
+    transition: all 0.15s ease;
+}
+
+.step-display.changing {
+    opacity: 0.7;
+    transform: translateX(5px);
+}
+
+.step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #333;
+}
+
+#step-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #a78bfa;
+    flex-grow: 1;
+}
+
+#step-number {
+    font-size: 12px;
+    color: #888;
+    margin-left: 10px;
+}
+
+#step-content {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #d1d5db;
+    word-break: break-word;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Combat minimal */
+.combat-turn-line {
+    margin-bottom: 1px;
+    white-space: pre-line;
+}
+
+/* Loot & purchase minimal */
+.loot-line, .purchase-line {
+    margin-bottom: 1px;
+}
+
+/* Menu step minimal */
+.menu-block {
+    margin-bottom: 4px;
+}
+.menu-type-label {
+    font-weight: bold;
+    color: #a78bfa;
+    font-size: 13px;
+    margin-bottom: 1px;
+    display: block;
+}
+.menu-actions-line {
+    margin-bottom: 1px;
+    white-space: pre-line;
+}
+
+/* Formation minimal */
+.menu-formation-line {
+    margin-bottom: 1px;
+}
+
+/* Style pour les notes */
+.note-line {
+    margin-top: 8px;
+    padding: 6px 8px;
+    background: rgba(255, 215, 0, 0.1);
+    border-left: 3px solid #ffd700;
+    border-radius: 3px;
+    color: #ffd700;
+    font-style: italic;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.minimal-options-section {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #444;
+}
+
+.minimal-options-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #a78bfa;
+}
+
+.minimal-options-section label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.minimal-options-section input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.bind-input-group {
+    display: inline-flex;
+    align-items: center;
+}
+.unbind-btn {
+    margin-left: 6px;
+    color: #ef4444;
+    font-size: 15px;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.15s;
+}
+.unbind-btn:hover {
+    color: #ff6b6b;
+}
+
+.close-x-btn {
+    background: none;
+    border: none;
+    color: #f87171;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 8px;
+    padding: 0 4px;
+    transition: color 0.2s;
+}
+.close-x-btn:hover {
+    color: #fff;
+    background: #f87171;
+    border-radius: 50%;
+} 
