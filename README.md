@@ -6,7 +6,7 @@ Une application Electron pour afficher des guides de speedrun en overlay pendant
 
 ### 📦 **Version prête à l'emploi (Recommandée)**
 
--   [📥 Télécharger le dossier Release](https://github.com/Barreji/overlay-speedrun/releases/latest/download/Release.zip)
+-   [📥 Télécharger depuis les releases](https://github.com/Barreji/overlay-speedrun/releases)
 -   Contient l'exécutable et tous les fichiers nécessaires
 -   Aucune installation requise, fonctionne immédiatement
 
