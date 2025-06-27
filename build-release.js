@@ -55,6 +55,7 @@ function buildRelease() {
         'exemple-guide.txt',
         'DOCUMENTATION.md',
         'README.md',
+        'CHANGELOG.md',
         'logo.ico'
     ];
     

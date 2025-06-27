@@ -1,6 +1,6 @@
 {
   "name": "speedrun-guide-overlay",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An Electron.js app to display speedrun guides in a corner of the screen",
   "main": "dist/main.js",
   "scripts": {

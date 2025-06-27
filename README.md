@@ -78,13 +78,13 @@ PICTO
 
 1. **Créer un guide depuis un fichier .txt :**
 
-    - Utilisez le bouton "Créer un guide" dans les options (F6)
+    - Utilisez le bouton "Créer un guide" dans les options
     - Sélectionnez votre fichier .txt
     - Le guide sera automatiquement converti et chargé
 
 2. **Charger un guide .json existant :**
 
-    - Utilisez le bouton "Charger un guide" dans les options (F6)
+    - Utilisez le bouton "Charger un guide" dans les options
     - Sélectionnez votre fichier .json
 
 3. **Conversion manuelle :**

@@ -20,7 +20,6 @@ class SpeedrunGuideApp {
         toggleOverlay: "F3",
         chapter: "F4",
         reset: "F5",
-        toggleMinimal: "F6",
     };
     private overlayHidden: boolean = false;
     private guideParser: GuideParser;
