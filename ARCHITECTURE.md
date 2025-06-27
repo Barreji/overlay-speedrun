@@ -41,28 +41,20 @@ Ce projet a été migré de JavaScript vers TypeScript avec une architecture mod
 
 ### tsconfig.json
 
-Configuration principale pour tout le projet.
-
-### tsconfig.main.json
-
-Configuration pour le main process (Node.js/CommonJS).
-
-### tsconfig.renderer.json
-
-Configuration pour le renderer process (ES modules/DOM).
+Configuration unique pour tout le projet TypeScript, compilant vers CommonJS pour la compatibilité avec Electron.
 
 ## Scripts npm
 
 ```bash
 # Compilation
 npm run build:main        # Compile le main process
-npm run build:renderer    # Compile le renderer process
+npm run build:renderer-bundle # Bundle le renderer process
 npm run build:converter   # Compile le convertisseur
 npm run build            # Compile tout
 
 # Développement
 npm run watch:main       # Watch mode pour le main
-npm run watch:renderer   # Watch mode pour le renderer
+npm run watch:renderer-bundle # Watch mode pour le renderer bundle
 npm run dev             # Mode développement complet
 
 # Convertisseur
@@ -71,6 +63,7 @@ npm run convert:help    # Affiche l'aide du convertisseur
 
 # Build final
 npm run build-exe       # Crée l'exécutable
+npm run build:release   # Prépare le dossier Release
 ```
 
 ## Migration des fonctionnalités

@@ -79,7 +79,7 @@ SORT
 (L) Feu Sauvage
 
 🛡️ The Curator
-(V) Skip > (L) Immo > (L) Foulée > (V) Mark > (L) Skip > (M) Percée
+(V) Skip > (L) Immo > (M) Foulée > (V) Mark > (L) Skip > (M) Percée
 🛡️ Noco
 (M) Pivot Offensif > PARRY > (M) Flammeche 
 💰 Attaque fragilisante

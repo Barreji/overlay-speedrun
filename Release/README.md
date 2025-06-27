@@ -89,7 +89,8 @@ PICTO
 
 3. **Conversion manuelle :**
     ```bash
-    node convert-guide.js votre-fichier.txt votre-sortie.json
+    npm run build:converter
+    node dist/convert-guide.js votre-fichier.txt votre-sortie.json
     ```
 
 ## 📋 Types d'étapes supportés
@@ -125,8 +126,12 @@ PICTO
 
 -   `npm start` : Lance l'application en mode développement
 -   `npm run build` : Compile le code TypeScript
+-   `npm run build:main` : Compile le processus principal
+-   `npm run build:renderer-bundle` : Bundle le processus renderer
+-   `npm run build:converter` : Compile le convertisseur
+-   `npm run convert` : Convertit speedrun.txt en JSON
 -   `npm run build-exe` : Crée l'exécutable Windows
--   `node convert-guide.js` : Convertit un fichier .txt en .json
+-   `npm run build:release` : Prépare le dossier Release
 
 ## 📄 Documentation
 
@@ -138,26 +143,46 @@ PICTO
 ```
 SpeedrunClairObscur/
 ├── src/                    # Code source TypeScript
-│   └── main.ts            # Processus principal Electron
-├── renderer/              # Interface utilisateur
+│   ├── main.ts            # Processus principal Electron
+│   ├── renderer.ts        # Point d'entrée du renderer
+│   ├── convert-guide.ts   # Convertisseur TXT → JSON
+│   ├── types/             # Types TypeScript partagés
+│   │   └── GuideTypes.ts  # Interfaces et types
+│   ├── utils/             # Utilitaires
+│   │   ├── CharacterUtils.ts
+│   │   └── LineParser.ts
+│   ├── parsers/           # Parseurs spécialisés
+│   │   ├── GuideParser.ts
+│   │   ├── MenuParser.ts
+│   │   ├── CombatParser.ts
+│   │   ├── LootParser.ts
+│   │   ├── PurchaseParser.ts
+│   │   └── NoteParser.ts
+│   └── renderer/          # Interface utilisateur
+│       ├── UIManager.ts
+│       ├── StepRenderer.ts
+│       ├── FileManager.ts
+│       ├── KeyBindManager.ts
+│       └── types/
+│           └── DOMTypes.ts
+├── renderer/              # Interface utilisateur (HTML/CSS)
 │   ├── index.html         # Page HTML
-│   ├── renderer.js        # Logique de rendu
 │   └── styles.css         # Styles CSS
 ├── Release/               # Version prête à l'emploi
-│   ├── SpeedrunClairObscur.exe
 │   ├── clair-obscur-guide-complete.json
 │   ├── speedrun.txt
 │   ├── exemple-guide.txt
 │   ├── DOCUMENTATION.md
-│   ├── convert-guide.js
 │   └── README.md
+├── backup_js/             # Ancien code JavaScript (backup)
 ├── clair-obscur-guide-complete.json  # Guide principal
 ├── speedrun.txt           # Guide source
 ├── exemple-guide.txt      # Guide d'exemple
-├── convert-guide.js       # Convertisseur TXT → JSON
 ├── DOCUMENTATION.md       # Documentation du format
+├── ARCHITECTURE.md        # Documentation de l'architecture
 ├── package.json           # Configuration npm
-└── tsconfig.json          # Configuration TypeScript
+├── tsconfig.json          # Configuration TypeScript
+└── build-release.js       # Script de préparation Release
 ```
 
 ---

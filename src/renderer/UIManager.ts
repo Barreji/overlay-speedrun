@@ -398,6 +398,9 @@ export class UIManager {
         // Utilise le StepRenderer pour le rendu
         const html = this.stepRenderer.renderStep(this.currentStep);
         this.elements.stepContent.innerHTML = html;
+
+        // Appliquer la taille de police aux nouveaux éléments générés
+        this.applyFontSize();
     }
 
     /**
@@ -852,6 +855,20 @@ export class UIManager {
             "#act-location",
             ".options-menu",
             ".chapter-menu",
+            // Ajout des éléments manquants pour le scaling
+            ".menu-type-label",
+            ".note-line",
+            ".menu-actions-line",
+            ".menu-formation-line",
+            ".combat-turn-line",
+            ".loot-line",
+            ".purchase-line",
+            ".step-act",
+            ".step-chapter",
+            ".act-title",
+            ".chapter-title",
+            ".act-description",
+            ".chapter-description",
         ];
 
         elements.forEach((selector) => {
@@ -874,6 +891,17 @@ export class UIManager {
         if (this.elements.actLocation) {
             this.elements.actLocation.style.fontSize = `${scale * 14}px`;
         }
+
+        // Tailles spécifiques pour les éléments de menu et notes
+        const menuTypeLabels = document.querySelectorAll(".menu-type-label");
+        menuTypeLabels.forEach((element) => {
+            (element as HTMLElement).style.fontSize = `${scale * 13}px`;
+        });
+
+        const noteLines = document.querySelectorAll(".note-line");
+        noteLines.forEach((element) => {
+            (element as HTMLElement).style.fontSize = `${scale * 12}px`;
+        });
     }
 
     /**
@@ -898,43 +926,35 @@ export class UIManager {
      * Affiche une notification
      */
     private showNotification(message: string, type: NotificationType = "info"): void {
-        // Créer une notification temporaire
+        // Supprimer les notifications existantes
+        const existingNotifications = document.querySelectorAll(".notification");
+        existingNotifications.forEach((notification) => notification.remove());
+
+        // Créer la nouvelle notification
         const notification = document.createElement("div");
         notification.className = `notification notification-${type}`;
         notification.textContent = message;
         notification.style.cssText = `
             position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            border-radius: 5px;
+            top: 10px;
+            right: 10px;
+            background: ${type === "error" ? "#ef4444" : type === "success" ? "#10b981" : "#3b82f6"};
             color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
             z-index: 10000;
-            font-size: 14px;
             max-width: 300px;
+            word-wrap: break-word;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         `;
-
-        // Couleurs selon le type
-        switch (type) {
-            case "success":
-                notification.style.backgroundColor = "#22c55e";
-                break;
-            case "error":
-                notification.style.backgroundColor = "#ef4444";
-                break;
-            case "warning":
-                notification.style.backgroundColor = "#f59e0b";
-                break;
-            default:
-                notification.style.backgroundColor = "#3b82f6";
-        }
 
         document.body.appendChild(notification);
 
-        // Supprimer après 3 secondes
+        // Supprimer la notification après 3 secondes
         setTimeout(() => {
             if (notification.parentNode) {
-                notification.parentNode.removeChild(notification);
+                notification.remove();
             }
         }, 3000);
     }

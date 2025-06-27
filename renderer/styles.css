@@ -36,6 +36,7 @@ body {
     word-break: break-word;
     overflow: hidden;
     font-weight: bold;
+    z-index: 999;
 }
 
 .guide-info {
@@ -339,7 +340,9 @@ body {
     color: #f87171;
 }
 
-.options-menu {
+/* Styles pour s'assurer que les menus s'affichent au-dessus de l'overlay */
+.options-menu,
+.chapter-menu {
     position: absolute;
     top: 45px;
     left: 20px;
@@ -347,14 +350,24 @@ body {
     border: 1px solid #444;
     border-radius: 8px;
     padding: 12px 16px;
-    z-index: 100;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    -webkit-app-region: no-drag;
+    /* S'assurer que les menus sont au-dessus de tout */
+    z-index: 9999 !important;
+}
+
+.options-menu {
     min-width: 220px;
     max-width: 400px;
     max-height: 80vh;
     overflow-y: auto;
-    color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    -webkit-app-region: no-drag;
+}
+
+.chapter-menu {
+    min-width: 220px;
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 .options-title {
@@ -488,22 +501,6 @@ body {
     }
 }
 
-.chapter-menu {
-    position: absolute;
-    top: 45px;
-    left: 20px;
-    background: #222;
-    border: 1px solid #444;
-    border-radius: 8px;
-    padding: 12px 16px;
-    z-index: 101;
-    min-width: 220px;
-    color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    max-height: 300px;
-    overflow-y: auto;
-    -webkit-app-region: no-drag;
-}
 .chapter-menu .chapter-item {
     padding: 5px 0;
     cursor: pointer;

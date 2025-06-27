@@ -88,6 +88,8 @@ class SpeedrunGuideApp {
                 contextIsolation: false,
                 webSecurity: false,
             },
+            type: "toolbar",
+            show: false,
         });
 
         this.mainWindow.webContents.session.clearCache();
@@ -104,13 +106,36 @@ class SpeedrunGuideApp {
         this.mainWindow.once("ready-to-show", () => {
             this.mainWindow?.showInactive();
             this.overlayHidden = false;
+
+            // S'assurer que la fenêtre reste au premier plan
+            this.mainWindow?.setAlwaysOnTop(true, "screen-saver");
+
+            // Maintenir la fenêtre au premier plan périodiquement
+            this.startAlwaysOnTopMaintenance();
         });
+
+        // Maintenir la fenêtre au premier plan
+        this.mainWindow.on("blur", () => {
+            if (!this.overlayHidden) {
+                this.mainWindow?.setAlwaysOnTop(true, "screen-saver");
+            }
+        });
+    }
+
+    private startAlwaysOnTopMaintenance(): void {
+        // Vérifier et maintenir la fenêtre au premier plan toutes les 2 secondes
+        setInterval(() => {
+            if (this.mainWindow && !this.overlayHidden && this.mainWindow.isVisible()) {
+                this.mainWindow.setAlwaysOnTop(true, "screen-saver");
+            }
+        }, 2000);
     }
 
     private toggleOverlay() {
         if (!this.mainWindow) return;
         if (this.overlayHidden) {
             this.mainWindow.showInactive();
+            this.mainWindow.setAlwaysOnTop(true, "screen-saver");
             this.overlayHidden = false;
         } else {
             this.mainWindow.hide();

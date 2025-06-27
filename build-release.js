@@ -23,8 +23,18 @@ function ensureDir(dir) {
 function cleanReleaseDir() {
     const releaseDir = path.join(__dirname, 'Release');
     if (fs.existsSync(releaseDir)) {
-        fs.rmSync(releaseDir, { recursive: true, force: true });
-        console.log('🧹 Dossier Release nettoyé');
+        // Supprimer tout sauf les .exe
+        fs.readdirSync(releaseDir).forEach(file => {
+            if (!file.endsWith('.exe')) {
+                const filePath = path.join(releaseDir, file);
+                if (fs.lstatSync(filePath).isDirectory()) {
+                    fs.rmSync(filePath, { recursive: true, force: true });
+                } else {
+                    fs.unlinkSync(filePath);
+                }
+            }
+        });
+        console.log('🧹 Dossier Release nettoyé (sauf .exe)');
     }
     ensureDir(releaseDir);
 }

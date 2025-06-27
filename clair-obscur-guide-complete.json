@@ -5,28 +5,38 @@
     {
       "id": 1,
       "type": "combat",
-      "titre": "🛡️ Maelle",
+      "titre": "🛡️ Maelle\r",
       "turns": [
         [
           {
             "action": "Attack",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attack",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "DODGE",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Surcharge",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
@@ -46,56 +56,73 @@
           }
         ]
       ],
+      "actions": [],
       "acte": "Act 0",
       "chapitre": "Prologue"
     },
     {
       "id": 2,
       "type": "combat",
-      "titre": "🛡️ Lancelier",
+      "titre": "🛡️ Lancelier\r",
       "turns": [
         [
           {
             "action": "Weak Spot",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attack",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Vallons Fleuris"
     },
     {
       "id": 3,
       "type": "combat",
-      "titre": "🛡️ Portier",
+      "titre": "🛡️ Portier\r",
       "turns": [
         [
           {
             "action": "Weak Spot",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attack",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Lance Glace",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Vallons Fleuris"
     },
@@ -103,39 +130,53 @@
       "id": 4,
       "type": "loot",
       "titre": "Brûlures Critiques",
+      "items": [
+        "Brûlures Critiques"
+      ],
       "acte": "Act I",
       "chapitre": "Vallons Fleuris"
     },
     {
       "id": 5,
       "type": "combat",
-      "titre": "🛡️ 2 Lancelier(FS)",
+      "titre": "🛡️ 2 Lancelier(FS)\r",
       "turns": [
         [
           {
             "action": "Weak Spot",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attack",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Lance Glace",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attack",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Vallons Fleuris"
     },
@@ -143,29 +184,40 @@
       "id": 6,
       "type": "loot",
       "titre": "360 Chroma | Teinte Energie",
+      "items": [
+        "360 Chroma",
+        "Teinte Energie"
+      ],
       "acte": "Act I",
       "chapitre": "Vallons Fleuris"
     },
     {
       "id": 7,
       "type": "combat",
-      "titre": "🛡️ 3 Volester",
+      "titre": "🛡️ 3 Volester\r",
       "turns": [
         [
           {
             "action": "Parry",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Parry",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shoot (5PA)",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Vallons Fleuris"
     },
@@ -173,32 +225,44 @@
       "id": 8,
       "type": "loot",
       "titre": "Energie Mortelle II",
+      "items": [
+        "Energie Mortelle II"
+      ],
       "acte": "Act I",
       "chapitre": "Vallons Fleuris"
     },
     {
       "id": 9,
       "type": "menu",
+      "title": "Menu Armes + Pictogrammes",
       "actions": [
         {
           "type": "arme",
           "action": "Lanceram",
-          "character": "verso"
+          "character": "verso",
+          "text": "Lanceram",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Brulures Critiques",
-          "character": "verso"
+          "character": "verso",
+          "text": "Brulures Critiques",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Energy mortelle II",
-          "character": "verso"
+          "character": "verso",
+          "text": "Energy mortelle II",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Insaisissable",
-          "character": "lune"
+          "character": "lune",
+          "text": "Insaisissable",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -211,33 +275,44 @@
     {
       "id": 10,
       "type": "combat",
-      "titre": "🛡️ 2 Volester + Abbest",
+      "titre": "🛡️ 2 Volester + Abbest \r",
       "turns": [
         [
           {
             "action": "Shoot x3",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shoot x3",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shoot WS",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Skip",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
-            "action": "Ice Lance",
-            "character": "lune"
+            "action": "Lance Glace",
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Vallons Fleuris"
     },
@@ -245,37 +320,51 @@
       "id": 11,
       "type": "loot",
       "titre": "Luminacolor sous le pont",
+      "items": [
+        "Luminacolor sous le pont"
+      ],
       "acte": "Act I",
       "chapitre": "Vallons Fleuris"
     },
     {
       "id": 12,
       "type": "menu",
+      "title": "Menu Stats + Sorts",
       "actions": [
         {
           "type": "stat",
           "action": "+9 Force (9)",
-          "character": "verso"
+          "character": "verso",
+          "text": "+9 Force (9)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+8 Force (8)",
-          "character": "lune"
+          "character": "lune",
+          "text": "+8 Force (8)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+1 Agi (1)",
-          "character": "lune"
+          "character": "lune",
+          "text": "+1 Agi (1)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Tir Marquant",
-          "character": "verso"
+          "character": "verso",
+          "text": "Tir Marquant",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Surpuissance",
-          "character": "verso"
+          "character": "verso",
+          "text": "Surpuissance",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -288,57 +377,78 @@
     {
       "id": 13,
       "type": "boss",
-      "titre": "🎯Eveque",
+      "titre": "🎯Eveque\r",
       "turns": [
         [
           {
             "action": "Shoot (last WS)",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Immolation",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Surpuissant",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Immolation",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Tir Marquant",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Immolation",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Tir Marquant",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "DODGE",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Teinte Énergie ?",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Surcharge",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Vallons Fleuris"
     },
@@ -346,92 +456,122 @@
       "id": 14,
       "type": "loot",
       "titre": "333 Chroma sur la route",
+      "items": [
+        "333 Chroma sur la route"
+      ],
       "acte": "Act I",
       "chapitre": "Océan Suspendu"
     },
     {
       "id": 15,
       "type": "combat",
-      "titre": "🛡️ 2 Demineur",
+      "titre": "🛡️ 2 Demineur\r",
       "turns": [
         [
           {
             "action": "Shoot bombs + tête",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Océan Suspendu"
     },
     {
       "id": 16,
       "type": "combat",
-      "titre": "🛡️ 3 Demineur",
+      "titre": "🛡️ 3 Demineur\r",
       "turns": [
         [
           {
             "action": "Shoot bombs",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Océan Suspendu"
     },
     {
       "id": 17,
       "type": "menu",
+      "title": "Menu Pictogrammes + Stats + Sorts",
       "actions": [
         {
           "type": "picto",
           "action": "Brulures Critiques(2)",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Brulures Critiques(2)",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Energie Mortelle II(3)",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Energie Mortelle II(3)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+2 Force (11)",
-          "character": "verso"
+          "character": "verso",
+          "text": "+2 Force (11)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+7 Agi (7)",
-          "character": "verso"
+          "character": "verso",
+          "text": "+7 Agi (7)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+14 Force (15)",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "+14 Force (15)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+1 Agi (1)",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "+1 Agi (1)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+6 Force (14)",
-          "character": "lune"
+          "character": "lune",
+          "text": "+6 Force (14)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+3 Agi (4)",
-          "character": "lune"
+          "character": "lune",
+          "text": "+3 Agi (4)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Foulée Vive",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Foulée Vive",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Feu Sauvage",
-          "character": "lune"
+          "character": "lune",
+          "text": "Feu Sauvage",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -445,58 +585,78 @@
     {
       "id": 18,
       "type": "combat",
-      "titre": "🛡️ The Curator",
+      "titre": "🛡️ The Curator\r",
       "turns": [
         [
           {
             "action": "Skip",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Immo",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Foulée",
-            "character": "lune"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Mark",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Skip",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Percée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Océan Suspendu"
     },
     {
       "id": 19,
       "type": "combat",
-      "titre": "🛡️ Noco",
+      "titre": "🛡️ Noco\r",
       "turns": [
         [
           {
             "action": "Pivot Offensif",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Flammeche",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Océan Suspendu"
     },
@@ -504,6 +664,9 @@
       "id": 20,
       "type": "purchase",
       "titre": "Attaque fragilisante",
+      "items": [
+        "Attaque fragilisante"
+      ],
       "acte": "Act I",
       "chapitre": "Océan Suspendu"
     },
@@ -511,53 +674,73 @@
       "id": 21,
       "type": "loot",
       "titre": "Après le drapeau $333 Chroma",
+      "items": [
+        "Après le drapeau $333 Chroma"
+      ],
       "acte": "Act I",
       "chapitre": "Océan Suspendu"
     },
     {
       "id": 22,
       "type": "combat",
-      "titre": "🛡️ Brûler, Cruleur",
+      "titre": "🛡️ Brûler, Cruleur\r",
       "turns": [
         [
           {
             "action": "DODGE",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Mark Brûler",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Feu Sauv",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shot WS",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Foulée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Mark",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Skip",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Percée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Océan Suspendu"
     },
@@ -565,57 +748,79 @@
       "id": 23,
       "type": "loot",
       "titre": "Entre les algues $665 Chroma",
+      "items": [
+        "Entre les algues $665 Chroma"
+      ],
       "acte": "Act I",
       "chapitre": "Océan Suspendu"
     },
     {
       "id": 24,
       "type": "menu",
+      "title": "Menu Armes + Pictogrammes + Lumina",
       "actions": [
         {
           "type": "arme",
           "action": "Cruleuram",
-          "character": "verso"
+          "character": "verso",
+          "text": "Cruleuram",
+          "isSelected": false
         },
         {
           "type": "arme",
           "action": "Bruleurum",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Bruleurum",
+          "isSelected": false
         },
         {
           "type": "arme",
           "action": "Lumerim",
-          "character": "lune"
+          "character": "lune",
+          "text": "Lumerim",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Insaisissable",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Insaisissable",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Attaque fragilisante",
-          "character": "lune"
+          "character": "lune",
+          "text": "Attaque fragilisante",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Brûlures critiques",
-          "character": "lune"
+          "character": "lune",
+          "text": "+Brûlures critiques",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Energie Mortelle II",
-          "character": "lune"
+          "character": "lune",
+          "text": "+Energie Mortelle II",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Brûlures critiques",
-          "character": "verso"
+          "character": "verso",
+          "text": "+Brûlures critiques",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Energie Mortelle II",
-          "character": "verso"
+          "character": "verso",
+          "text": "+Energie Mortelle II",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -629,89 +834,123 @@
     {
       "id": 25,
       "type": "boss",
-      "titre": "🎯 Goblu",
+      "titre": "🎯 Goblu\r",
       "turns": [
         [
           {
             "action": "Feu Sauv",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Surpui",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Foulée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Shoot all",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attaque",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Mark",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Percée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Immo",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Surcharge",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Foulée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Shoot all",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attaque",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Mark",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Percée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Océan Suspendu"
     },
     {
       "id": 26,
       "type": "menu",
+      "title": "Stats",
       "actions": [
         {
           "type": "note",
           "action": "Si no hit avec Maelle sinon avant Ultime",
-          "character": ""
+          "character": "",
+          "text": "Si no hit avec Maelle sinon avant Ultime",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+9 Force (23)",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "+9 Force (23)",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -723,34 +962,46 @@
     {
       "id": 27,
       "type": "combat",
-      "titre": "🛡️ Sakapatate Robuste",
+      "titre": "🛡️ Sakapatate Robuste\r",
       "turns": [
         [
           {
             "action": "Immo (Fail)",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Surpui",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Foulée(Fail)",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attaque",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Mark",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Percée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
@@ -762,72 +1013,99 @@
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Sanctuaire Ancien"
     },
     {
       "id": 28,
       "type": "boss",
-      "titre": "🎯 Sakapatate Ultime",
+      "titre": "🎯 Sakapatate Ultime\r",
       "turns": [
         [
           {
             "action": "Immo",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Surpui",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Foulée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Shoot + 3 Shoot WS",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attaque",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Mark",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Percée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Immo",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Surcharge/Surpui/Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Foulée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attack",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Mark",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Percée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
@@ -839,22 +1117,28 @@
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Sanctuaire Ancien"
     },
     {
       "id": 29,
       "type": "menu",
+      "title": "Sorts",
       "actions": [
         {
           "type": "sort",
           "action": "Inflammable",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Inflammable",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Déluge de Feu",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Déluge de Feu",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -867,17 +1151,23 @@
       "id": 30,
       "type": "purchase",
       "titre": "Instant Critique, 2 Chroma Poli",
+      "items": [
+        "Instant Critique, 2 Chroma Poli"
+      ],
       "acte": "Act I",
       "chapitre": "Village des Gestrals"
     },
     {
       "id": 31,
       "type": "menu",
+      "title": "Pictogrammes",
       "actions": [
         {
           "type": "picto",
           "action": "Instant Critique > Insaisissable",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Instant Critique > Insaisissable",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -889,106 +1179,143 @@
     {
       "id": 32,
       "type": "combat",
-      "titre": "🛡️ Tournoi",
+      "titre": "🛡️ Tournoi\r",
       "turns": [
         [
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Inflammable",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Déluge de Feu",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Village des Gestrals"
     },
     {
       "id": 33,
       "type": "combat",
-      "titre": "🛡️ Sciel",
+      "titre": "🛡️ Sciel\r",
       "turns": [
         [
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Déluge de Feu",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Village des Gestrals"
     },
     {
       "id": 34,
       "type": "menu",
+      "title": "Menu Armes + Pictogrammes + Stats + Sorts",
       "actions": [
         {
           "type": "arme",
           "action": "Medalum",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Medalum",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "-Instant Critique",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "-Instant Critique",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+2 Force (13)",
-          "character": "verso"
+          "character": "verso",
+          "text": "+2 Force (13)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+13 Agi(20)",
-          "character": "verso"
+          "character": "verso",
+          "text": "+13 Agi(20)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+15 Force(29)",
-          "character": "lune"
+          "character": "lune",
+          "text": "+15 Force(29)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+9 Force(32)",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "+9 Force(32)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+45 Force(45)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+45 Force(45)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Danse Foudroyante (Bas Gauche)",
-          "character": "lune"
+          "character": "lune",
+          "text": "Danse Foudroyante (Bas Gauche)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Lame Spectrale",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Lame Spectrale",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Intervention (Haut Gauche)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Intervention (Haut Gauche)",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -1003,33 +1330,44 @@
     {
       "id": 35,
       "type": "combat",
-      "titre": "🛡️ Francois",
+      "titre": "🛡️ Francois\r",
       "turns": [
         [
           {
             "action": "DODGE",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Mark",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shoot x3",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attaque",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Percée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Nid d’Esquie"
     },
@@ -1037,17 +1375,23 @@
       "id": 36,
       "type": "loot",
       "titre": "Luminacolor à coté combat",
+      "items": [
+        "Luminacolor à coté combat"
+      ],
       "acte": "Act I",
       "chapitre": "The Continent"
     },
     {
       "id": 37,
       "type": "menu",
+      "title": "Amélioration Armes",
       "actions": [
         {
           "type": "up arme",
           "action": "Lumerim +6 (7)",
-          "character": "lune"
+          "character": "lune",
+          "text": "Lumerim +6 (7)",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -1059,44 +1403,58 @@
     {
       "id": 38,
       "type": "combat",
-      "titre": "🛡️ Demineur, Crueler, Lancelier",
+      "titre": "🛡️ Demineur, Crueler, Lancelier\r",
       "turns": [
         [
           {
             "action": "Shoot WS",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shoot Mine",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Mark Crueler",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Feu Sauv",
             "character": "lune",
-            "fail": true
+            "fail": true,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Headshot Mine",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shoot Lance x7",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Percée",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "The Continent"
     },
@@ -1104,6 +1462,10 @@
       "id": 39,
       "type": "loot",
       "titre": "Energie de Depart I | 1305 Chroma avant les Falaises.",
+      "items": [
+        "Energie de Depart I",
+        "1305 Chroma avant les Falaises."
+      ],
       "acte": "Act I",
       "chapitre": "The Continent"
     },
@@ -1111,72 +1473,97 @@
       "id": 40,
       "type": "loot",
       "titre": "790 Chroma premier drapeau | Initiative | 790 Chroma corde gros tuyau | 790 Chroma après drapeau ferme | Luminacolor avant dernière corde",
+      "items": [
+        "790 Chroma premier drapeau",
+        "Initiative",
+        "790 Chroma corde gros tuyau",
+        "790 Chroma après drapeau ferme",
+        "Luminacolor avant dernière corde"
+      ],
       "acte": "Act I",
       "chapitre": "Stone Wave Cliffs"
     },
     {
       "id": 41,
       "type": "menu",
+      "title": "Menu Formation + Pictogrammes + Lumina",
       "actions": [
         {
           "type": "formation",
-          "action": "-Maelle",
-          "character": "maelle"
-        },
-        {
-          "type": "formation",
-          "action": "+Sciel",
-          "character": "sciel"
+          "action": "-Maelle, (S) +Sciel",
+          "character": "maelle",
+          "text": "-Maelle, (S) +Sciel",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Initiative Améliorée",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Initiative Améliorée",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Fracture Améliorée",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Fracture Améliorée",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Energie de Départ",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Energie de Départ",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Initiative",
-          "character": "lune"
+          "character": "lune",
+          "text": "Initiative",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Instant Critique",
-          "character": "lune"
+          "character": "lune",
+          "text": "Instant Critique",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Insaisissable",
-          "character": "lune"
+          "character": "lune",
+          "text": "+Insaisissable",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "-Brûlures Critiques",
-          "character": "verso"
+          "character": "verso",
+          "text": "-Brûlures Critiques",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Attaque Affaiblissante",
-          "character": "verso"
+          "character": "verso",
+          "text": "+Attaque Affaiblissante",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Energie Mortelle II",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+Energie Mortelle II",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Insaisissable",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+Insaisissable",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -1190,76 +1577,106 @@
     {
       "id": 42,
       "type": "boss",
-      "titre": "🎯 Lampmaster",
+      "titre": "🎯 Lampmaster\r",
       "turns": [
         [
           {
             "action": "Immo",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Lance de Glace",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Energie(Sciel)",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Lune)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attack",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Surpui",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "teinte lune",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "DODGE",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Feu Sauv",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Lune)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
@@ -1279,87 +1696,119 @@
           }
         ]
       ],
+      "actions": [],
       "acte": "Act I",
       "chapitre": "Stone Wave Cliffs"
     },
     {
       "id": 43,
       "type": "menu",
+      "title": "Menu Stats + Sorts + Armes + Pictogrammes + Lumina",
       "actions": [
         {
           "type": "stat",
           "action": "+9 Agi (13)",
-          "character": "lune"
+          "character": "lune",
+          "text": "+9 Agi (13)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+32 Force (32)",
-          "character": "verso"
+          "character": "verso",
+          "text": "+32 Force (32)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+10 Agi (10)",
-          "character": "verso"
+          "character": "verso",
+          "text": "+10 Agi (10)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Tir Marquant",
-          "character": "verso"
+          "character": "verso",
+          "text": "Tir Marquant",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Récupération Parfaite",
-          "character": "verso"
+          "character": "verso",
+          "text": "Récupération Parfaite",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Attaque Rapide",
-          "character": "verso"
+          "character": "verso",
+          "text": "Attaque Rapide",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Tranchée Berserk(Milieu Gauche)",
-          "character": "verso"
+          "character": "verso",
+          "text": "Tranchée Berserk(Milieu Gauche)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Frappe de Défi(Bas Droite)",
-          "character": "verso"
+          "character": "verso",
+          "text": "Frappe de Défi(Bas Droite)",
+          "isSelected": false
         },
         {
           "type": "arme",
           "action": "Lanceram",
-          "character": "verso"
+          "character": "verso",
+          "text": "Lanceram",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Au Seuil de la mort",
-          "character": "verso"
+          "character": "verso",
+          "text": "Au Seuil de la mort",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Initiative",
-          "character": "verso"
+          "character": "verso",
+          "text": "Initiative",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "-Attaque Affaiblissante",
-          "character": "verso"
+          "character": "verso",
+          "text": "-Attaque Affaiblissante",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Brûlures Critiques",
-          "character": "verso"
+          "character": "verso",
+          "text": "+Brûlures Critiques",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Insaisissable",
-          "character": "verso"
+          "character": "verso",
+          "text": "+Insaisissable",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Instant Critique",
-          "character": "verso"
+          "character": "verso",
+          "text": "+Instant Critique",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -1375,33 +1824,44 @@
     {
       "id": 44,
       "type": "combat",
-      "titre": "🛡️ Chalier",
+      "titre": "🛡️ Chalier\r",
       "turns": [
         [
           {
             "action": "DODGE",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Frappe de Défi",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "DIE",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Skip",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Percée(1.1)",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Forgotten Battlefield"
     },
@@ -1409,37 +1869,30 @@
       "id": 45,
       "type": "purchase",
       "titre": "Affinité Inversée",
+      "items": [
+        "Affinité Inversée"
+      ],
       "acte": "Act II",
       "chapitre": "Forgotten Battlefield"
     },
     {
       "id": 46,
       "type": "menu",
+      "title": "Menu Formation + Pictogrammes",
       "actions": [
         {
           "type": "formation",
-          "action": "-Verso",
-          "character": "verso"
-        },
-        {
-          "type": "formation",
-          "action": "+Verso",
-          "character": "verso"
-        },
-        {
-          "type": "formation",
-          "action": "-Maelle",
-          "character": "maelle"
-        },
-        {
-          "type": "formation",
-          "action": "+Sciel",
-          "character": "sciel"
+          "action": "-Verso,(V) +Verso,(M) -Maelle,(S) +Sciel",
+          "character": "verso",
+          "text": "-Verso,(V) +Verso,(M) -Maelle,(S) +Sciel",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Affinité Inversée",
-          "character": "verso"
+          "character": "verso",
+          "text": "Affinité Inversée",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -1452,7 +1905,7 @@
     {
       "id": 47,
       "type": "boss",
-      "titre": "🎯 Dualiste",
+      "titre": "🎯 Dualiste\r",
       "turns": [
         [
           {
@@ -1465,71 +1918,98 @@
         [
           {
             "action": "Tranchée Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Teinte Energie (Celui pas focus)",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Tranchée Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Verso)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Frappe",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attack/ Teinte(Sciel)",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Verso)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attaque",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Verso)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Forgotten Battlefield"
     },
     {
       "id": 48,
       "type": "boss",
-      "titre": "🎯 Mediocre fight",
+      "titre": "🎯 Mediocre fight\r",
       "turns": [
         [
           {
@@ -1542,77 +2022,107 @@
         [
           {
             "action": "Teinte Verso",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Teinte Verso",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Lance de Glace",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk/ Frappe",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Interv(Verso)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attaque",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Verso)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Forgotten Battlefield"
     },
     {
       "id": 49,
       "type": "menu",
+      "title": "Menu Amélioration Armes + Amélioration Lumina",
       "actions": [
         {
           "type": "up arme",
           "action": "Lumerim +2 (9)",
-          "character": "lune"
+          "character": "lune",
+          "text": "Lumerim +2 (9)",
+          "isSelected": false
         },
         {
           "type": "up lumina",
           "action": "+2 Lumina(19)",
-          "character": "lune"
+          "character": "lune",
+          "text": "+2 Lumina(19)",
+          "isSelected": false
         },
         {
           "type": "up lumina",
           "action": "+2 Lumina(20)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+2 Lumina(20)",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -1625,72 +2135,95 @@
     {
       "id": 50,
       "type": "combat",
-      "titre": "🛡️ Demineur, Troubador, Gault",
+      "titre": "🛡️ Demineur, Troubador, Gault\r",
       "turns": [
         [
           {
             "action": "Shoot mine",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shoot him x3",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Frappe Trouba",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Feu Sauv",
             "character": "lune",
-            "fail": true
+            "fail": true,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Lame Spectrale Gault",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "The Continent"
     },
     {
       "id": 51,
       "type": "menu",
+      "title": "Menu Armes + Pictogrammes + Lumina",
       "actions": [
         {
           "type": "arme",
           "action": "Dualiso",
-          "character": "verso"
+          "character": "verso",
+          "text": "Dualiso",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Attaque Combo > Au seuil de la mort",
-          "character": "verso"
+          "character": "verso",
+          "text": "Attaque Combo > Au seuil de la mort",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Attaque fragilisante > Affinité inversée (Swap)",
-          "character": "verso"
+          "character": "verso",
+          "text": "Attaque fragilisante > Affinité inversée (Swap)",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Instant Critique > Initiative (Swap)",
-          "character": "verso"
+          "character": "verso",
+          "text": "Instant Critique > Initiative (Swap)",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Au seuil de la mort",
-          "character": "lune"
+          "character": "lune",
+          "text": "Au seuil de la mort",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Instant Critique",
-          "character": "lune"
+          "character": "lune",
+          "text": "+Instant Critique",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -1704,117 +2237,161 @@
     {
       "id": 52,
       "type": "combat",
-      "titre": "🛡️ Monoco",
+      "titre": "🛡️ Monoco \r",
       "turns": [
         [
           {
             "action": "Immo",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "DODGE",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Teinte Lune",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Lance de Glace",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Lune)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Monoco Station"
     },
     {
       "id": 53,
       "type": "menu",
+      "title": "Menu Lumina + Stats + Sorts",
       "actions": [
         {
           "type": "lumina",
           "action": "+Initiative",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+Initiative",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "-Insaisissable",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "-Insaisissable",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "RENOUVEAU : +11/14 Force",
-          "character": "lune"
+          "character": "lune",
+          "text": "RENOUVEAU : +11/14 Force",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+37 Agi",
-          "character": "lune"
+          "character": "lune",
+          "text": "+37 Agi",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+9 Chance",
-          "character": "lune"
+          "character": "lune",
+          "text": "+9 Chance",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+18 Agi (28)",
-          "character": "verso"
+          "character": "verso",
+          "text": "+18 Agi (28)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+18 Force (50)",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "+18 Force (50)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+1 Force(46)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+1 Force(46)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+5 Agi",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+5 Agi",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+9 Chance",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+9 Chance",
+          "isSelected": false
         },
         {
           "type": "note",
           "action": "Marchand vieille lumiere backup renouveau",
-          "character": ""
+          "character": "",
+          "text": "Marchand vieille lumiere backup renouveau",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Cycle élémentaire(Haut Gauche)",
-          "character": "lune"
+          "character": "lune",
+          "text": "Cycle élémentaire(Haut Gauche)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Surpuissance(Haut Gauche)",
-          "character": "verso"
+          "character": "verso",
+          "text": "Surpuissance(Haut Gauche)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Commandement(Bas Gauche)",
-          "character": "verso"
+          "character": "verso",
+          "text": "Commandement(Bas Gauche)",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -1828,94 +2405,127 @@
     {
       "id": 54,
       "type": "combat",
-      "titre": "🛡️ Stalact",
+      "titre": "🛡️ Stalact\r",
       "turns": [
         [
           {
             "action": "Ice Lance",
             "character": "lune",
-            "fail": true
+            "fail": true,
+            "isNote": false
           },
           {
             "action": "Interv(Lune)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Gradient",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Monoco Station"
     },
     {
       "id": 55,
       "type": "menu",
+      "title": "Menu Pictogrammes + Lumina",
       "actions": [
         {
           "type": "picto",
           "action": "Energie de Départ > Initiative (No Swap)",
-          "character": "lune"
+          "character": "lune",
+          "text": "Energie de Départ > Initiative (No Swap)",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "-Insaisissable",
-          "character": "lune"
+          "character": "lune",
+          "text": "-Insaisissable",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Initiative",
-          "character": "lune"
+          "character": "lune",
+          "text": "+Initiative",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "-Brûlures Critiques",
-          "character": "verso"
+          "character": "verso",
+          "text": "-Brûlures Critiques",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "-Insaisissable",
-          "character": "verso"
+          "character": "verso",
+          "text": "-Insaisissable",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Initiative",
-          "character": "verso"
+          "character": "verso",
+          "text": "+Initiative",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Affinité inversée",
-          "character": "verso"
+          "character": "verso",
+          "text": "+Affinité inversée",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Affinité inversée",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "+Affinité inversée",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Initiative",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "+Initiative",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Initiative",
-          "character": "monoco"
+          "character": "monoco",
+          "text": "+Initiative",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Affinité inversée",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+Affinité inversée",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Energie de Depart",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+Energie de Depart",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -1928,27 +2538,36 @@
     {
       "id": 56,
       "type": "combat",
-      "titre": "🛡️ Chevalières",
+      "titre": "🛡️ Chevalières\r",
       "turns": [
         [
           {
             "action": "Déluge de Feu",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shot",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Old Lumiere"
     },
@@ -1956,58 +2575,79 @@
       "id": 57,
       "type": "loot",
       "titre": "Rapidité Immédiate",
+      "items": [
+        "Rapidité Immédiate"
+      ],
       "acte": "Act II",
       "chapitre": "Old Lumiere"
     },
     {
       "id": 58,
       "type": "boss",
-      "titre": "🎯 Renoir 1",
+      "titre": "🎯 Renoir 1\r",
       "turns": [
         [
           {
             "action": "Déluge de Feu",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Feu sauv",
             "character": "lune",
-            "fail": true
+            "fail": true,
+            "isNote": false
           },
           {
             "action": "Surpui",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Teinte Lune",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Lance de Glace",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Teinte HEAL Lune / rien",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Commandement",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Old Lumiere"
     },
@@ -2015,67 +2655,72 @@
       "id": 59,
       "type": "loot",
       "titre": "Hardiesse",
+      "items": [
+        "Hardiesse"
+      ],
       "acte": "Act II",
       "chapitre": "Visages"
     },
     {
       "id": 60,
       "type": "menu",
+      "title": "Menu Formation + Pictogrammes + Lumina + Armes",
       "actions": [
         {
           "type": "formation",
-          "action": "-Lune",
-          "character": "lune"
-        },
-        {
-          "type": "formation",
-          "action": "+Lune",
-          "character": "lune"
-        },
-        {
-          "type": "formation",
-          "action": "-Maelle",
-          "character": "maelle"
-        },
-        {
-          "type": "formation",
-          "action": "+Sciel",
-          "character": "sciel"
+          "action": "-Lune, (L) +Lune, (M) -Maelle, (S) +Sciel",
+          "character": "lune",
+          "text": "-Lune, (L) +Lune, (M) -Maelle, (S) +Sciel",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Rapidité Immédiate",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Rapidité Immédiate",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Initiative > Energie de Depart",
-          "character": "lune"
+          "character": "lune",
+          "text": "Initiative > Energie de Depart",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Hardiesse > Au seuil de la mort",
-          "character": "lune"
+          "character": "lune",
+          "text": "Hardiesse > Au seuil de la mort",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Energie de Depart",
-          "character": "lune"
+          "character": "lune",
+          "text": "+Energie de Depart",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Au seuil de la mort",
-          "character": "lune"
+          "character": "lune",
+          "text": "+Au seuil de la mort",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Au seuil de la mort",
-          "character": "verso"
+          "character": "verso",
+          "text": "+Au seuil de la mort",
+          "isSelected": false
         },
         {
           "type": "arme",
           "action": "Lanceram",
-          "character": "verso"
+          "character": "verso",
+          "text": "Lanceram",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -2090,40 +2735,51 @@
     {
       "id": 61,
       "type": "combat",
-      "titre": "🛡️ 2 Moisonneusse + Hat Guy",
+      "titre": "🛡️ 2 Moisonneusse + Hat Guy\r",
       "turns": [
         [
           {
             "action": "Récupération Parfaite",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Feu Sauv",
             "character": "lune",
-            "fail": true
+            "fail": true,
+            "isNote": false
           },
           {
             "action": "Fuir",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Visages"
     },
     {
       "id": 62,
       "type": "menu",
+      "title": "Menu Armes + Pictogrammes",
       "actions": [
         {
           "type": "arme",
           "action": "Dualiso",
-          "character": "verso"
+          "character": "verso",
+          "text": "Dualiso",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "+Rapidité immédiate > Attaque Combo (Swap)",
-          "character": "verso"
+          "character": "verso",
+          "text": "+Rapidité immédiate > Attaque Combo (Swap)",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -2136,50 +2792,68 @@
     {
       "id": 63,
       "type": "boss",
-      "titre": "🎯 Visages",
+      "titre": "🎯 Visages\r",
       "turns": [
         [
           {
             "action": "Attack",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shoot x2",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Cycle Elem",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Lune)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Commandement",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Feu sauv",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
@@ -2191,48 +2865,65 @@
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Visages"
     },
     {
       "id": 64,
       "type": "boss",
-      "titre": "🎯 Maître des Masques",
+      "titre": "🎯 Maître des Masques\r",
       "turns": [
         [
           {
             "action": "Interv(Lune)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Commandement/ Surpui",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Feu sauv",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Lune)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
@@ -2244,22 +2935,28 @@
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Visages"
     },
     {
       "id": 65,
       "type": "menu",
+      "title": "Amélioration Armes",
       "actions": [
         {
           "type": "up arme",
           "action": "Lumerim +4 (13)",
-          "character": "lune"
+          "character": "lune",
+          "text": "Lumerim +4 (13)",
+          "isSelected": false
         },
         {
           "type": "up arme",
           "action": "Scieleson +3 (8)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Scieleson +3 (8)",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -2271,36 +2968,49 @@
     {
       "id": 66,
       "type": "menu",
+      "title": "Menu Stats + Sorts",
       "actions": [
         {
           "type": "stat",
           "action": "+15 Force (61)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+15 Force (61)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+15 Chance (24)",
-          "character": "lune"
+          "character": "lune",
+          "text": "+15 Chance (24)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+18 Force (50)",
-          "character": "verso"
+          "character": "verso",
+          "text": "+18 Force (50)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Sort Scellé(Bas Gauche)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Sort Scellé(Bas Gauche)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Tissage de Carte(Bas Droite)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Tissage de Carte(Bas Droite)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "+Entaille du Crépuscule(Milieu Droite)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+Entaille du Crépuscule(Milieu Droite)",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -2313,31 +3023,40 @@
     {
       "id": 67,
       "type": "combat",
-      "titre": "🛡️ Ballets(FS)",
+      "titre": "🛡️ Ballets(FS)\r",
       "turns": [
         [
           {
             "action": "Skip",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Feu  Sauv",
             "character": "lune",
-            "fail": true
+            "fail": true,
+            "isNote": false
           },
           {
             "action": "Skip",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "DIE",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Headshot x3/ Fuir",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
@@ -2349,42 +3068,56 @@
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Sirene"
     },
     {
       "id": 68,
       "type": "menu",
+      "title": "Menu Pictogrammes + Lumina",
       "actions": [
         {
           "type": "picto",
           "action": "Au seuil de la mort > Hardiesse",
-          "character": "lune"
+          "character": "lune",
+          "text": "Au seuil de la mort > Hardiesse",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Hardiesse > Initiative améliorée",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Hardiesse > Initiative améliorée",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Immaculé > Fracture améliorée",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Immaculé > Fracture améliorée",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "-Energie de Depart",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "-Energie de Depart",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Instant Critique",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+Instant Critique",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Au seuil de la mort",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+Au seuil de la mort",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -2397,72 +3130,100 @@
     {
       "id": 69,
       "type": "combat",
-      "titre": "🛡️ Glissando",
+      "titre": "🛡️ Glissando\r",
       "turns": [
         [
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Teinte Sciel",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Cycle Elem",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Tissage",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Lune)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shoot jusqu’a Rang C",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Commandement",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Feu Sauv",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Gradient",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Lune)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
@@ -2474,91 +3235,103 @@
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Sirene"
     },
     {
       "id": 70,
       "type": "boss",
-      "titre": "🎯 Sirene",
+      "titre": "🎯 Sirene\r",
       "turns": [
         [
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Cycle Elem",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Tissage",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Entaille",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Commandement",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Gradient",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Sort Scellé",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "Sirene"
     },
     {
       "id": 71,
       "type": "menu",
+      "title": "Formation",
       "actions": [
         {
           "type": "formation",
-          "action": "-Lune",
-          "character": "lune"
-        },
-        {
-          "type": "formation",
-          "action": "-Verso",
-          "character": "verso"
-        },
-        {
-          "type": "formation",
-          "action": "+Monoco",
-          "character": "monoco"
-        },
-        {
-          "type": "formation",
-          "action": "-Sciel",
-          "character": "sciel"
+          "action": "-Lune, (V) -Verso, (Mo) +Monoco, (S) -Sciel",
+          "character": "lune",
+          "text": "-Lune, (V) -Verso, (Mo) +Monoco, (S) -Sciel",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -2571,72 +3344,79 @@
       "id": 72,
       "type": "loot",
       "titre": "Energie Faiblesse fin de section Falaises Rochevague",
+      "items": [
+        "Energie Faiblesse fin de section Falaises Rochevague"
+      ],
       "acte": "Act II",
       "chapitre": "The Monolith"
     },
     {
       "id": 73,
       "type": "menu",
+      "title": "Menu Formation + Armes + Pictogrammes + Stats + Sorts",
       "actions": [
         {
           "type": "formation",
-          "action": "+Verso",
-          "character": "verso"
-        },
-        {
-          "type": "formation",
-          "action": "+Lune",
-          "character": "lune"
-        },
-        {
-          "type": "formation",
-          "action": "-Monoco",
-          "character": "monoco"
-        },
-        {
-          "type": "formation",
-          "action": "+Sciel",
-          "character": "sciel"
+          "action": "+Verso, (L) +Lune,  (Mo) -Monoco, (S)+Sciel",
+          "character": "verso",
+          "text": "+Verso, (L) +Lune,  (Mo) -Monoco, (S)+Sciel",
+          "isSelected": false
         },
         {
           "type": "arme",
           "action": "Tisseron",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Tisseron",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "+Energie Tour > Attaque Combo",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+Energie Tour > Attaque Combo",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "+Attaque Combo > Instant Critique",
-          "character": "verso"
+          "character": "verso",
+          "text": "+Attaque Combo > Instant Critique",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+9 Agi (46)",
-          "character": "lune"
+          "character": "lune",
+          "text": "+9 Agi (46)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+6 Agi (35)",
-          "character": "verso"
+          "character": "verso",
+          "text": "+6 Agi (35)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+9 Chance (18)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+9 Chance (18)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Appel de la Tempête(Haut Droite)",
-          "character": "lune"
+          "character": "lune",
+          "text": "Appel de la Tempête(Haut Droite)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Préparation Finale(Haut Droite)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Préparation Finale(Haut Droite)",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -2652,83 +3432,114 @@
     {
       "id": 74,
       "type": "combat",
-      "titre": "🛡️ Chevaliers Lumiere",
+      "titre": "🛡️ Chevaliers Lumiere\r",
       "turns": [
         [
           {
             "action": "Skip",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Lance de Glace",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Skip",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Fuir",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "The Monolith"
     },
     {
       "id": 75,
       "type": "boss",
-      "titre": "🎯 Renoir 2",
+      "titre": "🎯 Renoir 2\r",
       "turns": [
         [
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "1 Shot",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Commandement",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Appel Tempête",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Présage Ciblé",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Surpui",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Sort Scellé",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Lance de Glace",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Attack",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shot? Berserk? Frappe? Attaque?",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
@@ -2742,15 +3553,21 @@
         [
           {
             "action": "Shoot until 2 PA",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Gradient",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Sort Scellé",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
@@ -2762,22 +3579,28 @@
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "The Monolith"
     },
     {
       "id": 76,
       "type": "menu",
+      "title": "Menu Pictogrammes + Lumina",
       "actions": [
         {
           "type": "picto",
           "action": "Energie Faiblesse > Affinité inversée",
-          "character": "lune"
+          "character": "lune",
+          "text": "Energie Faiblesse > Affinité inversée",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Affinité inversée",
-          "character": "lune"
+          "character": "lune",
+          "text": "+Affinité inversée",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -2790,72 +3613,102 @@
     {
       "id": 77,
       "type": "boss",
-      "titre": "🎯 The Paintress",
+      "titre": "🎯 The Paintress\r",
       "turns": [
         [
           {
             "action": "Skip",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Cycle Elem",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Lune)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "DODGE",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Shoot/Attaque Rang C",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Command.",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Cycle Elem",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Prépa",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Gradient",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Sort Scellé(NO Fail)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Parry",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
@@ -2869,55 +3722,79 @@
         [
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Cycle Elem",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Gradient",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Sort Scellé",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "PARRY",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "DODGE",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Danse",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Surpuissance",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Gradient",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Sort Scellé",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
@@ -2931,84 +3808,109 @@
         [
           {
             "action": "Skip/Attaque",
-            "character": "lune"
+            "character": "lune",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Berserk/Attaque-Skip",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Sort Scellé",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act II",
       "chapitre": "The Monolith"
     },
     {
       "id": 78,
       "type": "menu",
+      "title": "Menu Formation + Pictogrammes + Lumina",
       "actions": [
         {
           "type": "note",
           "action": "N'importe quand avant Creation",
-          "character": ""
+          "character": "",
+          "text": "N'importe quand avant Creation",
+          "isSelected": false
         },
         {
           "type": "formation",
-          "action": "-Everyone except  Maelle",
-          "character": "maelle"
-        },
-        {
-          "type": "formation",
-          "action": "+Sciel",
-          "character": "sciel"
+          "action": "-Everyone except  Maelle, (S) +Sciel",
+          "character": "maelle",
+          "text": "-Everyone except  Maelle, (S) +Sciel",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Attaque Combo > Hardiesse (No Swap)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Attaque Combo > Hardiesse (No Swap)",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Rapidité Immédiate > Immaculé (No Swap)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "Rapidité Immédiate > Immaculé (No Swap)",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Puissance Surpeinte > Brûlures Critiques",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Puissance Surpeinte > Brûlures Critiques",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Immaculé",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Immaculé",
+          "isSelected": false
         },
         {
           "type": "picto",
           "action": "Hardiesse > Énergie Mortelle II",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Hardiesse > Énergie Mortelle II",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Energie Mortelle II",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "+Energie Mortelle II",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Instant Critique",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "+Instant Critique",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Au seuil de la mort",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "+Au seuil de la mort",
+          "isSelected": false
         },
         {
           "type": "lumina",
           "action": "+Energie Depart",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "+Energie Depart",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -3023,42 +3925,58 @@
       "id": 79,
       "type": "purchase",
       "titre": "10 Chroma poli, 14 Chroma resplendissant, 1 Renouveau",
+      "items": [
+        "10 Chroma poli, 14 Chroma resplendissant, 1 Renouveau"
+      ],
       "acte": "Act III",
       "chapitre": "Lumiere"
     },
     {
       "id": 80,
       "type": "menu",
+      "title": "Menu Stats + Sorts + Amélioration Armes",
       "actions": [
         {
           "type": "stat",
           "action": "RENOUVEAU +96 Agi (96)",
-          "character": "sciel"
+          "character": "sciel",
+          "text": "RENOUVEAU +96 Agi (96)",
+          "isSelected": false
         },
         {
           "type": "stat",
           "action": "+6 Force (59) +18 Chance (18)",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "+6 Force (59) +18 Chance (18)",
+          "isSelected": false
         },
         {
           "type": "note",
           "action": "Sous le lvl 28, add un peu de force a Maelle (62 max LVL 28)",
-          "character": ""
+          "character": "",
+          "text": "Sous le lvl 28, add un peu de force a Maelle (62 max LVL 28)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Dernière Chance(Haut Gauche)",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Dernière Chance(Haut Gauche)",
+          "isSelected": false
         },
         {
           "type": "sort",
           "action": "Stendhal(Milieu Gauche)",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Stendhal(Milieu Gauche)",
+          "isSelected": false
         },
         {
           "type": "up arme",
           "action": "Medalum +11 (16)",
-          "character": "maelle"
+          "character": "maelle",
+          "text": "Medalum +11 (16)",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -3072,44 +3990,44 @@
     {
       "id": 81,
       "type": "combat",
-      "titre": "🛡️ Creation",
+      "titre": "🛡️ Creation\r",
       "turns": [
         [
           {
             "action": "Dernière Chance",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Interv(Maelle)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Fuir",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act III",
       "chapitre": "Lumiere"
     },
     {
       "id": 82,
       "type": "menu",
+      "title": "Formation",
       "actions": [
         {
           "type": "formation",
-          "action": "+Verso",
-          "character": "verso"
-        },
-        {
-          "type": "formation",
-          "action": "-Maelle",
-          "character": "maelle"
-        },
-        {
-          "type": "formation",
-          "action": "+Maelle",
-          "character": "maelle"
+          "action": "+Verso, (M) -Maelle, (M) +Maelle",
+          "character": "verso",
+          "text": "+Verso, (M) -Maelle, (M) +Maelle",
+          "isSelected": false
         }
       ],
       "menuOrder": [
@@ -3121,64 +4039,86 @@
     {
       "id": 83,
       "type": "boss",
-      "titre": "🎯 Renoir Final",
+      "titre": "🎯 Renoir Final\r",
       "turns": [
         [
           {
             "action": "Prépa",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Attaque",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Shoot x2",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Commandement",
-            "character": "verso"
+            "character": "verso",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Stendhal (1.2 + 1.1)",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ],
         [
           {
             "action": "Interv(Maelle)",
-            "character": "sciel"
+            "character": "sciel",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Gradient",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "TRANSI",
-            "character": ""
+            "character": "",
+            "fail": false,
+            "isNote": false
           },
           {
             "action": "Stendhal (1.2 + 1.2)",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act III",
       "chapitre": "Lumiere"
     },
     {
       "id": 84,
       "type": "combat",
-      "titre": "🛡️ Verso",
+      "titre": "🛡️ Verso\r",
       "turns": [
         [
           {
             "action": "Déluge de Feu",
-            "character": "maelle"
+            "character": "maelle",
+            "fail": false,
+            "isNote": false
           }
         ]
       ],
+      "actions": [],
       "acte": "Act III",
       "chapitre": "Lumiere"
     }
