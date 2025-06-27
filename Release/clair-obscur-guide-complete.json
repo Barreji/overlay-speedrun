@@ -70,7 +70,7 @@
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Spring Meadows"
+      "chapitre": "Vallons Fleuris"
     },
     {
       "id": 3,
@@ -97,14 +97,14 @@
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Spring Meadows"
+      "chapitre": "Vallons Fleuris"
     },
     {
       "id": 4,
       "type": "loot",
       "titre": "Brûlures Critiques",
       "acte": "Act I",
-      "chapitre": "Spring Meadows"
+      "chapitre": "Vallons Fleuris"
     },
     {
       "id": 5,
@@ -137,14 +137,14 @@
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Spring Meadows"
+      "chapitre": "Vallons Fleuris"
     },
     {
       "id": 6,
       "type": "loot",
       "titre": "360 Chroma | Teinte Energie",
       "acte": "Act I",
-      "chapitre": "Spring Meadows"
+      "chapitre": "Vallons Fleuris"
     },
     {
       "id": 7,
@@ -161,20 +161,20 @@
             "character": ""
           },
           {
-            "action": "Shoot (5AP)",
+            "action": "Shoot (5PA)",
             "character": "verso"
           }
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Spring Meadows"
+      "chapitre": "Vallons Fleuris"
     },
     {
       "id": 8,
       "type": "loot",
-      "titre": "Energie Mortelle II.",
+      "titre": "Energie Mortelle II",
       "acte": "Act I",
-      "chapitre": "Spring Meadows"
+      "chapitre": "Vallons Fleuris"
     },
     {
       "id": 9,
@@ -206,7 +206,7 @@
         "picto"
       ],
       "acte": "Act I",
-      "chapitre": "Spring Meadows"
+      "chapitre": "Vallons Fleuris"
     },
     {
       "id": 10,
@@ -239,14 +239,14 @@
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Spring Meadows"
+      "chapitre": "Vallons Fleuris"
     },
     {
       "id": 11,
       "type": "loot",
       "titre": "Luminacolor sous le pont",
       "acte": "Act I",
-      "chapitre": "Spring Meadows"
+      "chapitre": "Vallons Fleuris"
     },
     {
       "id": 12,
@@ -283,7 +283,7 @@
         "sort"
       ],
       "acte": "Act I",
-      "chapitre": "Spring Meadows"
+      "chapitre": "Vallons Fleuris"
     },
     {
       "id": 13,
@@ -340,17 +340,32 @@
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Spring Meadows"
+      "chapitre": "Vallons Fleuris"
     },
     {
       "id": 14,
       "type": "loot",
       "titre": "333 Chroma sur la route",
       "acte": "Act I",
-      "chapitre": "Flying Waters"
+      "chapitre": "Océan Suspendu"
     },
     {
       "id": 15,
+      "type": "combat",
+      "titre": "🛡️ 2 Demineur",
+      "turns": [
+        [
+          {
+            "action": "Shoot bombs + tête",
+            "character": "verso"
+          }
+        ]
+      ],
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu"
+    },
+    {
+      "id": 16,
       "type": "combat",
       "titre": "🛡️ 3 Demineur",
       "turns": [
@@ -359,51 +374,53 @@
             "action": "Shoot bombs",
             "character": "verso"
           }
-        ],
-        [
-          {
-            "action": "groupe de 2 aussi si tu manques xp",
-            "character": "",
-            "fail": false,
-            "isNote": true
-          }
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Flying Waters"
+      "chapitre": "Océan Suspendu"
     },
     {
-      "id": 16,
+      "id": 17,
       "type": "menu",
       "actions": [
         {
           "type": "picto",
-          "action": "Brulures Critiques",
+          "action": "Brulures Critiques(2)",
           "character": "maelle"
         },
         {
           "type": "picto",
-          "action": "Energie Mortelle II",
-          "character": "maelle"
-        },
-        {
-          "type": "picto",
-          "action": "Insaisissable",
+          "action": "Energie Mortelle II(3)",
           "character": "maelle"
         },
         {
           "type": "stat",
-          "action": "+6 Agi (6)",
+          "action": "+2 Force (11)",
           "character": "verso"
         },
         {
           "type": "stat",
-          "action": "+15 Force (15)",
+          "action": "+7 Agi (7)",
+          "character": "verso"
+        },
+        {
+          "type": "stat",
+          "action": "+14 Force (15)",
+          "character": "maelle"
+        },
+        {
+          "type": "stat",
+          "action": "+1 Agi (1)",
           "character": "maelle"
         },
         {
           "type": "stat",
           "action": "+6 Force (14)",
+          "character": "lune"
+        },
+        {
+          "type": "stat",
+          "action": "+3 Agi (4)",
           "character": "lune"
         },
         {
@@ -423,10 +440,10 @@
         "sort"
       ],
       "acte": "Act I",
-      "chapitre": "Flying Waters"
+      "chapitre": "Océan Suspendu"
     },
     {
-      "id": 17,
+      "id": 18,
       "type": "combat",
       "titre": "🛡️ The Curator",
       "turns": [
@@ -436,16 +453,20 @@
             "character": "verso"
           },
           {
-            "action": "Pivot offensif",
-            "character": "maelle"
+            "action": "Immo",
+            "character": "lune"
           },
           {
-            "action": "Skip",
+            "action": "Foulée",
             "character": "lune"
           },
           {
             "action": "Mark",
             "character": "verso"
+          },
+          {
+            "action": "Skip",
+            "character": "lune"
           },
           {
             "action": "Percée",
@@ -454,10 +475,10 @@
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Flying Waters"
+      "chapitre": "Océan Suspendu"
     },
     {
-      "id": 18,
+      "id": 19,
       "type": "combat",
       "titre": "🛡️ Noco",
       "turns": [
@@ -471,119 +492,105 @@
             "character": ""
           },
           {
+            "action": "Flammeche",
+            "character": "maelle"
+          }
+        ]
+      ],
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu"
+    },
+    {
+      "id": 20,
+      "type": "purchase",
+      "titre": "Attaque fragilisante",
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu"
+    },
+    {
+      "id": 21,
+      "type": "loot",
+      "titre": "Après le drapeau $333 Chroma",
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu"
+    },
+    {
+      "id": 22,
+      "type": "combat",
+      "titre": "🛡️ Brûler, Cruleur",
+      "turns": [
+        [
+          {
+            "action": "DODGE",
+            "character": ""
+          }
+        ],
+        [
+          {
+            "action": "Mark Brûler",
+            "character": "verso"
+          },
+          {
+            "action": "Feu Sauv",
+            "character": "lune"
+          },
+          {
+            "action": "Shot WS",
+            "character": "maelle"
+          },
+          {
+            "action": "Foulée",
+            "character": "maelle"
+          }
+        ],
+        [
+          {
+            "action": "Mark",
+            "character": "verso"
+          },
+          {
+            "action": "Skip",
+            "character": "lune"
+          },
+          {
             "action": "Percée",
             "character": "maelle"
           }
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Flying Waters"
-    },
-    {
-      "id": 19,
-      "type": "purchase",
-      "titre": "Attaque fragilisante",
-      "acte": "Act I",
-      "chapitre": "Flying Waters"
-    },
-    {
-      "id": 20,
-      "type": "combat",
-      "titre": "🛡️ Démineur, Brûler, Luster",
-      "turns": [
-        [
-          {
-            "action": "Shoot mine",
-            "character": "verso"
-          },
-          {
-            "action": "Mark Brûler",
-            "character": "verso"
-          },
-          {
-            "action": "Lance Luster",
-            "character": "lune"
-          }
-        ],
-        [
-          {
-            "action": "shot brûler ws",
-            "character": "maelle"
-          },
-          {
-            "action": "shot démineur 3",
-            "character": "maelle"
-          },
-          {
-            "action": "shot attack",
-            "character": "maelle"
-          }
-        ]
-      ],
-      "acte": "Act I",
-      "chapitre": "Flying Waters"
-    },
-    {
-      "id": 21,
-      "type": "menu",
-      "actions": [
-        {
-          "type": "stat",
-          "action": "+4 Force (13)",
-          "character": "verso"
-        },
-        {
-          "type": "stat",
-          "action": "+1 Agi (7)",
-          "character": "verso"
-        },
-        {
-          "type": "stat",
-          "action": "+2 Force (17)",
-          "character": "maelle"
-        },
-        {
-          "type": "stat",
-          "action": "+1 Agi (1)",
-          "character": "maelle"
-        },
-        {
-          "type": "stat",
-          "action": "+3 Force (17)",
-          "character": "lune"
-        },
-        {
-          "type": "stat",
-          "action": "+3 Agi (4)",
-          "character": "lune"
-        }
-      ],
-      "menuOrder": [
-        "stat"
-      ],
-      "acte": "Act I",
-      "chapitre": "Flying Waters"
-    },
-    {
-      "id": 22,
-      "type": "loot",
-      "titre": "Après le drapeau $333 Chroma | Entre les algues $665 Chroma",
-      "acte": "Act I",
-      "chapitre": "Flying Waters"
+      "chapitre": "Océan Suspendu"
     },
     {
       "id": 23,
+      "type": "loot",
+      "titre": "Entre les algues $665 Chroma",
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu"
+    },
+    {
+      "id": 24,
       "type": "menu",
       "actions": [
         {
           "type": "arme",
-          "action": "Bruleram",
+          "action": "Cruleuram",
+          "character": "verso"
+        },
+        {
+          "type": "arme",
+          "action": "Bruleurum",
           "character": "maelle"
         },
         {
           "type": "arme",
-          "action": "Luminerim",
+          "action": "Lumerim",
           "character": "lune"
+        },
+        {
+          "type": "picto",
+          "action": "Insaisissable",
+          "character": "maelle"
         },
         {
           "type": "picto",
@@ -617,10 +624,10 @@
         "lumina"
       ],
       "acte": "Act I",
-      "chapitre": "Flying Waters"
+      "chapitre": "Océan Suspendu"
     },
     {
-      "id": 24,
+      "id": 25,
       "type": "boss",
       "titre": "🎯 Goblu",
       "turns": [
@@ -690,12 +697,33 @@
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Flying Waters"
+      "chapitre": "Océan Suspendu"
     },
     {
-      "id": 25,
+      "id": 26,
+      "type": "menu",
+      "actions": [
+        {
+          "type": "note",
+          "action": "Si no hit avec Maelle sinon avant Ultime",
+          "character": ""
+        },
+        {
+          "type": "stat",
+          "action": "+9 Force (23)",
+          "character": "maelle"
+        }
+      ],
+      "menuOrder": [
+        "stat"
+      ],
+      "acte": "Act I",
+      "chapitre": "Sanctuaire Ancien"
+    },
+    {
+      "id": 27,
       "type": "combat",
-      "titre": "🛡️ Robust Sakapatate",
+      "titre": "🛡️ Sakapatate Robuste",
       "turns": [
         [
           {
@@ -735,28 +763,12 @@
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Ancient Sanctuary"
+      "chapitre": "Sanctuaire Ancien"
     },
     {
-      "id": 26,
-      "type": "menu",
-      "actions": [
-        {
-          "type": "stat",
-          "action": "+9 Force (23)",
-          "character": "maelle"
-        }
-      ],
-      "menuOrder": [
-        "stat"
-      ],
-      "acte": "Act I",
-      "chapitre": "Ancient Sanctuary"
-    },
-    {
-      "id": 27,
+      "id": 28,
       "type": "boss",
-      "titre": "🎯 Ultimate Sakapatate",
+      "titre": "🎯 Sakapatate Ultime",
       "turns": [
         [
           {
@@ -820,7 +832,7 @@
         ],
         [
           {
-            "action": "Gustave need 5 ap turn 3. DODGE “Attaque avec son compagnon mort”",
+            "action": "Gustave need 5 ap turn 3.",
             "character": "",
             "fail": false,
             "isNote": true
@@ -828,10 +840,10 @@
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Ancient Sanctuary"
+      "chapitre": "Sanctuaire Ancien"
     },
     {
-      "id": 28,
+      "id": 29,
       "type": "menu",
       "actions": [
         {
@@ -849,10 +861,33 @@
         "sort"
       ],
       "acte": "Act I",
-      "chapitre": "Gestral Village"
+      "chapitre": "Village des Gestrals"
     },
     {
-      "id": 29,
+      "id": 30,
+      "type": "purchase",
+      "titre": "Instant Critique, 2 Chroma Poli",
+      "acte": "Act I",
+      "chapitre": "Village des Gestrals"
+    },
+    {
+      "id": 31,
+      "type": "menu",
+      "actions": [
+        {
+          "type": "picto",
+          "action": "Instant Critique > Insaisissable",
+          "character": "maelle"
+        }
+      ],
+      "menuOrder": [
+        "picto"
+      ],
+      "acte": "Act I",
+      "chapitre": "Village des Gestrals"
+    },
+    {
+      "id": 32,
       "type": "combat",
       "titre": "🛡️ Tournoi",
       "turns": [
@@ -876,10 +911,10 @@
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Gestral Village"
+      "chapitre": "Village des Gestrals"
     },
     {
-      "id": 30,
+      "id": 33,
       "type": "combat",
       "titre": "🛡️ Sciel",
       "turns": [
@@ -899,17 +934,10 @@
         ]
       ],
       "acte": "Act I",
-      "chapitre": "Gestral Village"
+      "chapitre": "Village des Gestrals"
     },
     {
-      "id": 31,
-      "type": "purchase",
-      "titre": "Instant Critique, 2 Chroma Poli",
-      "acte": "Act I",
-      "chapitre": "Gestral Village"
-    },
-    {
-      "id": 32,
+      "id": 34,
       "type": "menu",
       "actions": [
         {
@@ -919,7 +947,12 @@
         },
         {
           "type": "picto",
-          "action": "Instant Critique",
+          "action": "-Instant Critique",
+          "character": "maelle"
+        },
+        {
+          "type": "stat",
+          "action": "+2 Force (13)",
           "character": "verso"
         },
         {
@@ -968,7 +1001,7 @@
       "chapitre": "Nid d’Esquie"
     },
     {
-      "id": 33,
+      "id": 35,
       "type": "combat",
       "titre": "🛡️ Francois",
       "turns": [
@@ -1001,19 +1034,19 @@
       "chapitre": "Nid d’Esquie"
     },
     {
-      "id": 34,
+      "id": 36,
       "type": "loot",
       "titre": "Luminacolor à coté combat",
       "acte": "Act I",
       "chapitre": "The Continent"
     },
     {
-      "id": 35,
+      "id": 37,
       "type": "menu",
       "actions": [
         {
           "type": "up arme",
-          "action": "Luminerim +6 (7)",
+          "action": "Lumerim +6 (7)",
           "character": "lune"
         }
       ],
@@ -1024,7 +1057,7 @@
       "chapitre": "The Continent"
     },
     {
-      "id": 36,
+      "id": 38,
       "type": "combat",
       "titre": "🛡️ Demineur, Crueler, Lancelier",
       "turns": [
@@ -1068,21 +1101,21 @@
       "chapitre": "The Continent"
     },
     {
-      "id": 37,
+      "id": 39,
       "type": "loot",
       "titre": "Energie de Depart I | 1305 Chroma avant les Falaises.",
       "acte": "Act I",
       "chapitre": "The Continent"
     },
     {
-      "id": 38,
+      "id": 40,
       "type": "loot",
       "titre": "790 Chroma premier drapeau | Initiative | 790 Chroma corde gros tuyau | 790 Chroma après drapeau ferme | Luminacolor avant dernière corde",
       "acte": "Act I",
       "chapitre": "Stone Wave Cliffs"
     },
     {
-      "id": 39,
+      "id": 41,
       "type": "menu",
       "actions": [
         {
@@ -1155,7 +1188,7 @@
       "chapitre": "Stone Wave Cliffs"
     },
     {
-      "id": 40,
+      "id": 42,
       "type": "boss",
       "titre": "🎯 Lampmaster",
       "turns": [
@@ -1250,7 +1283,7 @@
       "chapitre": "Stone Wave Cliffs"
     },
     {
-      "id": 41,
+      "id": 43,
       "type": "menu",
       "actions": [
         {
@@ -1300,12 +1333,32 @@
         },
         {
           "type": "picto",
-          "action": "+Au Seuil de la mort",
+          "action": "Au Seuil de la mort",
           "character": "verso"
         },
         {
           "type": "picto",
-          "action": "+Initiative",
+          "action": "Initiative",
+          "character": "verso"
+        },
+        {
+          "type": "lumina",
+          "action": "-Attaque Affaiblissante",
+          "character": "verso"
+        },
+        {
+          "type": "lumina",
+          "action": "+Brûlures Critiques",
+          "character": "verso"
+        },
+        {
+          "type": "lumina",
+          "action": "+Insaisissable",
+          "character": "verso"
+        },
+        {
+          "type": "lumina",
+          "action": "+Instant Critique",
           "character": "verso"
         }
       ],
@@ -1313,13 +1366,14 @@
         "stat",
         "sort",
         "arme",
-        "picto"
+        "picto",
+        "lumina"
       ],
       "acte": "Act II",
       "chapitre": "Stone Wave Cliffs"
     },
     {
-      "id": 42,
+      "id": 44,
       "type": "combat",
       "titre": "🛡️ Chalier",
       "turns": [
@@ -1352,16 +1406,26 @@
       "chapitre": "Forgotten Battlefield"
     },
     {
-      "id": 43,
+      "id": 45,
       "type": "purchase",
       "titre": "Affinité Inversée",
       "acte": "Act II",
       "chapitre": "Forgotten Battlefield"
     },
     {
-      "id": 44,
+      "id": 46,
       "type": "menu",
       "actions": [
+        {
+          "type": "formation",
+          "action": "-Verso",
+          "character": "verso"
+        },
+        {
+          "type": "formation",
+          "action": "+Verso",
+          "character": "verso"
+        },
         {
           "type": "formation",
           "action": "-Maelle",
@@ -1376,38 +1440,17 @@
           "type": "picto",
           "action": "Affinité Inversée",
           "character": "verso"
-        },
-        {
-          "type": "lumina",
-          "action": "-Attaque Affaiblissante",
-          "character": "verso"
-        },
-        {
-          "type": "lumina",
-          "action": "+Brûlures Critiques",
-          "character": "verso"
-        },
-        {
-          "type": "lumina",
-          "action": "+Insaisissable",
-          "character": "verso"
-        },
-        {
-          "type": "lumina",
-          "action": "+Instant Critique",
-          "character": "verso"
         }
       ],
       "menuOrder": [
         "formation",
-        "picto",
-        "lumina"
+        "picto"
       ],
       "acte": "Act II",
       "chapitre": "Forgotten Battlefield"
     },
     {
-      "id": 45,
+      "id": 47,
       "type": "boss",
       "titre": "🎯 Dualiste",
       "turns": [
@@ -1439,7 +1482,7 @@
             "character": "sciel"
           },
           {
-            "action": "Frappe/ Berserk",
+            "action": "Frappe",
             "character": "verso"
           }
         ],
@@ -1449,7 +1492,7 @@
             "character": "lune"
           },
           {
-            "action": "Berserk/ Frappe",
+            "action": "Berserk",
             "character": "verso"
           },
           {
@@ -1484,7 +1527,7 @@
       "chapitre": "Forgotten Battlefield"
     },
     {
-      "id": 46,
+      "id": 48,
       "type": "boss",
       "titre": "🎯 Mediocre fight",
       "turns": [
@@ -1553,12 +1596,12 @@
       "chapitre": "Forgotten Battlefield"
     },
     {
-      "id": 47,
+      "id": 49,
       "type": "menu",
       "actions": [
         {
           "type": "up arme",
-          "action": "Luminerim +2 (9)",
+          "action": "Lumerim +2 (9)",
           "character": "lune"
         },
         {
@@ -1580,7 +1623,7 @@
       "chapitre": "Forgotten Battlefield"
     },
     {
-      "id": 48,
+      "id": 50,
       "type": "combat",
       "titre": "🛡️ Demineur, Troubador, Gault",
       "turns": [
@@ -1616,7 +1659,7 @@
       "chapitre": "The Continent"
     },
     {
-      "id": 49,
+      "id": 51,
       "type": "menu",
       "actions": [
         {
@@ -1631,12 +1674,12 @@
         },
         {
           "type": "picto",
-          "action": "Attaque fragilisante > Initiative (Swap)",
+          "action": "Attaque fragilisante > Affinité inversée (Swap)",
           "character": "verso"
         },
         {
           "type": "picto",
-          "action": "Instant Critique > Affinité inversée (Swap)",
+          "action": "Instant Critique > Initiative (Swap)",
           "character": "verso"
         },
         {
@@ -1659,7 +1702,7 @@
       "chapitre": "Monoco Station"
     },
     {
-      "id": 50,
+      "id": 52,
       "type": "combat",
       "titre": "🛡️ Monoco",
       "turns": [
@@ -1700,7 +1743,7 @@
       "chapitre": "Monoco Station"
     },
     {
-      "id": 51,
+      "id": 53,
       "type": "menu",
       "actions": [
         {
@@ -1783,7 +1826,7 @@
       "chapitre": "Monoco Station"
     },
     {
-      "id": 52,
+      "id": 54,
       "type": "combat",
       "titre": "🛡️ Stalact",
       "turns": [
@@ -1811,7 +1854,7 @@
       "chapitre": "Monoco Station"
     },
     {
-      "id": 53,
+      "id": 55,
       "type": "menu",
       "actions": [
         {
@@ -1883,7 +1926,7 @@
       "chapitre": "Old Lumiere"
     },
     {
-      "id": 54,
+      "id": 56,
       "type": "combat",
       "titre": "🛡️ Chevalières",
       "turns": [
@@ -1910,14 +1953,14 @@
       "chapitre": "Old Lumiere"
     },
     {
-      "id": 55,
+      "id": 57,
       "type": "loot",
       "titre": "Rapidité Immédiate",
       "acte": "Act II",
       "chapitre": "Old Lumiere"
     },
     {
-      "id": 56,
+      "id": 58,
       "type": "boss",
       "titre": "🎯 Renoir 1",
       "turns": [
@@ -1969,14 +2012,14 @@
       "chapitre": "Old Lumiere"
     },
     {
-      "id": 57,
+      "id": 59,
       "type": "loot",
       "titre": "Hardiesse",
       "acte": "Act II",
       "chapitre": "Visages"
     },
     {
-      "id": 58,
+      "id": 60,
       "type": "menu",
       "actions": [
         {
@@ -2045,7 +2088,7 @@
       "chapitre": "Visages"
     },
     {
-      "id": 59,
+      "id": 61,
       "type": "combat",
       "titre": "🛡️ 2 Moisonneusse + Hat Guy",
       "turns": [
@@ -2069,7 +2112,7 @@
       "chapitre": "Visages"
     },
     {
-      "id": 60,
+      "id": 62,
       "type": "menu",
       "actions": [
         {
@@ -2091,7 +2134,7 @@
       "chapitre": "Visages"
     },
     {
-      "id": 61,
+      "id": 63,
       "type": "boss",
       "titre": "🎯 Visages",
       "turns": [
@@ -2141,7 +2184,7 @@
         ],
         [
           {
-            "action": "On peut attaquer avant commandement si on a manqué de crit pour assurer les degats",
+            "action": "On peut attaquer avant commandement",
             "character": "",
             "fail": false,
             "isNote": true
@@ -2152,7 +2195,7 @@
       "chapitre": "Visages"
     },
     {
-      "id": 62,
+      "id": 64,
       "type": "boss",
       "titre": "🎯 Maître des Masques",
       "turns": [
@@ -2205,12 +2248,12 @@
       "chapitre": "Visages"
     },
     {
-      "id": 63,
+      "id": 65,
       "type": "menu",
       "actions": [
         {
           "type": "up arme",
-          "action": "Luminerim +4 (13)",
+          "action": "Lumerim +4 (13)",
           "character": "lune"
         },
         {
@@ -2226,7 +2269,7 @@
       "chapitre": "Visages"
     },
     {
-      "id": 64,
+      "id": 66,
       "type": "menu",
       "actions": [
         {
@@ -2268,7 +2311,7 @@
       "chapitre": "Sirene"
     },
     {
-      "id": 65,
+      "id": 67,
       "type": "combat",
       "titre": "🛡️ Ballets(FS)",
       "turns": [
@@ -2310,7 +2353,7 @@
       "chapitre": "Sirene"
     },
     {
-      "id": 66,
+      "id": 68,
       "type": "menu",
       "actions": [
         {
@@ -2352,7 +2395,7 @@
       "chapitre": "Sirene"
     },
     {
-      "id": 67,
+      "id": 69,
       "type": "combat",
       "titre": "🛡️ Glissando",
       "turns": [
@@ -2435,7 +2478,7 @@
       "chapitre": "Sirene"
     },
     {
-      "id": 68,
+      "id": 70,
       "type": "boss",
       "titre": "🎯 Sirene",
       "turns": [
@@ -2494,7 +2537,7 @@
       "chapitre": "Sirene"
     },
     {
-      "id": 69,
+      "id": 71,
       "type": "menu",
       "actions": [
         {
@@ -2525,14 +2568,14 @@
       "chapitre": "The Monolith"
     },
     {
-      "id": 70,
+      "id": 72,
       "type": "loot",
       "titre": "Energie Faiblesse fin de section Falaises Rochevague",
       "acte": "Act II",
       "chapitre": "The Monolith"
     },
     {
-      "id": 71,
+      "id": 73,
       "type": "menu",
       "actions": [
         {
@@ -2607,7 +2650,7 @@
       "chapitre": "The Monolith"
     },
     {
-      "id": 72,
+      "id": 74,
       "type": "combat",
       "titre": "🛡️ Chevaliers Lumiere",
       "turns": [
@@ -2634,7 +2677,7 @@
       "chapitre": "The Monolith"
     },
     {
-      "id": 73,
+      "id": 75,
       "type": "boss",
       "titre": "🎯 Renoir 2",
       "turns": [
@@ -2658,10 +2701,6 @@
           {
             "action": "Présage Ciblé",
             "character": "sciel"
-          },
-          {
-            "action": "PARRY",
-            "character": ""
           }
         ],
         [
@@ -2680,10 +2719,6 @@
           {
             "action": "Lance de Glace",
             "character": "lune"
-          },
-          {
-            "action": "PARRY",
-            "character": ""
           }
         ],
         [
@@ -2731,7 +2766,7 @@
       "chapitre": "The Monolith"
     },
     {
-      "id": 74,
+      "id": 76,
       "type": "menu",
       "actions": [
         {
@@ -2753,7 +2788,7 @@
       "chapitre": "The Monolith"
     },
     {
-      "id": 75,
+      "id": 77,
       "type": "boss",
       "titre": "🎯 The Paintress",
       "turns": [
@@ -2912,7 +2947,7 @@
       "chapitre": "The Monolith"
     },
     {
-      "id": 76,
+      "id": 78,
       "type": "menu",
       "actions": [
         {
@@ -2985,14 +3020,14 @@
       "chapitre": "Lumiere"
     },
     {
-      "id": 77,
+      "id": 79,
       "type": "purchase",
       "titre": "10 Chroma poli, 14 Chroma resplendissant, 1 Renouveau",
       "acte": "Act III",
       "chapitre": "Lumiere"
     },
     {
-      "id": 78,
+      "id": 80,
       "type": "menu",
       "actions": [
         {
@@ -3035,7 +3070,7 @@
       "chapitre": "Lumiere"
     },
     {
-      "id": 79,
+      "id": 81,
       "type": "combat",
       "titre": "🛡️ Creation",
       "turns": [
@@ -3058,7 +3093,7 @@
       "chapitre": "Lumiere"
     },
     {
-      "id": 80,
+      "id": 82,
       "type": "menu",
       "actions": [
         {
@@ -3084,7 +3119,7 @@
       "chapitre": "Lumiere"
     },
     {
-      "id": 81,
+      "id": 83,
       "type": "boss",
       "titre": "🎯 Renoir Final",
       "turns": [
@@ -3133,7 +3168,7 @@
       "chapitre": "Lumiere"
     },
     {
-      "id": 82,
+      "id": 84,
       "type": "combat",
       "titre": "🛡️ Verso",
       "turns": [

@@ -1,12 +1,22 @@
 # Speedrun Clair Obscur - Guide Overlay
 
-## 🚀 Installation et utilisation
+Une application Electron pour afficher des guides de speedrun en overlay pendant le jeu Clair Obscur.
 
-### Installation
+## 🚀 Téléchargement
 
-1. **Extrayez** tous les fichiers de ce dossier dans un dossier de votre choix
-2. **Double-cliquez** sur `SpeedrunClairObscur.exe` pour lancer l'application
-3. L'overlay apparaîtra dans le coin supérieur droit de votre écran
+### 📦 **Version prête à l'emploi (Recommandée)**
+
+-   [📥 Télécharger le dossier Release](https://github.com/Barreji/overlay-speedrun/releases/latest/download/Release.zip)
+-   Contient l'exécutable et tous les fichiers nécessaires
+-   Aucune installation requise, fonctionne immédiatement
+
+### 🔧 **Code source**
+
+-   [📥 Télécharger le code source](https://github.com/Barreji/overlay-speedrun/archive/refs/heads/main.zip)
+-   Pour les développeurs qui veulent modifier l'application
+-   Nécessite Node.js et npm pour compiler
+
+## 🎮 Utilisation
 
 ### Raccourcis clavier
 
@@ -15,71 +25,141 @@
 -   **F3** : Afficher/masquer l'overlay
 -   **F4** : Menu des chapitres
 -   **F5** : Retour au début
--   **F6** : Options/mode minimaliste
 
-## 📝 Création de vos propres guides
+### Contrôles de l'interface
 
-### Modifier le guide existant
+-   **Flèche ⬇** (dans l'en-tête) : Masquer l'en-tête principal
+-   **Flèche ⬆** (dans le step-header) : Réafficher l'en-tête principal
+-   **Clic sur l'en-tête** : Déplacer la fenêtre
+-   **Clic sur le step-header** : Déplacer la fenêtre (même quand l'en-tête est masqué)
 
-1. Ouvrez `speedrun.txt` avec un éditeur de texte (Notepad, Notepad++, etc.)
-2. Modifiez le contenu selon vos besoins
-3. Sauvegardez le fichier
-4. Relancez l'application
+### Options disponibles
 
-### Créer un nouveau guide
+-   **Taille de police** : Ajustable de 50% à 200% avec une barre de progression
+-   **Éléments à masquer** :
+    -   Étapes de loot
+    -   Étapes d'achat
+    -   Notes isolées
+-   **Personnalisation des raccourcis** : Modifiez les touches dans les options
+-   **Gestion des guides** : Créer et charger des guides directement depuis l'interface
 
-1. Créez un nouveau fichier `.txt` en suivant le format décrit dans `DOCUMENTATION.md`
-2. Utilisez le bouton "Créer un guide" dans les options (F6) de l'application
-3. Sélectionnez votre fichier `.txt`
-4. Le guide sera automatiquement converti et chargé
+## 📝 Création de guides
 
-### Charger un guide existant
+### Format du fichier
 
-1. Utilisez le bouton "Charger un guide" dans les options (F6)
-2. Sélectionnez un fichier `.json` existant
+L'application utilise un format simple pour créer des guides. Consultez la [documentation complète](DOCUMENTATION.md) pour tous les détails.
 
-## 📋 Fichiers inclus
+**En-tête obligatoire :**
 
--   **`SpeedrunClairObscur.exe`** : L'application principale
--   **`clair-obscur-guide-complete.json`** : Guide principal de Clair Obscur
--   **`speedrun.txt`** : Guide source (modifiable)
--   **`exemple-guide.txt`** : Exemple de guide pour un autre jeu
--   **`DOCUMENTATION.md`** : Documentation complète du format
--   **`convert-guide.js`** : Convertisseur TXT → JSON (optionnel)
+```txt
+Nom du Jeu
+Catégorie de Speedrun
 
-## 🎮 Utilisation en jeu
+Act 0
+T:Prologue
+```
 
-1. Lancez votre jeu en mode fenêtré ou plein écran
-2. Lancez `SpeedrunClairObscur.exe`
-3. L'overlay apparaît dans le coin supérieur droit
-4. Utilisez les raccourcis pour naviguer pendant le jeu
+**Exemple d'étape :**
 
-## 💡 Conseils
+```txt
+🛡️ Maelle
+(V) Attack > PARRY > (V) Attack > DODGE > (V) Surcharge
+(A) Si vous ratez un DODGE, 1 Shot
 
--   Gardez l'application active pour que les raccourcis fonctionnent
--   Utilisez le mode minimaliste (F6) pour plus de clarté
--   Sauvegardez vos modifications avant de relancer l'application
--   L'application reste en overlay même si vous changez de fenêtre
+📦 Brûlures Critiques
 
-## 🆘 Dépannage
+ARME
+(V) Lanceram
+PICTO
+(V) Brulures Critiques
+```
 
-### L'application ne se lance pas
+### Création et chargement de guides
 
--   Vérifiez que tous les fichiers sont présents dans le dossier
--   Assurez-vous que Windows Defender n'a pas bloqué l'exécutable
--   Essayez de lancer en tant qu'administrateur
+1. **Créer un guide depuis un fichier .txt :**
 
-### Le guide ne s'affiche pas
+    - Utilisez le bouton "Créer un guide" dans les options (F6)
+    - Sélectionnez votre fichier .txt
+    - Le guide sera automatiquement converti et chargé
 
--   Vérifiez que `clair-obscur-guide-complete.json` existe
--   Utilisez le bouton "Charger un guide" pour recharger le guide
+2. **Charger un guide .json existant :**
 
-### Raccourcis clavier ne fonctionnent pas
+    - Utilisez le bouton "Charger un guide" dans les options (F6)
+    - Sélectionnez votre fichier .json
 
--   Assurez-vous que l'application est active
--   Vérifiez que les touches ne sont pas utilisées par d'autres applications
--   Modifiez les raccourcis dans les options (F6)
+3. **Conversion manuelle :**
+    ```bash
+    node convert-guide.js votre-fichier.txt votre-sortie.json
+    ```
+
+## 📋 Types d'étapes supportés
+
+-   **🛡️ Combats** : Ennemis normaux
+-   **🎯 Boss** : Combats de boss
+-   **📦 Loot** : Objets trouvés
+-   **💰 Achats** : Objets achetés
+-   **📋 Menus** : Configurations d'équipement, stats, sorts
+-   **📝 Notes** : Conseils et informations importantes
+
+## 🛠️ Développement
+
+### Prérequis
+
+-   Node.js (version 14 ou supérieure)
+-   npm
+
+### Installation et lancement
+
+1. **Installez les dépendances**
+
+    ```bash
+    npm install
+    ```
+
+2. **Lancez l'application**
+    ```bash
+    npm start
+    ```
+
+## 🔧 Scripts disponibles
+
+-   `npm start` : Lance l'application en mode développement
+-   `npm run build` : Compile le code TypeScript
+-   `npm run build-exe` : Crée l'exécutable Windows
+-   `node convert-guide.js` : Convertit un fichier .txt en .json
+
+## 📄 Documentation
+
+-   [Documentation du format](DOCUMENTATION.md) : Guide complet pour créer des fichiers .txt
+-   [Guide d'exemple](exemple-guide.txt) : Exemple de guide pour un autre jeu
+
+## 📁 Structure du projet
+
+```
+SpeedrunClairObscur/
+├── src/                    # Code source TypeScript
+│   └── main.ts            # Processus principal Electron
+├── renderer/              # Interface utilisateur
+│   ├── index.html         # Page HTML
+│   ├── renderer.js        # Logique de rendu
+│   └── styles.css         # Styles CSS
+├── Release/               # Version prête à l'emploi
+│   ├── SpeedrunClairObscur.exe
+│   ├── clair-obscur-guide-complete.json
+│   ├── speedrun.txt
+│   ├── exemple-guide.txt
+│   ├── DOCUMENTATION.md
+│   ├── convert-guide.js
+│   └── README.md
+├── clair-obscur-guide-complete.json  # Guide principal
+├── speedrun.txt           # Guide source
+├── exemple-guide.txt      # Guide d'exemple
+├── convert-guide.js       # Convertisseur TXT → JSON
+├── DOCUMENTATION.md       # Documentation du format
+├── package.json           # Configuration npm
+└── tsconfig.json          # Configuration TypeScript
+```
 
 ---
 
-**Note** : Cette application est conçue pour Clair Obscur mais peut être adaptée pour d'autres jeux.
+**Note** : Cette application est conçue pour Clair Obscur mais peut être adaptée pour d'autres jeux en modifiant le format des guides.

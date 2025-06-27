@@ -65,6 +65,11 @@ Executable/
 # Specific files
 speedrun_new.txt
 Release.zip
+exemple-guide-converted.json
+build-renderer.js
+
+# Backup files
+backup_js/
 
 # Exécutables
 Release/*.exe

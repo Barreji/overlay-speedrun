@@ -3,30 +3,18 @@ import * as path from "path";
 import * as fs from "fs";
 import { exec } from "child_process";
 import { promisify } from "util";
+import { Guide, Step, LoadResult } from "./types/GuideTypes";
+import { GuideParser } from "./parsers/GuideParser";
 
 const execAsync = promisify(exec);
 
 app.disableHardwareAcceleration();
 
-interface SpeedrunStep {
-    id: number;
-    title: string;
-    description: string;
-    time?: string;
-    notes?: string;
-}
-
-interface SpeedrunGuide {
-    game: string;
-    category: string;
-    steps: SpeedrunStep[];
-}
-
 class SpeedrunGuideApp {
     private mainWindow: BrowserWindow | null = null;
-    private currentGuide: SpeedrunGuide | null = null;
+    private currentGuide: Guide | null = null;
     private currentStepIndex: number = 0;
-    private binds: { [key: string]: string } = {
+    private binds = {
         prev: "F1",
         next: "F2",
         toggleOverlay: "F3",
@@ -35,8 +23,10 @@ class SpeedrunGuideApp {
         toggleMinimal: "F6",
     };
     private overlayHidden: boolean = false;
+    private guideParser: GuideParser;
 
     constructor() {
+        this.guideParser = new GuideParser();
         this.initializeApp();
     }
 
@@ -60,6 +50,24 @@ class SpeedrunGuideApp {
         });
     }
 
+    private setupGlobalShortcuts(): void {
+        globalShortcut.unregisterAll();
+
+        Object.entries(this.binds).forEach(([action, key]) => {
+            if (key && key.toLowerCase() !== " " && key.toLowerCase() !== "space") {
+                const success = globalShortcut.register(key, () => {
+                    setTimeout(() => {
+                        if (action === "toggleOverlay") {
+                            this.toggleOverlay();
+                        } else {
+                            this.mainWindow?.webContents.send(`${action}-step-from-main`);
+                        }
+                    }, 10);
+                });
+            }
+        });
+    }
+
     private createWindow(): void {
         const primaryDisplay = screen.getPrimaryDisplay();
         const { width, height } = primaryDisplay.workAreaSize;
@@ -78,7 +86,6 @@ class SpeedrunGuideApp {
             webPreferences: {
                 nodeIntegration: true,
                 contextIsolation: false,
-                // Désactiver le cache pour éviter les erreurs de permissions
                 webSecurity: false,
             },
         });
@@ -98,64 +105,6 @@ class SpeedrunGuideApp {
             this.mainWindow?.showInactive();
             this.overlayHidden = false;
         });
-    }
-
-    private setupGlobalShortcuts() {
-        globalShortcut.unregisterAll();
-        if (
-            this.binds.toggleOverlay &&
-            this.binds.toggleOverlay.toLowerCase() !== " " &&
-            this.binds.toggleOverlay.toLowerCase() !== "space"
-        ) {
-            globalShortcut.register(this.binds.toggleOverlay, () => {
-                this.toggleOverlay();
-            });
-        }
-        if (this.binds.next && this.binds.next.toLowerCase() !== " " && this.binds.next.toLowerCase() !== "space") {
-            globalShortcut.register(this.binds.next, () => {
-                // Envoyer le signal sans interférer avec les touches maintenues
-                setTimeout(() => {
-                    this.mainWindow?.webContents.send("next-step-from-main");
-                }, 10);
-            });
-        }
-        if (this.binds.prev && this.binds.prev.toLowerCase() !== " " && this.binds.prev.toLowerCase() !== "space") {
-            globalShortcut.register(this.binds.prev, () => {
-                // Envoyer le signal sans interférer avec les touches maintenues
-                setTimeout(() => {
-                    this.mainWindow?.webContents.send("prev-step-from-main");
-                }, 10);
-            });
-        }
-        if (this.binds.reset && this.binds.reset.toLowerCase() !== " " && this.binds.reset.toLowerCase() !== "space") {
-            globalShortcut.register(this.binds.reset, () => {
-                setTimeout(() => {
-                    this.mainWindow?.webContents.send("reset-step-from-main");
-                }, 10);
-            });
-        }
-        if (
-            this.binds.chapter &&
-            this.binds.chapter.toLowerCase() !== " " &&
-            this.binds.chapter.toLowerCase() !== "space"
-        ) {
-            globalShortcut.register(this.binds.chapter, () => {
-                setTimeout(() => {
-                    this.mainWindow?.webContents.send("chapter-menu-from-main");
-                }, 10);
-            });
-        }
-        if (
-            this.binds.toggleMinimal &&
-            this.binds.toggleMinimal.toLowerCase() !== " " &&
-            this.binds.toggleMinimal.toLowerCase() !== "space"
-        ) {
-            globalShortcut.register(this.binds.toggleMinimal, () => {
-                setTimeout(() => {
-                    this.mainWindow?.webContents.send("toggle-options-or-header");
-                }, 10);
-            });
-        }
     }
 
     private toggleOverlay() {
@@ -206,7 +155,7 @@ class SpeedrunGuideApp {
                     };
                 }
 
-                this.currentGuide = JSON.parse(data) as SpeedrunGuide;
+                this.currentGuide = JSON.parse(data) as Guide;
                 this.currentStepIndex = 0;
                 return { success: true, guide: this.currentGuide };
             } catch (error) {
@@ -385,28 +334,13 @@ class SpeedrunGuideApp {
                 const txtName = path.basename(txtFilePath, ".txt");
                 const jsonPath = path.join(txtDir, `${txtName}-converted.json`);
 
-                // Copier le fichier .txt temporairement dans le dossier de l'application
-                const tempTxtPath = path.join(process.cwd(), "temp-speedrun.txt");
-                fs.copyFileSync(txtFilePath, tempTxtPath);
-
-                // Exécuter le script de conversion
-                const convertScriptPath = path.join(process.cwd(), "convert-guide.js");
-
-                if (!fs.existsSync(convertScriptPath)) {
-                    // Si le script n'existe pas, on utilise une conversion directe
-                    const content = fs.readFileSync(tempTxtPath, "utf8");
-                    const guide = this.parseContent(content);
-                    fs.writeFileSync(jsonPath, JSON.stringify(guide, null, 2));
+                // Lire le contenu du fichier txt
+                const content = fs.readFileSync(txtFilePath, "utf8");
+                const result = this.guideParser.parseGuide(content);
+                if (result.success && result.guide) {
+                    fs.writeFileSync(jsonPath, JSON.stringify(result.guide, null, 2));
                 } else {
-                    // Exécuter le script convert-guide.js avec le fichier temporaire et le fichier de sortie
-                    await execAsync(`node "${convertScriptPath}" "${tempTxtPath}" "${jsonPath}"`, {
-                        cwd: process.cwd(),
-                    });
-                }
-
-                // Nettoyer le fichier temporaire
-                if (fs.existsSync(tempTxtPath)) {
-                    fs.unlinkSync(tempTxtPath);
+                    throw new Error(result.error || "Erreur lors du parsing");
                 }
 
                 return { success: true, jsonPath: jsonPath };
@@ -415,372 +349,6 @@ class SpeedrunGuideApp {
                 return { success: false, error: error instanceof Error ? error.message : "Unknown error" };
             }
         });
-    }
-
-    // Fonction de parsing du contenu (copiée de convert-guide.js)
-    private parseContent(content: string): SpeedrunGuide {
-        const lines = content.split("\n");
-        const steps: any[] = [];
-        let currentId = 1;
-        let currentAct = "";
-        let currentChapter = "";
-        let i = 0;
-
-        function isMenuLine(line: string) {
-            return /(ARME|PICTO|LUMINA|UP ARME|UP LUMINA|STAT|SORT|FORMATION)/.test(line);
-        }
-        function getMenuType(line: string) {
-            const match = line.match(/(ARME|PICTO|LUMINA|UP ARME|UP LUMINA|STAT|SORT|FORMATION)/);
-            return match ? match[1] : "";
-        }
-        function isNote(line: string) {
-            return /^\(A\)/.test(line);
-        }
-        function extractNote(line: string) {
-            return line.replace(/^\(A\)\s*/, "").trim();
-        }
-        function isCharacterMark(line: string) {
-            return /\((M|L|S|V|Mo)\)/.test(line);
-        }
-        function extractCharacter(action: string) {
-            const match = action.match(/\((M|L|S|V|Mo)\)/);
-            if (!match) return "";
-            const map: { [key: string]: string } = { M: "maelle", L: "lune", S: "sciel", V: "verso", Mo: "monoco" };
-            return map[match[1]] || "";
-        }
-        function cleanAction(action: string) {
-            return action
-                .replace(/\((M|L|S|V|Mo)\)/, "")
-                .replace(/\(FAIL\)/, "")
-                .trim();
-        }
-
-        while (i < lines.length) {
-            let line = lines[i].trim();
-            if (!line) {
-                i++;
-                continue;
-            }
-
-            // Acte
-            if (/Act/.test(line)) {
-                currentAct = line;
-                i++;
-                continue;
-            }
-
-            // Chapitre
-            if (line.startsWith("T:")) {
-                currentChapter = line.substring(2).trim();
-                i++;
-                continue;
-            }
-
-            // Loot groupé
-            if (line.startsWith("📦")) {
-                let loots = [line.substring(1).trim().replace(/^\W+/g, "").trim()];
-                let j = i + 1;
-                while (j < lines.length && lines[j].trim().startsWith("📦")) {
-                    loots.push(lines[j].trim().substring(1).trim().replace(/^\W+/g, "").trim());
-                    j++;
-                }
-                steps.push({
-                    id: currentId++,
-                    type: "loot",
-                    titre: loots.join(" | "),
-                    acte: currentAct,
-                    chapitre: currentChapter,
-                });
-                i = j;
-                continue;
-            }
-
-            // Achat
-            if (line.startsWith("💰")) {
-                steps.push({
-                    id: currentId++,
-                    type: "purchase",
-                    titre: line.substring(1).trim().replace(/^\W+/g, "").trim(),
-                    acte: currentAct,
-                    chapitre: currentChapter,
-                });
-                i++;
-                continue;
-            }
-
-            // Menu groupé
-            if (isMenuLine(line)) {
-                let menuActions: any[] = [];
-                let menuOrder: string[] = [];
-                let currentMenuType = getMenuType(line);
-                let j = i + 1;
-
-                menuOrder.push(currentMenuType.toLowerCase());
-
-                while (j < lines.length && lines[j].trim() !== "") {
-                    let l = lines[j].trim();
-                    if (isMenuLine(l)) {
-                        currentMenuType = getMenuType(l);
-                        if (!menuOrder.includes(currentMenuType.toLowerCase())) {
-                            menuOrder.push(currentMenuType.toLowerCase());
-                        }
-                        j++;
-                        continue;
-                    }
-
-                    if (isNote(l)) {
-                        menuActions.push({
-                            type: "note",
-                            action: extractNote(l),
-                            character: "",
-                        });
-                        j++;
-                        continue;
-                    }
-
-                    if (currentMenuType.toLowerCase() === "stat" && l.includes(",")) {
-                        let parts = l
-                            .split(",")
-                            .map((a) => a.trim())
-                            .filter(Boolean);
-                        let firstChar = extractCharacter(parts[0]);
-                        let actions = parts.map((action) => {
-                            return {
-                                type: "stat",
-                                action: cleanAction(action),
-                                character: firstChar,
-                            };
-                        });
-                        menuActions.push(...actions);
-                    } else if (currentMenuType.toLowerCase() === "sort" && l.includes(",")) {
-                        let parts = l
-                            .split(",")
-                            .map((a) => a.trim())
-                            .filter(Boolean);
-                        let firstChar = extractCharacter(parts[0]);
-                        let actions = parts.map((action) => {
-                            return {
-                                type: "sort",
-                                action: cleanAction(action),
-                                character: firstChar,
-                            };
-                        });
-                        menuActions.push(...actions);
-                    } else {
-                        let actions = l
-                            .split(",")
-                            .map((a) => a.trim())
-                            .filter(Boolean)
-                            .map((action) => {
-                                let character = extractCharacter(action);
-                                return {
-                                    type: currentMenuType.toLowerCase(),
-                                    action: cleanAction(action),
-                                    character,
-                                };
-                            });
-                        menuActions.push(...actions);
-                    }
-                    j++;
-                }
-                steps.push({
-                    id: currentId++,
-                    type: "menu",
-                    actions: menuActions,
-                    menuOrder: menuOrder,
-                    acte: currentAct,
-                    chapitre: currentChapter,
-                });
-                i = j;
-                continue;
-            }
-
-            // Combat ou Boss
-            if (line.startsWith("🛡️") || line.startsWith("🎯")) {
-                let type = line.startsWith("🛡️") ? "combat" : "boss";
-                let titre = line;
-                let turns: any[] = [];
-                let j = i + 1;
-                while (
-                    j < lines.length &&
-                    lines[j].trim() &&
-                    !lines[j].trim().startsWith("🛡️") &&
-                    !lines[j].trim().startsWith("🎯") &&
-                    !lines[j].trim().startsWith("📦") &&
-                    !lines[j].trim().startsWith("💰") &&
-                    !isMenuLine(lines[j].trim()) &&
-                    !/Act/.test(lines[j].trim()) &&
-                    !lines[j].trim().startsWith("T:")
-                ) {
-                    let turnLine = lines[j].trim();
-
-                    if (isNote(turnLine)) {
-                        turns.push([
-                            {
-                                action: extractNote(turnLine),
-                                character: "",
-                                fail: false,
-                                isNote: true,
-                            },
-                        ]);
-                    } else {
-                        let actions = turnLine
-                            .split(">")
-                            .map((a) => a.trim())
-                            .filter(Boolean)
-                            .map((action) => {
-                                let character = extractCharacter(action);
-                                let fail = /(FAIL)/.test(action);
-                                let actionObj: any = {
-                                    action: cleanAction(action),
-                                    character,
-                                };
-
-                                // N'ajouter fail que si c'est true
-                                if (fail) {
-                                    actionObj.fail = true;
-                                }
-
-                                return actionObj;
-                            });
-                        if (actions.length) {
-                            turns.push(actions);
-                        }
-                    }
-                    j++;
-                }
-                steps.push({
-                    id: currentId++,
-                    type,
-                    titre,
-                    turns,
-                    acte: currentAct,
-                    chapitre: currentChapter,
-                });
-                i = j;
-                continue;
-            }
-
-            // Note isolée
-            if (isNote(line)) {
-                let nextLineIndex = i + 1;
-                while (nextLineIndex < lines.length && lines[nextLineIndex].trim() === "") {
-                    nextLineIndex++;
-                }
-
-                if (nextLineIndex < lines.length && isMenuLine(lines[nextLineIndex])) {
-                    // Note qui précède un menu
-                    let menuActions: any[] = [];
-                    let menuOrder: string[] = [];
-                    let currentMenuType = getMenuType(lines[nextLineIndex]);
-                    menuOrder.push(currentMenuType.toLowerCase());
-
-                    menuActions.push({
-                        type: "note",
-                        action: extractNote(line),
-                        character: "",
-                    });
-
-                    let j = nextLineIndex;
-                    while (j < lines.length && lines[j].trim() !== "") {
-                        let l = lines[j].trim();
-                        if (isMenuLine(l)) {
-                            currentMenuType = getMenuType(l);
-                            if (!menuOrder.includes(currentMenuType.toLowerCase())) {
-                                menuOrder.push(currentMenuType.toLowerCase());
-                            }
-                            j++;
-                            continue;
-                        }
-
-                        if (isNote(l)) {
-                            menuActions.push({
-                                type: "note",
-                                action: extractNote(l),
-                                character: "",
-                            });
-                            j++;
-                            continue;
-                        }
-
-                        if (currentMenuType.toLowerCase() === "stat" && l.includes(",")) {
-                            let parts = l
-                                .split(",")
-                                .map((a) => a.trim())
-                                .filter(Boolean);
-                            let firstChar = extractCharacter(parts[0]);
-                            let actions = parts.map((action) => {
-                                return {
-                                    type: "stat",
-                                    action: cleanAction(action),
-                                    character: firstChar,
-                                };
-                            });
-                            menuActions.push(...actions);
-                        } else if (currentMenuType.toLowerCase() === "sort" && l.includes(",")) {
-                            let parts = l
-                                .split(",")
-                                .map((a) => a.trim())
-                                .filter(Boolean);
-                            let firstChar = extractCharacter(parts[0]);
-                            let actions = parts.map((action) => {
-                                return {
-                                    type: "sort",
-                                    action: cleanAction(action),
-                                    character: firstChar,
-                                };
-                            });
-                            menuActions.push(...actions);
-                        } else {
-                            let actions = l
-                                .split(",")
-                                .map((a) => a.trim())
-                                .filter(Boolean)
-                                .map((action) => {
-                                    let character = extractCharacter(action);
-                                    return {
-                                        type: currentMenuType.toLowerCase(),
-                                        action: cleanAction(action),
-                                        character,
-                                    };
-                                });
-                            menuActions.push(...actions);
-                        }
-                        j++;
-                    }
-                    steps.push({
-                        id: currentId++,
-                        type: "menu",
-                        actions: menuActions,
-                        menuOrder: menuOrder,
-                        acte: currentAct,
-                        chapitre: currentChapter,
-                    });
-                    i = j;
-                    continue;
-                } else {
-                    // Note isolée normale
-                    steps.push({
-                        id: currentId++,
-                        type: "note",
-                        titre: extractNote(line),
-                        acte: currentAct,
-                        chapitre: currentChapter,
-                    });
-                    i++;
-                    continue;
-                }
-            }
-
-            // Si rien d'autre, skip
-            i++;
-        }
-
-        return {
-            game: "Clair Obscur",
-            category: "Any% Expert Glitchless",
-            steps,
-        };
     }
 }
 
