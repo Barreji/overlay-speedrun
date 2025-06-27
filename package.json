@@ -24,11 +24,13 @@
     "concurrently": "^8.2.2",
     "electron": "^27.1.0",
     "electron-builder": "^24.6.4",
+    "svg2img": "^1.0.0-beta.2",
     "typescript": "^5.3.0"
   },
   "build": {
     "appId": "com.speedrun.guide",
     "productName": "Speedrun Clair Obscur Guide",
+    "icon": "logo.ico",
     "directories": {
       "output": "Executable"
     },
@@ -69,9 +71,12 @@
       "target": [
         {
           "target": "portable",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
-      ]
+      ],
+      "icon": "logo.ico"
     },
     "portable": {
       "artifactName": "SpeedrunClairObscur.exe"

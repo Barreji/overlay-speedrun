@@ -64,9 +64,9 @@ class SpeedrunGuideApp {
         const primaryDisplay = screen.getPrimaryDisplay();
         const { width, height } = primaryDisplay.workAreaSize;
 
-        // Create a small overlay window in the top-right corner
+        // Create a small overlay window in the top-left corner
         this.mainWindow = new BrowserWindow({
-            x: width - 420,
+            x: 20,
             y: 20,
             frame: false,
             alwaysOnTop: true,
@@ -74,6 +74,7 @@ class SpeedrunGuideApp {
             resizable: true,
             skipTaskbar: true,
             focusable: true,
+            icon: path.join(__dirname, "../logo.ico"),
             webPreferences: {
                 nodeIntegration: true,
                 contextIsolation: false,

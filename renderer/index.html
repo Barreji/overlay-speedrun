@@ -14,6 +14,9 @@
                     <span id="act-location"></span>
                 </div>
                 <div class="header-right">
+                    <button id="hide-header-btn" class="header-btn">
+                        <span class="arrow-down-icon">⬇</span>
+                    </button>
                     <button id="settings-btn" class="header-btn">
                         <span class="gear-icon">⚙️</span>
                     </button>
@@ -28,6 +31,9 @@
             <div class="step-header">
                 <div id="step-title"></div>
                 <div id="step-number"></div>
+                <button id="show-header-btn" class="header-btn">
+                    <span class="arrow-up-icon">⬆</span>
+                </button>
             </div>
             <div id="step-content"></div>
         </div>
@@ -36,11 +42,7 @@
     <div id="options-menu" class="options-menu" style="display: none;">
         <div class="options-title">Options</div>
         <div class="binds-section">
-            <label>BIND étape suivante : <input type="text" id="bind-next" value="" maxlength="20" readonly></label>
-            <label>BIND étape précédente : <input type="text" id="bind-prev" value="" maxlength="20" readonly></label>
-            <label>BIND reset étape 0 : <input type="text" id="bind-reset" value="" maxlength="20" readonly></label>
-            <label>BIND menu chapitres : <input type="text" id="bind-chapter" value="" maxlength="20" readonly></label>
-            <label>BIND cacher/afficher overlay : <input type="text" id="bind-toggleOverlay" value="" maxlength="20" readonly></label>
+            <!-- Les raccourcis sont générés dynamiquement par JavaScript -->
         </div>
         <div class="option-actions">
             <button id="reset-binds-btn">Reset</button>

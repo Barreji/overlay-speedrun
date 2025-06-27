@@ -6,23 +6,15 @@ Une application Electron pour afficher des guides de speedrun en overlay pendant
 
 ### 📦 **Version prête à l'emploi (Recommandée)**
 
--   [📥 Télécharger le dossier Release](https://github.com/votre-username/speedrun-clair-obscur/releases/latest/download/Release.zip)
+-   [📥 Télécharger le dossier Release](https://github.com/Barreji/overlay-speedrun/releases/latest/download/Release.zip)
 -   Contient l'exécutable et tous les fichiers nécessaires
 -   Aucune installation requise, fonctionne immédiatement
 
 ### 🔧 **Code source**
 
--   [📥 Télécharger le code source](https://github.com/votre-username/speedrun-clair-obscur/archive/refs/heads/main.zip)
+-   [📥 Télécharger le code source](https://github.com/Barreji/overlay-speedrun/archive/refs/heads/main.zip)
 -   Pour les développeurs qui veulent modifier l'application
 -   Nécessite Node.js et npm pour compiler
-
-## �� Fonctionnalités
-
--   **Affichage en overlay** : Le guide reste visible par-dessus le jeu
--   **Navigation intuitive** : Raccourcis clavier pour naviguer dans le guide
--   **Mode minimaliste** : Cache les éléments non essentiels pour plus de clarté
--   **Gestion de guides** : Créez et chargez vos propres guides depuis des fichiers .txt ou .json
--   **Format simple** : Utilisez un fichier texte simple pour créer vos guides
 
 ## 🎮 Utilisation
 
@@ -33,17 +25,23 @@ Une application Electron pour afficher des guides de speedrun en overlay pendant
 -   **F3** : Afficher/masquer l'overlay
 -   **F4** : Menu des chapitres
 -   **F5** : Retour au début
--   **F6** : Options/mode minimaliste
+
+### Contrôles de l'interface
+
+-   **Flèche ⬇** (dans l'en-tête) : Masquer l'en-tête principal
+-   **Flèche ⬆** (dans le step-header) : Réafficher l'en-tête principal
+-   **Clic sur l'en-tête** : Déplacer la fenêtre
+-   **Clic sur le step-header** : Déplacer la fenêtre (même quand l'en-tête est masqué)
 
 ### Options disponibles
 
--   **Mode minimaliste** : Cache le header et certains types d'étapes
+-   **Taille de police** : Ajustable de 50% à 200% avec une barre de progression
 -   **Éléments à masquer** :
-    -   Header du guide
     -   Étapes de loot
     -   Étapes d'achat
     -   Notes isolées
 -   **Personnalisation des raccourcis** : Modifiez les touches dans les options
+-   **Gestion des guides** : Créer et charger des guides directement depuis l'interface
 
 ## 📝 Création de guides
 

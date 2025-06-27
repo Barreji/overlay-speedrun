@@ -10,7 +10,7 @@ T:Prologue
 (A) 1er PARRY crit ? Surcharge t2 + PARRY
 
 Act I
-T:Spring Meadows
+T:Vallons Fleuris
 
 🛡️ Lancelier
 (V) Weak Spot > (V) Attack > PARRY
@@ -28,9 +28,9 @@ PARRY > (V) Attack
 📦 Teinte Energie
 
 🛡️ 3 Volester
-Parry > Parry > (V) Shoot (5AP)
+Parry > Parry > (V) Shoot (5PA)
 
-📦 Energie Mortelle II.
+📦 Energie Mortelle II
 
 ARME
 (V) Lanceram
@@ -57,48 +57,48 @@ SORT
 (L) Immolation > (V) Tir Marquant > DODGE
 (L) Teinte Énergie ? > (V) Surcharge
 
-T:Flying Waters
+T:Océan Suspendu
 
 📦 $333 Chroma sur la route
 
+🛡️ 2 Demineur
+(V) Shoot bombs + tête
+
 🛡️ 3 Demineur
 (V) Shoot bombs
-(A) groupe de 2 aussi si tu manques xp
 
 PICTO
-(M) Brulures Critiques
-(M) Energie Mortelle II
-(M) Insaisissable
+(M) Brulures Critiques(2)
+(M) Energie Mortelle II(3)
 STAT
-(V) +6 Agi (6)
-(M) +15 Force (15)
-(L) +6 Force (14)
+(V) +2 Force (11), +7 Agi (7)
+(M) +14 Force (15), +1 Agi (1)
+(L) +6 Force (14), +3 Agi (4)
 SORT
 (M) Foulée Vive
 (L) Feu Sauvage
 
 🛡️ The Curator
-(V) Skip > (M) Pivot offensif > (L) Skip > (V) Mark > (M) Percée
+(V) Skip > (L) Immo > (L) Foulée > (V) Mark > (L) Skip > (M) Percée
 🛡️ Noco
-(M) Pivot Offensif > PARRY > (M) Percée 
+(M) Pivot Offensif > PARRY > (M) Flammeche 
 💰 Attaque fragilisante
 
-🛡️ Démineur, Brûler, Luster
-(V) Shoot mine > (V) Mark Brûler > (L) Lance Luster
-(M)  shot brûler ws > (M) shot démineur 3 > (M) shot attack
-
-STAT
-(V) +4 Force (13), +1 Agi (7)
-(M) +2 Force (17), +1 Agi (1)
-(L) +3 Force (17), +3 Agi (4)
-
 📦 Après le drapeau $333 Chroma
+
+🛡️ Brûler, Cruleur
+DODGE
+(V) Mark Brûler > (L) Feu Sauv > (M) Shot WS > (M) Foulée
+(V) Mark > (L) Skip > (M) Percée
+
 📦 Entre les algues $665 Chroma
 
 ARME
-(M) Bruleram
-(L) Luminerim
+(V) Cruleuram
+(M) Bruleurum
+(L) Lumerim
 PICTO
+(M) Insaisissable
 (L) Attaque fragilisante
 LUMINA
 (L) +Brûlures critiques
@@ -112,43 +112,47 @@ LUMINA
 (L) Immo > (V) Surcharge > (M) Foulée
 (L) Shoot all > (L) Attaque > (V) Mark > (M) Percée
 
-T:Ancient Sanctuary
+T:Sanctuaire Ancien
 
-🛡️ Robust Sakapatate
+STAT
+(A) Si no hit avec Maelle sinon avant Ultime
+(M) +9 Force (23)
+
+🛡️ Sakapatate Robuste
 (L) Immo (Fail) > (V) Surpui > (M) Foulée(Fail)
 (L) Attaque > (V) Mark > (M) Percée
 (A) PARRY que attack bouclier
 
-STAT
-(M) +9 Force (23)
-
-🎯 Ultimate Sakapatate
+🎯 Sakapatate Ultime
 (L) Immo > (V) Surpui > (M) Foulée
 (L) Shoot + 3 Shoot WS > (L) Attaque > (V) Mark > (M) Percée
 (L) Immo > (V) Surcharge/Surpui/Attaque > (M) Foulée
 (L) Attack > (V) Mark > (M) Percée
-(A) Gustave need 5 ap turn 3. DODGE “Attaque avec son compagnon mort”
+(A) Gustave need 5 ap turn 3.
 
-T:Gestral Village
+T:Village des Gestrals
 
 SORT
 (M) Inflammable, Déluge de Feu
+
+💰 Instant Critique, 2 Chroma Poli
+
+PICTO
+(M) Instant Critique > Insaisissable
 
 🛡️ Tournoi
 PARRY > (M) Inflammable > PARRY > (M) Déluge de Feu
 🛡️ Sciel
 PARRY > (M) Déluge de Feu > PARRY
 
-💰 Instant Critique, 2 Chroma Poli
-
 T:Nid d’Esquie
 
 ARME
 (M) Medalum
 PICTO
-(V) Instant Critique
+(M) -Instant Critique
 STAT
-(V) +13 Agi(20)
+(V) +2 Force (13), +13 Agi(20)
 (L) +15 Force(29)
 (M) +9 Force(32)
 (S) +45 Force(45)
@@ -165,7 +169,7 @@ T:The Continent
 📦 Luminacolor à coté combat
 
 UP ARME
-(L) Luminerim +6 (7)
+(L) Lumerim +6 (7)
 
 🛡️ Demineur, Crueler, Lancelier
 (V) Shoot WS > (V) Shoot Mine > (V) Mark Crueler
@@ -218,8 +222,13 @@ SORT
 ARME
 (V) Lanceram
 PICTO
-(V) +Au Seuil de la mort
-(V) +Initiative
+(V) Au Seuil de la mort
+(V) Initiative
+LUMINA
+(V) -Attaque Affaiblissante
+(V) +Brûlures Critiques
+(V) +Insaisissable
+(V) +Instant Critique
 
 T:Forgotten Battlefield
 
@@ -230,20 +239,15 @@ DODGE > (V) Frappe de Défi > DIE
 💰Affinité Inversée
 
 FORMATION
-(M) -Maelle, (S) +Sciel
+(V) -Verso,(V) +Verso,(M) -Maelle,(S) +Sciel
 PICTO
 (V) Affinité Inversée
-LUMINA
-(V) -Attaque Affaiblissante
-(V) +Brûlures Critiques
-(V) +Insaisissable
-(V) +Instant Critique
 
 🎯 Dualiste
 (A) Si Verso ou Sciel Focus
 (V) Tranchée Berserk
-(L) Teinte Energie (Celui pas focus) > (V) Tranchée Berserk > (S) Interv(Verso) > (V) Frappe/ Berserk
-(L) Attack/ Teinte(Sciel) > (V) Berserk/ Frappe > (S) Interv(Verso) > (V) Berserk
+(L) Teinte Energie (Celui pas focus) > (V) Tranchée Berserk > (S) Interv(Verso) > (V) Frappe
+(L) Attack/ Teinte(Sciel) > (V) Berserk > (S) Interv(Verso) > (V) Berserk
 (L) Attaque > (V) Berserk > (S) Interv(Verso) > (V) Berserk
 
 🎯 Mediocre fight
@@ -254,7 +258,7 @@ LUMINA
 (L) Attaque > (V) Berserk > (S) Interv(Verso) > (V) Berserk
 
 UP ARME
-(L) Luminerim +2 (9)
+(L) Lumerim +2 (9)
 UP LUMINA
 (L) +2 Lumina(19)
 (S) +2 Lumina(20)
@@ -272,8 +276,8 @@ ARME
 (V) Dualiso
 PICTO
 (V) Attaque Combo > Au seuil de la mort
-(V) Attaque fragilisante > Initiative (Swap)
-(V) Instant Critique > Affinité inversée (Swap)
+(V) Attaque fragilisante > Affinité inversée (Swap)
+(V) Instant Critique > Initiative (Swap)
 (L) Au seuil de la mort
 LUMINA
 (L) +Instant Critique
@@ -355,14 +359,14 @@ PICTO
 (L) Cycle Elem > (S) Interv(Lune) > (L) Danse 
 PARRY
 (V) Commandement > (L) Feu sauv
-(A) On peut attaquer avant commandement si on a manqué de crit pour assurer les degats
+(A) On peut attaquer avant commandement
 🎯 Maître des Masques
 (S) Interv(Lune) > (L) Danse > PARRY
 (V) Attaque > (V) Commandement/ Surpui > (L) Feu sauv > (S) Interv(Lune) > (L) Danse
 (A) Command ou Surpui selon si il a fait son aoe pour les PA
 
 UP ARME
-(L) Luminerim +4 (13)
+(L) Lumerim +4 (13)
 (S) Scieleson +3 (8)
 
 T:Sirene
@@ -428,8 +432,8 @@ SORT
 (V) Skip > (L) Lance de Glace> (S) Skip > (M)Fuir
 
 🎯 Renoir 2
-(V) Attaque > (V) 1 Shot > (V) Commandement > (L) Appel Tempête > (S) Présage Ciblé > PARRY
-(V) Attaque > (V) Surpui > (S) Sort Scellé > (L) Lance de Glace > PARRY
+(V) Attaque > (V) 1 Shot > (V) Commandement > (L) Appel Tempête > (S) Présage Ciblé
+(V) Attaque > (V) Surpui > (S) Sort Scellé > (L) Lance de Glace
 (V) Attack > (V) Shot? Berserk? Frappe? Attaque?
 (A) Il faut se rapprocher sans dépassé les 50% pv
 (S) Shoot until 2 PA > (S) Gradient > (S) Sort Scellé

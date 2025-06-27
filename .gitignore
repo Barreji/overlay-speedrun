@@ -60,4 +60,8 @@ out/
 app/
 
 # Exclude Executable folder but keep Release
-Executable/ 
+Executable/
+
+# Specific files
+speedrun_new.txt
+Release.zip 

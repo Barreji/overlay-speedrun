@@ -35,6 +35,7 @@ body {
     word-wrap: break-word;
     word-break: break-word;
     overflow: hidden;
+    font-weight: bold;
 }
 
 .guide-info {
@@ -102,6 +103,17 @@ body {
     font-size: 16px;
     vertical-align: middle;
     color: #f87171;
+}
+
+.arrow-down-icon, .arrow-up-icon {
+    font-size: 14px;
+    vertical-align: middle;
+    color: #a78bfa;
+    transition: color 0.2s;
+}
+
+.arrow-down-icon:hover, .arrow-up-icon:hover {
+    color: #c4b5fd;
 }
 
 .header-row-2 {
@@ -330,7 +342,7 @@ body {
 .options-menu {
     position: absolute;
     top: 45px;
-    right: 20px;
+    left: 20px;
     background: #222;
     border: 1px solid #444;
     border-radius: 8px;
@@ -355,7 +367,9 @@ body {
 }
 
 .binds-section {
-    margin-bottom: 12px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #444;
 }
 
 .options-menu label {
@@ -465,7 +479,7 @@ body {
 
 @keyframes slideIn {
     from {
-        transform: translateX(100%);
+        transform: translateX(-100%);
         opacity: 0;
     }
     to {
@@ -477,7 +491,7 @@ body {
 .chapter-menu {
     position: absolute;
     top: 45px;
-    right: 20px;
+    left: 20px;
     background: #222;
     border: 1px solid #444;
     border-radius: 8px;
@@ -510,6 +524,12 @@ body {
     font-weight: bold;
 }
 
+/* Stat max value highlight */
+.stat-max {
+    color: #8b5cf6;
+    font-weight: bold;
+}
+
 /* Minimalist step content */
 .step-display {
     height: auto;
@@ -531,6 +551,7 @@ body {
     margin-bottom: 8px;
     padding-bottom: 4px;
     border-bottom: 1px solid #333;
+    -webkit-app-region: drag;
 }
 
 #step-title {
@@ -603,7 +624,6 @@ body {
 .minimal-options-section {
     margin-top: 15px;
     padding-top: 15px;
-    border-top: 1px solid #444;
 }
 
 .minimal-options-title {
@@ -655,4 +675,41 @@ body {
     color: #fff;
     background: #f87171;
     border-radius: 50%;
+}
+
+.font-size-label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    font-size: 14px;
+    cursor: default;
+}
+
+.font-size-label span {
+    margin-bottom: 8px;
+    color: #a78bfa;
+    font-weight: bold;
+}
+
+.font-size-label input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #333;
+    outline: none;
+    cursor: pointer;
+}
+
+.font-size-label input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #a78bfa;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.font-size-label input[type="range"]::-webkit-slider-thumb:hover {
+    background: #c4b5fd;
 } 
