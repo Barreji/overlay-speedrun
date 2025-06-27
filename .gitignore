@@ -64,4 +64,8 @@ Executable/
 
 # Specific files
 speedrun_new.txt
-Release.zip 
+Release.zip
+
+# Exécutables
+Release/*.exe
+*.exe 
