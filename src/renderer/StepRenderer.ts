@@ -623,38 +623,6 @@ export class StepRenderer {
     }
 
     /**
-     * Rend une liste d'étapes
-     */
-    renderSteps(steps: Step[]): string {
-        return steps.map((step) => this.renderStep(step)).join("");
-    }
-
-    /**
-     * Rend une étape avec des classes CSS spécifiques pour les états
-     */
-    renderStepWithState(step: Step, isCurrent: boolean = false, isCompleted: boolean = false): string {
-        const stepContent = this.renderStepContent(step);
-        const classes = ["step"];
-
-        if (isCurrent) classes.push("current-step");
-        if (isCompleted) classes.push("completed-step");
-
-        return `<div class="${classes.join(" ")}" data-step-id="${step.id}">${stepContent}</div>`;
-    }
-
-    /**
-     * Rend une étape avec des données personnalisées
-     */
-    renderStepWithData(step: Step, customData: Record<string, any> = {}): string {
-        const stepContent = this.renderStepContent(step);
-        const dataAttributes = Object.entries(customData)
-            .map(([key, value]) => `data-${key}="${value}"`)
-            .join(" ");
-
-        return `<div class="step" data-step-id="${step.id}" ${dataAttributes}>${stepContent}</div>`;
-    }
-
-    /**
      * Met à jour les options minimalistes
      */
     public updateMinimalOptions(minimalOptions: any): void {

@@ -107,32 +107,6 @@ export class FileManager {
     }
 
     /**
-     * Charge la configuration complète depuis localStorage
-     */
-    public loadConfig(): SavedConfig {
-        return {
-            minimalOptions: this.loadMinimalOptions(),
-            keyBinds: this.loadKeyBinds(),
-        };
-    }
-
-    /**
-     * Sauvegarde la configuration complète dans localStorage
-     */
-    public saveConfig(config: SavedConfig): void {
-        if (config.minimalOptions) {
-            const currentOptions = this.loadMinimalOptions();
-            const mergedOptions = { ...currentOptions, ...config.minimalOptions };
-            this.saveMinimalOptions(mergedOptions);
-        }
-        if (config.keyBinds) {
-            const currentBinds = this.loadKeyBinds();
-            const mergedBinds = { ...currentBinds, ...config.keyBinds };
-            this.saveKeyBinds(mergedBinds);
-        }
-    }
-
-    /**
      * Sauvegarde l'index de l'étape actuelle
      */
     public saveCurrentStepIndex(index: number): void {
@@ -488,40 +462,5 @@ export class FileManager {
      */
     public isElectron(): boolean {
         return typeof window !== "undefined" && !!(window as any).require;
-    }
-
-    /**
-     * Nettoie le localStorage (supprime toutes les données sauvegardées)
-     */
-    public clearAllData(): void {
-        try {
-            localStorage.removeItem("speedrun_binds");
-            localStorage.removeItem("speedrun_minimal_options");
-            localStorage.removeItem("speedrun_current_step");
-        } catch (error) {
-            console.error("Erreur lors du nettoyage des données:", error);
-        }
-    }
-
-    /**
-     * Exporte la configuration actuelle
-     */
-    public exportConfig(): string {
-        const config = this.loadConfig();
-        return JSON.stringify(config, null, 2);
-    }
-
-    /**
-     * Importe une configuration
-     */
-    public importConfig(configJson: string): boolean {
-        try {
-            const config = JSON.parse(configJson) as SavedConfig;
-            this.saveConfig(config);
-            return true;
-        } catch (error) {
-            console.error("Erreur lors de l'import de la configuration:", error);
-            return false;
-        }
     }
 }
