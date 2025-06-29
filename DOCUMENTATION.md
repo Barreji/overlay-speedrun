@@ -134,6 +134,71 @@ T:Flying Waters
 (A) 1er PARRY crit ? Surcharge t2 + PARRY
 ```
 
+### 8. Images attachées
+
+**Format :** `(IMG) [nom du fichier image]`
+
+Les images peuvent être attachées à différents types d'étapes pour fournir des références visuelles.
+
+#### Images attachées aux étapes
+
+**Format :** `(IMG) [nom du fichier image]` après n'importe quelle étape
+
+**Exemples :**
+
+```
+🛡️ Maelle
+(V) Attack > PARRY > (V) Attack > DODGE > (V) Surcharge
+(IMG) Screenshot_1.png
+
+📦 Brûlures Critiques
+(IMG) Screenshot_1.png
+
+💰 Attaque fragilisante
+(IMG) Screenshot_1.png
+```
+
+#### Images dans les menus
+
+Les images peuvent être attachées aux menus pour montrer les configurations :
+
+```
+ARME
+(V) Lanceram
+PICTO
+(V) Brulures Critiques
+(V) Energy mortelle II
+(L) Insaisissable
+(IMG) Screenshot_1.png
+```
+
+#### Images solo avec marqueurs de personnage
+
+**Format :** `(IMG) (personnage) [nom du fichier image]`
+
+Ces images créent des étapes d'images séparées (type `imageGroup`) et **doivent** avoir un marqueur de personnage.
+
+**Exemples :**
+
+```
+(IMG) (M) Screenshot_1.png
+(IMG) (V) Screenshot_1.png
+(IMG) (L) Screenshot_1.png
+(IMG) (S) Screenshot_1.png
+```
+
+**Important :** Les images solo sans marqueur de personnage ne sont pas reconnues. Utilisez toujours `(IMG) (M)`, `(IMG) (V)`, etc.
+
+#### Règles importantes
+
+-   **Images attachées** : `(IMG) Screenshot_1.png` - attachées à une étape existante
+-   **Images solo** : `(IMG) (M) Screenshot_1.png` - créent une étape d'image séparée
+-   **Séparation par lignes vides** : Les images attachées peuvent être séparées de l'étape par des lignes vides
+-   **Images multiples** : Plusieurs images peuvent être attachées à une même étape
+-   **Fichiers d'images** : Les images doivent être placées dans le dossier `screens/` de l'application
+-   **Format supporté** : PNG, JPG, JPEG
+-   **Nommage** : Utilisez des noms de fichiers cohérents (ex: `Screenshot_1.png`, `Screenshot_2.png`)
+
 ## Menus et configurations
 
 ### Types de menus reconnus
@@ -266,6 +331,7 @@ T:Prologue
 🛡️ Maelle
 (V) Attack > PARRY > (V) Attack > DODGE > (V) Surcharge
 (A) Si vous ratez un DODGE, 1 Shot
+(IMG) Screenshot_1.png
 
 Act I
 T:Spring Meadows
@@ -274,7 +340,10 @@ T:Spring Meadows
 (V) Weak Spot > (V) Attack > PARRY
 
 📦 Brûlures Critiques
+(IMG) Screenshot_1.png
+
 📦 $360 Chroma
+📦 Teinte Energie
 
 ARME
 (V) Lanceram
@@ -282,6 +351,10 @@ PICTO
 (V) Brulures Critiques
 (V) Energy mortelle II
 (L) Insaisissable
+(IMG) Screenshot_1.png
+
+💰 Attaque fragilisante
+(IMG) Screenshot_1.png
 
 🎯 Eveque
 (L) Shoot (last WS) > (L) Immolation > (V) Surpuissant

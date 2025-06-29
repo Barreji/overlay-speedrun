@@ -79,6 +79,7 @@ export class FileManager {
             skipPurchase: false,
             skipNotes: false,
             fontSize: 100,
+            imageSize: 100,
         };
 
         try {

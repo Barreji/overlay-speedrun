@@ -3,7 +3,7 @@
 // ============================================================================
 
 /**
- * Guide complet avec toutes les étapes
+ * Guide complet avec toutes les étapes (format legacy)
  */
 export interface Guide {
     game: string;
@@ -12,12 +12,95 @@ export interface Guide {
 }
 
 /**
- * Type d'étape possible dans le guide
+ * Nouveau format avec groupes d'actions
  */
-export type StepType = "combat" | "boss" | "loot" | "purchase" | "menu" | "note" | "act" | "chapter";
+export interface ActionGroupGuide {
+    game: string;
+    category: string;
+    actionGroups: ActionGroup[];
+}
 
 /**
- * Une étape du guide
+ * Type de groupe d'actions
+ */
+export type ActionGroupType = "mixte" | "combat" | "loot" | "menu" | "achat";
+
+/**
+ * Groupe d'actions
+ */
+export interface ActionGroup {
+    id: number;
+    type: ActionGroupType;
+    acte: string;
+    chapitre: string;
+    titre: string;
+    steps: ActionStep[];
+}
+
+/**
+ * Type d'étape dans un groupe d'actions
+ */
+export type ActionStepType =
+    | "combat"
+    | "loot"
+    | "purchase"
+    | "menu"
+    | "note"
+    | "image"
+    | "arme"
+    | "picto"
+    | "lumina"
+    | "stat"
+    | "sort"
+    | "formation"
+    | "upArme"
+    | "upLumina";
+
+/**
+ * Une étape dans un groupe d'actions
+ */
+export interface ActionStep {
+    type: ActionStepType;
+    titre?: string;
+    turns?: Turn[][];
+    notes?: Note[];
+    item?: string;
+    price?: number;
+    name?: string;
+    character?: string;
+    toAdd?: number;
+    total?: number;
+    position?: string;
+    imagePath?: string;
+    fail?: boolean;
+}
+
+/**
+ * Note dans une étape
+ */
+export interface Note {
+    type: "note";
+    note: string;
+}
+
+/**
+ * Type d'étape possible dans le guide (format legacy)
+ */
+export type StepType =
+    | "combat"
+    | "boss"
+    | "loot"
+    | "purchase"
+    | "menu"
+    | "note"
+    | "act"
+    | "chapter"
+    | "image"
+    | "imageGroup"
+    | "combatGroup";
+
+/**
+ * Une étape du guide (format legacy)
  */
 export interface Step {
     id: number;
@@ -43,6 +126,7 @@ export interface MenuStep extends Step {
     title: string;
     actions: MenuAction[];
     notes?: string[];
+    attachedImages?: string[];
 }
 
 /**
@@ -81,6 +165,7 @@ export interface LootStep extends Step {
     character?: string;
     items: string[];
     location?: string;
+    attachedImages?: string[];
 }
 
 /**
@@ -91,6 +176,7 @@ export interface PurchaseStep extends Step {
     character?: string;
     items: string[];
     shop?: string;
+    attachedImages?: string[];
 }
 
 /**
@@ -101,6 +187,7 @@ export interface CombatStep extends Step {
     enemy?: string;
     actions: CombatAction[];
     strategy?: string;
+    attachedImages?: string[];
 }
 
 /**
@@ -112,6 +199,59 @@ export interface BossStep extends Step {
     actions: CombatAction[];
     strategy?: string;
     notes?: string[];
+    attachedImages?: string[];
+}
+
+/**
+ * Étape d'image
+ */
+export interface ImageStep extends Step {
+    type: "image";
+    imagePath: string;
+    title?: string;
+    character?: string;
+    isSolo?: boolean;
+}
+
+/**
+ * Étape de groupe d'images (images consécutives avec titres intermédiaires)
+ */
+export interface ImageGroupStep extends Step {
+    type: "imageGroup";
+    images: Array<{
+        imagePath: string;
+        character?: string;
+        title?: string;
+    }>;
+}
+
+/**
+ * Note de loot (loot collé à un combat)
+ */
+export interface LootNote {
+    type: "lootNote";
+    items: string[];
+    attachedImages?: string[];
+}
+
+/**
+ * Note d'achat (achat collé à un combat)
+ */
+export interface PurchaseNote {
+    type: "purchaseNote";
+    items: string[];
+    attachedImages?: string[];
+}
+
+export type CombatGroupItem =
+    | { type: "combat" | "boss"; titre: string; turns: Turn[][]; attachedImages?: string[] }
+    | LootNote
+    | PurchaseNote;
+
+export interface CombatGroupStep extends Step {
+    type: "combatGroup";
+    groupItems: CombatGroupItem[];
+    attachedImages?: string[];
 }
 
 // ============================================================================
@@ -198,6 +338,7 @@ export interface MinimalOptions {
     skipPurchase: boolean;
     skipNotes: boolean;
     fontSize: number; // Taille de police en pourcentage (100% = taille par défaut)
+    imageSize: number; // Taille des images en pourcentage (100% = taille par défaut)
 }
 
 /**

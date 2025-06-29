@@ -8,28 +8,31 @@ T:Prologue
 (V) Attack > PARRY > (V) Attack > DODGE > (V) Surcharge
 (A) Si vous ratez un DODGE, 1 Shot
 (A) 1er PARRY crit ? Surcharge t2 + PARRY
+(IMG) Screenshot_1.png
+(IMG) Screenshot_1.png
+
+(IMG) (M) Screenshot_1.png
+(IMG) (M) Screenshot_1.png
+(IMG) (V) Screenshot_1.png
+(IMG) (V) Screenshot_1.png
+(IMG) (V) Screenshot_1.png
+(IMG) (L) Screenshot_1.png
+(IMG) (S) Screenshot_1.png
 
 Act I
 T:Vallons Fleuris
 
 🛡️ Lancelier
 (V) Weak Spot > (V) Attack > PARRY
-
 🛡️ Portier
 (V) Weak Spot > (V) Attack > (L) Lance Glace > PARRY
-
 📦 Brûlures Critiques
-
 🛡️ 2 Lancelier(FS)
 (V) Weak Spot > (V) Attack > (L) Lance Glace
 PARRY > (V) Attack
-
-📦 $360 Chroma
-📦 Teinte Energie
-
+📦 $360 Chroma, Teinte Energie
 🛡️ 3 Volester
-Parry > Parry > (V) Shoot (5PA)
-
+PARRY > PARRY > (V) Shoot (5PA)
 📦 Energie Mortelle II
 
 ARME
@@ -38,11 +41,11 @@ PICTO
 (V) Brulures Critiques
 (V) Energy mortelle II
 (L) Insaisissable
+(IMG) Screenshot_1.png
 
 🛡️ 2 Volester + Abbest 
 (V) Shoot x3 > (V) Shoot x3 > (V) Shoot WS
 (V) Skip > (L) Lance Glace
-
 📦 Luminacolor sous le pont
 
 STAT
@@ -60,10 +63,8 @@ SORT
 T:Océan Suspendu
 
 📦 $333 Chroma sur la route
-
 🛡️ 2 Demineur
 (V) Shoot bombs + tête
-
 🛡️ 3 Demineur
 (V) Shoot bombs
 
@@ -79,7 +80,8 @@ SORT
 (L) Feu Sauvage
 
 🛡️ The Curator
-(V) Skip > (L) Immo > (M) Foulée > (V) Mark > (L) Skip > (M) Percée
+(V) Skip > (L) Immo > (M) Foulée
+(V) Mark > (L) Skip > (M) Percée
 🛡️ Noco
 (M) Pivot Offensif > PARRY > (M) Flammeche 
 💰 Attaque fragilisante
@@ -145,7 +147,7 @@ PARRY > (M) Inflammable > PARRY > (M) Déluge de Feu
 🛡️ Sciel
 PARRY > (M) Déluge de Feu > PARRY
 
-T:Nid d’Esquie
+T:Nid d'Esquie
 
 ARME
 (M) Medalum
@@ -362,7 +364,7 @@ PARRY
 (A) On peut attaquer avant commandement
 🎯 Maître des Masques
 (S) Interv(Lune) > (L) Danse > PARRY
-(V) Attaque > (V) Commandement/ Surpui > (L) Feu sauv > (S) Interv(Lune) > (L) Danse
+(V) Attaque > (V) Command/ Surpui > (L) Feu sauv > (S) Interv(Lune) > (L) Danse
 (A) Command ou Surpui selon si il a fait son aoe pour les PA
 
 UP ARME
@@ -397,7 +399,7 @@ LUMINA
 (V) Attaque > (V) Teinte Sciel > (L) Cycle Elem
 (S) Tissage > (S) Interv(Lune) > (L) Danse
 PARRY
-(V) Attaque > (V) Shoot jusqu’a Rang C > (V) Commandement
+(V) Attaque > (V) Shoot jusqu'a Rang C > (V) Commandement
 (L) Feu Sauv > (S) Gradient > (S) Interv(Lune) > (L) Danse
 (A) y a des scenarios ou faut tirer un peu avec verso si on PARRY enchantement juste
 
@@ -447,7 +449,7 @@ LUMINA
 🎯 The Paintress
 (V) Skip > (L) Cycle Elem > (S) Interv(Lune) > (L) Danse > DODGE
 (V) Shoot/Attaque Rang C > (V) Command. > (L) Cycle Elem >(S)  Prépa > PARRY
-(V) Berserk > (L) Danse > (S) Gradient > (S) Sort Scellé(NO Fail) > Parry
+(V) Berserk > (L) Danse > (S) Gradient > (S) Sort Scellé(NO Fail) > PARRY
 (A) Transi askip on veut 2 parry sur l'aoe épée
 (V) Attaque > (V) Berserk > (L) Cycle Elem > (S) Gradient > (S) Sort Scellé
 PARRY > DODGE
@@ -478,7 +480,7 @@ LUMINA
 
 STAT
 (S) RENOUVEAU +96 Agi (96)
-(M) +6 Force (59) +18 Chance (18)
+(M) +6 Force (59), +18 Chance (18)
 (A) Sous le lvl 28, add un peu de force a Maelle (62 max LVL 28)
 SORT
 (M) Dernière Chance(Haut Gauche), Stendhal(Milieu Gauche)

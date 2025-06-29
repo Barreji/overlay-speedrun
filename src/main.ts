@@ -4,7 +4,6 @@ import * as fs from "fs";
 import { exec } from "child_process";
 import { promisify } from "util";
 import { Guide, Step, LoadResult } from "./types/GuideTypes";
-import { GuideParser } from "./parsers/GuideParser";
 
 const execAsync = promisify(exec);
 
@@ -22,10 +21,8 @@ class SpeedrunGuideApp {
         reset: "F5",
     };
     private overlayHidden: boolean = false;
-    private guideParser: GuideParser;
 
     constructor() {
-        this.guideParser = new GuideParser();
         this.initializeApp();
     }
 
@@ -54,6 +51,7 @@ class SpeedrunGuideApp {
 
         Object.entries(this.binds).forEach(([action, key]) => {
             if (key && key.toLowerCase() !== " " && key.toLowerCase() !== "space") {
+                // Enregistrer le raccourci principal
                 const success = globalShortcut.register(key, () => {
                     setTimeout(() => {
                         if (action === "toggleOverlay") {
@@ -62,6 +60,22 @@ class SpeedrunGuideApp {
                             this.mainWindow?.webContents.send(`${action}-step-from-main`);
                         }
                     }, 10);
+                });
+
+                // Enregistrer aussi les variantes avec des touches de modification
+                // pour que les raccourcis fonctionnent même quand SHIFT/CTRL/ALT sont maintenus
+                const modifierKeys = ["Shift+", "Control+", "Alt+", "Meta+"];
+                modifierKeys.forEach((modifier) => {
+                    const modifiedKey = modifier + key;
+                    globalShortcut.register(modifiedKey, () => {
+                        setTimeout(() => {
+                            if (action === "toggleOverlay") {
+                                this.toggleOverlay();
+                            } else {
+                                this.mainWindow?.webContents.send(`${action}-step-from-main`);
+                            }
+                        }, 10);
+                    });
                 });
             }
         });
@@ -87,8 +101,11 @@ class SpeedrunGuideApp {
                 contextIsolation: false,
                 webSecurity: false,
             },
-            type: "toolbar",
             show: false,
+            maxWidth: undefined,
+            maxHeight: undefined,
+            minWidth: 100,
+            minHeight: 100,
         });
 
         this.mainWindow.webContents.session.clearCache();
@@ -106,8 +123,8 @@ class SpeedrunGuideApp {
             this.mainWindow?.showInactive();
             this.overlayHidden = false;
 
-            // S'assurer que la fenêtre reste au premier plan
-            this.mainWindow?.setAlwaysOnTop(true, "screen-saver");
+            // Utiliser un niveau moins suspect
+            this.mainWindow?.setAlwaysOnTop(true, "normal");
 
             // Maintenir la fenêtre au premier plan périodiquement
             this.startAlwaysOnTopMaintenance();
@@ -116,25 +133,25 @@ class SpeedrunGuideApp {
         // Maintenir la fenêtre au premier plan
         this.mainWindow.on("blur", () => {
             if (!this.overlayHidden) {
-                this.mainWindow?.setAlwaysOnTop(true, "screen-saver");
+                this.mainWindow?.setAlwaysOnTop(true, "normal");
             }
         });
     }
 
     private startAlwaysOnTopMaintenance(): void {
-        // Vérifier et maintenir la fenêtre au premier plan toutes les 2 secondes
+        // Réduire la fréquence de vérification pour être moins suspect
         setInterval(() => {
             if (this.mainWindow && !this.overlayHidden && this.mainWindow.isVisible()) {
-                this.mainWindow.setAlwaysOnTop(true, "screen-saver");
+                this.mainWindow.setAlwaysOnTop(true, "normal");
             }
-        }, 2000);
+        }, 5000); // 5 secondes au lieu de 2
     }
 
     private toggleOverlay() {
         if (!this.mainWindow) return;
         if (this.overlayHidden) {
             this.mainWindow.showInactive();
-            this.mainWindow.setAlwaysOnTop(true, "screen-saver");
+            this.mainWindow.setAlwaysOnTop(true, "normal");
             this.overlayHidden = false;
         } else {
             this.mainWindow.hide();
@@ -360,14 +377,15 @@ class SpeedrunGuideApp {
 
                 // Lire le contenu du fichier txt
                 const content = fs.readFileSync(txtFilePath, "utf8");
-                const result = this.guideParser.parseGuide(content);
-                if (result.success && result.guide) {
-                    fs.writeFileSync(jsonPath, JSON.stringify(result.guide, null, 2));
-                } else {
-                    throw new Error(result.error || "Erreur lors du parsing");
-                }
+                // TODO: Réactiver quand le parser sera prêt
+                // const result = this.guideParser.parseGuide(content);
+                // if (result.success && result.guide) {
+                //     fs.writeFileSync(jsonPath, JSON.stringify(result.guide, null, 2));
+                // } else {
+                //     throw new Error(result.error || "Erreur lors du parsing");
+                // }
 
-                return { success: true, jsonPath: jsonPath };
+                return { success: false, error: "Parser temporairement désactivé" };
             } catch (error) {
                 console.error("Erreur lors de la conversion:", error);
                 return { success: false, error: error instanceof Error ? error.message : "Unknown error" };

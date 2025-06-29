@@ -8,6 +8,9 @@ import {
     PurchaseStep,
     CombatStep,
     BossStep,
+    ImageStep,
+    ImageGroupStep,
+    CombatGroupStep,
     MenuAction,
     CombatAction,
     CharacterCode,
@@ -53,6 +56,12 @@ export class StepRenderer {
                 return this.renderCombatStep(step as CombatStep);
             case "boss":
                 return this.renderBossStep(step as BossStep);
+            case "image":
+                return this.renderImageStep(step as ImageStep);
+            case "imageGroup":
+                return this.renderImageGroupStep(step as ImageGroupStep);
+            case "combatGroup":
+                return this.renderCombatGroupStep(step as CombatGroupStep);
             default:
                 return this.renderGenericStep(step);
         }
@@ -102,6 +111,20 @@ export class StepRenderer {
                     html += byChar[char].map((a) => this.renderStatAction(a)).join(" / ");
                     html += `</div>`;
                 }
+            } else if (type === "up arme") {
+                const byChar = this.groupBy(actions, (a) => a.character);
+                for (const char in byChar) {
+                    html += `<div class="menu-actions-line">`;
+                    html += byChar[char].map((a) => this.renderUpArmeAction(a)).join(" / ");
+                    html += `</div>`;
+                }
+            } else if (type === "up lumina") {
+                const byChar = this.groupBy(actions, (a) => a.character);
+                for (const char in byChar) {
+                    html += `<div class="menu-actions-line">`;
+                    html += byChar[char].map((a) => this.renderUpLuminaAction(a)).join(" / ");
+                    html += `</div>`;
+                }
             } else if (type === "note") {
                 // En mode minimaliste, ne pas afficher les notes
                 if (!this.minimalOptions?.skipNotes) {
@@ -131,6 +154,18 @@ export class StepRenderer {
                 html += `<div class="menu-block"><div class="note-line">💡 ${action.action}</div></div>`;
             });
         }
+
+        // Afficher les images attachées si présentes
+        if (step.attachedImages && step.attachedImages.length > 0) {
+            html += `<div class="attached-images">`;
+            step.attachedImages.forEach((imagePath) => {
+                html += `<div class="image-container">`;
+                html += `<img src="../screens/${imagePath}" alt="${imagePath}" class="step-image" ${this.getImageStyle()} />`;
+                html += `</div>`;
+            });
+            html += `</div>`;
+        }
+
         return html;
     }
 
@@ -146,6 +181,46 @@ export class StepRenderer {
             )}">${match[1].trim()} (<span class="stat-max">${match[2]}</span>)</span>`;
         }
         return `<span class="${this.getCharacterColorClass(action.character)}">${action.action}</span>`;
+    }
+
+    /**
+     * Rend une action de type up arme avec coloration spéciale
+     */
+    private renderUpArmeAction(action: any): string {
+        // Utiliser les propriétés toAdd et total si disponibles
+        if (action.toAdd !== undefined && action.total !== undefined) {
+            return `<span class="${this.getCharacterColorClass(action.character)}">${action.name} +${
+                action.toAdd
+            } (<span class="stat-max">${action.total}</span>)</span>`;
+        }
+        // Fallback vers l'ancien format
+        const match = action.action?.match(/(.+?)\(([^)]+)\)$/);
+        if (match) {
+            return `<span class="${this.getCharacterColorClass(
+                action.character
+            )}">${match[1].trim()} (<span class="stat-max">${match[2]}</span>)</span>`;
+        }
+        return `<span class="${this.getCharacterColorClass(action.character)}">${action.name || action.action}</span>`;
+    }
+
+    /**
+     * Rend une action de type up lumina avec coloration spéciale
+     */
+    private renderUpLuminaAction(action: any): string {
+        // Utiliser les propriétés toAdd et total si disponibles
+        if (action.toAdd !== undefined && action.total !== undefined) {
+            return `<span class="${this.getCharacterColorClass(action.character)}">+${
+                action.toAdd
+            } Lumina (<span class="stat-max">${action.total}</span>)</span>`;
+        }
+        // Fallback vers l'ancien format
+        const match = action.action?.match(/(.+?)\(([^)]+)\)$/);
+        if (match) {
+            return `<span class="${this.getCharacterColorClass(
+                action.character
+            )}">${match[1].trim()} (<span class="stat-max">${match[2]}</span>)</span>`;
+        }
+        return `<span class="${this.getCharacterColorClass(action.character)}">${action.name || action.action}</span>`;
     }
 
     /**
@@ -257,6 +332,18 @@ export class StepRenderer {
         } else if (step.titre) {
             html += `<div class="loot-line">${step.titre}</div>`;
         }
+
+        // Afficher les images attachées si présentes
+        if (step.attachedImages && step.attachedImages.length > 0) {
+            html += `<div class="attached-images">`;
+            step.attachedImages.forEach((imagePath) => {
+                html += `<div class="image-container">`;
+                html += `<img src="../screens/${imagePath}" alt="${imagePath}" class="step-image" ${this.getImageStyle()} />`;
+                html += `</div>`;
+            });
+            html += `</div>`;
+        }
+
         return html;
     }
 
@@ -273,31 +360,55 @@ export class StepRenderer {
         } else if (step.titre) {
             html += `<div class="purchase-line">${step.titre}</div>`;
         }
+
+        // Afficher les images attachées si présentes
+        if (step.attachedImages && step.attachedImages.length > 0) {
+            html += `<div class="attached-images">`;
+            step.attachedImages.forEach((imagePath) => {
+                html += `<div class="image-container">`;
+                html += `<img src="../screens/${imagePath}" alt="${imagePath}" class="step-image" ${this.getImageStyle()} />`;
+                html += `</div>`;
+            });
+            html += `</div>`;
+        }
+
         return html;
     }
 
     /**
-     * Rend une étape de combat
+     * Rend une étape de combat avec ses actions
      */
     private renderCombatStep(step: CombatStep): string {
+        if (!step.turns || !step.turns.length) return "";
+
         let html = "";
-        if (step.turns && step.turns.length > 0) {
-            for (const turn of step.turns) {
-                html += '<div class="combat-turn-line">';
-                // Vérifier si c'est une note
-                if (turn.length === 1 && turn[0].isNote) {
-                    // En mode minimaliste, ne pas afficher les notes
-                    if (!this.minimalOptions.skipNotes) {
-                        html += `<div class="note-line">💡 ${turn[0].action}</div>`;
-                    }
-                } else {
-                    html += turn
-                        .map((action) => this.renderCombatAction(action))
-                        .join(' <span style="color:#666">&gt;</span> ');
+        step.turns.forEach((turn) => {
+            html += '<div class="combat-turn-line">';
+            // Vérifier si c'est une note
+            if (turn.length === 1 && turn[0].isNote) {
+                // En mode minimaliste, ne pas afficher les notes
+                if (!this.minimalOptions?.skipNotes) {
+                    html += `<div class="note-line">💡 ${turn[0].action}</div>`;
                 }
-                html += "</div>";
+            } else {
+                html += turn
+                    .map((action) => this.renderCombatAction(action))
+                    .join(' <span style="color:#666">&gt;</span> ');
             }
+            html += "</div>";
+        });
+
+        // Afficher les images attachées si présentes
+        if (step.attachedImages && step.attachedImages.length > 0) {
+            html += `<div class="attached-images">`;
+            step.attachedImages.forEach((imagePath) => {
+                html += `<div class="image-container">`;
+                html += `<img src="../screens/${imagePath}" alt="${imagePath}" class="step-image" ${this.getImageStyle()} />`;
+                html += `</div>`;
+            });
+            html += `</div>`;
         }
+
         return html;
     }
 
@@ -318,27 +429,185 @@ export class StepRenderer {
     }
 
     /**
-     * Rend une étape de boss
+     * Rend une étape de boss avec ses actions
      */
     private renderBossStep(step: BossStep): string {
+        if (!step.turns || !step.turns.length) return "";
+
         let html = "";
-        if (step.turns && step.turns.length > 0) {
-            for (const turn of step.turns) {
-                html += '<div class="combat-turn-line">';
-                // Vérifier si c'est une note
-                if (turn.length === 1 && turn[0].isNote) {
-                    // En mode minimaliste, ne pas afficher les notes
-                    if (!this.minimalOptions.skipNotes) {
-                        html += `<div class="note-line">💡 ${turn[0].action}</div>`;
-                    }
-                } else {
-                    html += turn
-                        .map((action) => this.renderCombatAction(action))
-                        .join(' <span style="color:#666">&gt;</span> ');
+        step.turns.forEach((turn) => {
+            html += '<div class="combat-turn-line">';
+            // Vérifier si c'est une note
+            if (turn.length === 1 && turn[0].isNote) {
+                // En mode minimaliste, ne pas afficher les notes
+                if (!this.minimalOptions?.skipNotes) {
+                    html += `<div class="note-line">💡 ${turn[0].action}</div>`;
                 }
-                html += "</div>";
+            } else {
+                html += turn
+                    .map((action) => this.renderCombatAction(action))
+                    .join(' <span style="color:#666">&gt;</span> ');
             }
+            html += "</div>";
+        });
+
+        // Afficher les notes du boss si présentes
+        if (step.notes && step.notes.length > 0 && !this.minimalOptions?.skipNotes) {
+            html += `<div class="boss-notes">`;
+            step.notes.forEach((note) => {
+                html += `<div class="note-line">💡 ${note}</div>`;
+            });
+            html += `</div>`;
         }
+
+        // Afficher les images attachées si présentes
+        if (step.attachedImages && step.attachedImages.length > 0) {
+            html += `<div class="attached-images">`;
+            step.attachedImages.forEach((imagePath) => {
+                html += `<div class="image-container">`;
+                html += `<img src="../screens/${imagePath}" alt="${imagePath}" class="step-image" ${this.getImageStyle()} />`;
+                html += `</div>`;
+            });
+            html += `</div>`;
+        }
+
+        return html;
+    }
+
+    /**
+     * Rend une étape d'image
+     */
+    private renderImageStep(step: ImageStep): string {
+        let html = "";
+
+        // Afficher seulement l'image (le titre sera dans le step-header)
+        html += `<div class="image-container">`;
+        html += `<img src="../screens/${step.imagePath}" alt="${
+            step.title || step.imagePath
+        }" class="step-image" ${this.getImageStyle()} />`;
+        html += `</div>`;
+
+        return html;
+    }
+
+    /**
+     * Rend une étape de groupe d'images avec titres intermédiaires
+     */
+    private renderImageGroupStep(step: ImageGroupStep): string {
+        console.log(`[StepRenderer] renderImageGroupStep:`, {
+            stepId: step.id,
+            totalImages: step.images.length,
+            images: step.images,
+        });
+
+        let html = "";
+        let currentCharacter: string | null = null;
+
+        step.images.forEach((image, index) => {
+            console.log(`[StepRenderer] Rendering image ${index + 1}/${step.images.length}:`, {
+                character: image.character,
+                currentCharacter,
+                imagePath: image.imagePath,
+            });
+
+            // Si le personnage change ET que ce n'est pas la première image, ajouter un titre intermédiaire
+            if (image.character && image.character !== currentCharacter && currentCharacter !== null) {
+                const characterName = CharacterUtils.getCharacterName(image.character as any);
+                const charClass = CharacterUtils.getCharacterColorClass(characterName);
+                const displayName = characterName.charAt(0).toUpperCase() + characterName.slice(1);
+                html += `<div class="image-group-title ${charClass}">${displayName}</div>`;
+            }
+
+            // Mettre à jour le personnage actuel
+            currentCharacter = image.character || null;
+
+            // Afficher l'image
+            html += `<div class="image-container">`;
+            html += `<img src="../screens/${image.imagePath}" alt="${
+                image.title || image.imagePath
+            }" class="step-image" ${this.getImageStyle()} />`;
+            html += `</div>`;
+        });
+
+        console.log(`[StepRenderer] Final HTML length:`, html.length);
+        return html;
+    }
+
+    /**
+     * Rend une étape de groupe de combats avec loots et achats intégrés
+     * Utilise la nouvelle structure groupItems pour préserver l'ordre exact
+     */
+    private renderCombatGroupStep(step: CombatGroupStep): string {
+        let html = "";
+
+        // Utiliser groupItems pour préserver l'ordre exact des éléments
+        if (step.groupItems && step.groupItems.length > 0) {
+            step.groupItems.forEach((item, index) => {
+                if (item.type === "lootNote") {
+                    // Afficher une note de loot
+                    if (!this.minimalOptions?.skipLoot) {
+                        html += `<div class="note-line">📦 ${item.items.join(", ")}</div>`;
+                    }
+                } else if (item.type === "purchaseNote") {
+                    // Afficher une note d'achat
+                    if (!this.minimalOptions?.skipPurchase) {
+                        html += `<div class="note-line">💰 ${item.items.join(", ")}</div>`;
+                    }
+                } else if (item.type === "combat" || item.type === "boss") {
+                    // Afficher un combat
+                    const combatType = item.type === "boss" ? "🎯" : "🛡️";
+                    const combatTitle = item.titre.replace(/^[🛡️🎯]\s*/, ""); // Enlever l'emoji du début
+                    html += `<div class="combat-group-title">${combatType} ${combatTitle}</div>`;
+
+                    // Afficher les tours du combat
+                    if (item.turns && item.turns.length > 0) {
+                        item.turns.forEach((turn) => {
+                            html += '<div class="combat-turn-line">';
+                            // Vérifier si c'est une note
+                            if (turn.length === 1 && turn[0].isNote) {
+                                // En mode minimaliste, ne pas afficher les notes
+                                if (!this.minimalOptions?.skipNotes) {
+                                    html += `<div class="note-line">💡 ${turn[0].action}</div>`;
+                                }
+                            } else {
+                                html += turn
+                                    .map((action) => this.renderCombatAction(action))
+                                    .join(' <span style="color:#666">&gt;</span> ');
+                            }
+                            html += "</div>";
+                        });
+                    }
+
+                    // Afficher les images attachées au combat si présentes
+                    if (item.attachedImages && item.attachedImages.length > 0) {
+                        html += `<div class="attached-images">`;
+                        item.attachedImages.forEach((imagePath) => {
+                            html += `<div class="image-container">`;
+                            html += `<img src="../screens/${imagePath}" alt="${imagePath}" class="step-image" ${this.getImageStyle()} />`;
+                            html += `</div>`;
+                        });
+                        html += `</div>`;
+                    }
+
+                    // Ajouter un espace entre les combats (sauf pour le dernier élément)
+                    if (index < step.groupItems.length - 1) {
+                        html += '<div class="combat-separator"></div>';
+                    }
+                }
+            });
+        }
+
+        // Afficher les images attachées au groupe si présentes
+        if (step.attachedImages && step.attachedImages.length > 0) {
+            html += `<div class="attached-images">`;
+            step.attachedImages.forEach((imagePath) => {
+                html += `<div class="image-container">`;
+                html += `<img src="../screens/${imagePath}" alt="${imagePath}" class="step-image" ${this.getImageStyle()} />`;
+                html += `</div>`;
+            });
+            html += `</div>`;
+        }
+
         return html;
     }
 
@@ -390,5 +659,41 @@ export class StepRenderer {
      */
     public updateMinimalOptions(minimalOptions: any): void {
         this.minimalOptions = minimalOptions;
+    }
+
+    /**
+     * Génère un titre personnalisé pour un groupe de combats
+     * @param step - L'étape de groupe de combats
+     * @returns Le titre avec les emojis appropriés
+     */
+    public generateCombatGroupTitle(step: CombatGroupStep): string {
+        const emojis: string[] = [];
+
+        // Utiliser groupItems pour préserver l'ordre exact
+        if (step.groupItems && step.groupItems.length > 0) {
+            step.groupItems.forEach((item) => {
+                if (item.type === "lootNote") {
+                    emojis.push("📦");
+                } else if (item.type === "purchaseNote") {
+                    emojis.push("💰");
+                } else if (item.type === "combat" || item.type === "boss") {
+                    if (item.type === "boss") {
+                        emojis.push("🎯");
+                    } else {
+                        emojis.push("🛡️");
+                    }
+                }
+            });
+        }
+
+        return emojis.join("");
+    }
+
+    /**
+     * Applique la taille des images selon les options
+     */
+    private getImageStyle(): string {
+        const scale = this.minimalOptions.imageSize ? this.minimalOptions.imageSize : 100;
+        return `style="width: ${scale}%"`;
     }
 }

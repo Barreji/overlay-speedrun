@@ -1,4 +1,13 @@
-import { Guide, Step, MinimalOptions, KeyBinds, ChapterInfo, LoadResult, NotificationType } from "../types/GuideTypes";
+import {
+    Guide,
+    Step,
+    CombatGroupStep,
+    MinimalOptions,
+    KeyBinds,
+    ChapterInfo,
+    LoadResult,
+    NotificationType,
+} from "../types/GuideTypes";
 import { DOMElements } from "./types/DOMTypes";
 import { FileManager } from "./FileManager";
 import { KeyBindManager } from "./KeyBindManager";
@@ -379,6 +388,32 @@ export class UIManager {
                 title = "Menu";
             }
 
+            // Appliquer la couleur du personnage pour les images solo
+            this.elements.stepTitle.className = "";
+            this.elements.stepTitle.id = "step-title";
+            if (this.currentStep.type === "image" && (this.currentStep as any).character) {
+                const charName = CharacterUtils.getCharacterName((this.currentStep as any).character);
+                const charClass = CharacterUtils.getCharacterColorClass(charName);
+                this.elements.stepTitle.classList.add(charClass);
+                // Mettre une majuscule au nom du personnage pour les images solo
+                title = charName.charAt(0).toUpperCase() + charName.slice(1);
+            } else if (
+                this.currentStep.type === "imageGroup" &&
+                (this.currentStep as any).images &&
+                (this.currentStep as any).images.length > 0
+            ) {
+                // Pour les groupes d'images, utiliser le personnage de la première image
+                const firstImage = (this.currentStep as any).images[0];
+                if (firstImage.character) {
+                    const charName = CharacterUtils.getCharacterName(firstImage.character);
+                    const charClass = CharacterUtils.getCharacterColorClass(charName);
+                    this.elements.stepTitle.classList.add(charClass);
+                    // Le titre est déjà le nom du personnage (défini dans le parser)
+                    title = charName.charAt(0).toUpperCase() + charName.slice(1);
+                }
+            } else {
+                this.elements.stepTitle.classList.add("step-title");
+            }
             this.elements.stepTitle.textContent = title;
         }
     }
@@ -407,6 +442,11 @@ export class UIManager {
      * Obtient le titre d'une étape
      */
     private getStepTitle(step: Step): string {
+        // Pour les groupes de combats, utiliser le titre personnalisé avec les emojis
+        if (step.type === "combatGroup") {
+            return this.stepRenderer.generateCombatGroupTitle(step as CombatGroupStep);
+        }
+
         return step.titre || "";
     }
 
@@ -463,6 +503,12 @@ export class UIManager {
                     <input type="range" id="font-size-slider" min="50" max="200" value="${
                         this.minimalOptions.fontSize
                     }" step="10">
+                </label>
+                <label class="font-size-label">
+                    Taille des images: <span id="image-size-value">${this.minimalOptions.imageSize}%</span>
+                    <input type="range" id="image-size-slider" min="25" max="100" value="${
+                        this.minimalOptions.imageSize
+                    }" step="5">
                 </label>
                 <label><input type="checkbox" id="option-skipLoot" ${
                     this.minimalOptions.skipLoot ? "checked" : ""
@@ -720,6 +766,22 @@ export class UIManager {
                 this.applyFontSize();
             });
         }
+
+        // Taille des images
+        const imageSizeSlider = document.getElementById("image-size-slider") as HTMLInputElement;
+        const imageSizeValue = document.getElementById("image-size-value");
+        if (imageSizeSlider && imageSizeValue) {
+            imageSizeSlider.value = this.minimalOptions.imageSize.toString();
+            imageSizeValue.textContent = this.minimalOptions.imageSize + "%";
+            imageSizeSlider.addEventListener("input", (e) => {
+                const newSize = parseInt((e.target as HTMLInputElement).value);
+                this.minimalOptions.imageSize = newSize;
+                imageSizeValue.textContent = newSize + "%";
+                this.fileManager.saveMinimalOptions(this.minimalOptions);
+                this.updateStepDisplay();
+                this.autoResizeWindow();
+            });
+        }
     }
 
     // ============================================================================
@@ -797,45 +859,132 @@ export class UIManager {
      * Ajuste automatiquement la taille de la fenêtre
      */
     private autoResizeWindow(): void {
-        const container = document.querySelector(".overlay-container");
-        if (!container) return;
+        // Délai de base
+        let delay = 10;
+
+        // Vérifier s'il y a des images dans l'étape actuelle
+        if (this.currentStep) {
+            const hasImages = this.currentStep.type === "image" || (this.currentStep as any).attachedImages?.length > 0;
+            if (hasImages) {
+                delay = 100; // Délai plus long pour les images
+            }
+        }
 
         setTimeout(() => {
-            const rect = container.getBoundingClientRect();
-            const stepDisplay = document.querySelector(".step-display");
-            const minW = 300,
-                maxW = 900,
-                minH = 100,
-                maxH = window.innerHeight * 0.9;
-            let w = Math.ceil(rect.width);
+            const container = document.querySelector(".overlay-container") as HTMLElement;
+            const header = document.querySelector(".guide-header") as HTMLElement;
+            const stepDisplay = document.querySelector(".step-display") as HTMLElement;
 
-            // Calculer la hauteur nécessaire
-            let h;
-            if (stepDisplay) {
-                const contentHeight = stepDisplay.scrollHeight;
-                const headerElement = document.querySelector(".guide-header") as HTMLElement;
-                const headerHeight = headerElement?.offsetHeight || 0;
-                const padding = 30;
-                h = Math.ceil(headerHeight + contentHeight + padding);
-            } else {
-                h = Math.ceil(rect.height);
+            if (!container || !stepDisplay) return;
+
+            // Limites de base
+            const minW = 300;
+            const minH = 100;
+
+            // Largeur actuelle du container
+            let w = Math.ceil(container.getBoundingClientRect().width);
+
+            // Vérifier s'il y a des images et calculer leur largeur maximale
+            const images = stepDisplay.querySelectorAll(".step-image") as NodeListOf<HTMLImageElement>;
+            let maxImageWidth = 0;
+            let imagesToCheck = 0;
+            let imagesChecked = 0;
+
+            if (images.length > 0) {
+                imagesToCheck = images.length;
+
+                images.forEach((img) => {
+                    // Attendre que l'image soit chargée pour obtenir sa vraie taille
+                    if (img.complete && img.naturalWidth > 0) {
+                        const imageScale = this.minimalOptions.imageSize / 100;
+                        const scaledWidth = img.naturalWidth * imageScale;
+                        maxImageWidth = Math.max(maxImageWidth, scaledWidth);
+                        imagesChecked++;
+                    } else {
+                        // Si l'image n'est pas encore chargée, attendre qu'elle se charge
+                        img.onload = () => {
+                            const imageScale = this.minimalOptions.imageSize / 100;
+                            const scaledWidth = img.naturalWidth * imageScale;
+                            maxImageWidth = Math.max(maxImageWidth, scaledWidth);
+                            imagesChecked++;
+
+                            // Si toutes les images sont chargées, faire un dernier resize
+                            if (imagesChecked === imagesToCheck) {
+                                this.finalizeResize(maxImageWidth, container, header, stepDisplay);
+                            }
+                        };
+                    }
+                });
             }
 
-            w = Math.max(minW, Math.min(maxW, w));
-            h = Math.max(minH, Math.min(maxH, h));
+            // Si toutes les images sont déjà chargées, faire le resize maintenant
+            if (imagesToCheck === 0 || imagesChecked === imagesToCheck) {
+                this.finalizeResize(maxImageWidth, container, header, stepDisplay);
+            }
+        }, delay);
+    }
 
-            // Redimensionner la fenêtre via IPC
-            if (this.fileManager.isElectron()) {
-                // Utiliser IPC pour redimensionner la fenêtre
-                const { remote } = window.require("electron");
+    /**
+     * Finalise le redimensionnement de la fenêtre
+     */
+    private finalizeResize(
+        maxImageWidth: number,
+        container: HTMLElement,
+        header: HTMLElement,
+        stepDisplay: HTMLElement
+    ): void {
+        // Limites de base
+        const minW = 300;
+        const minH = 100;
+
+        // Largeur actuelle du container
+        let w = Math.ceil(container.getBoundingClientRect().width);
+
+        // Si on a des images, ajuster la largeur minimale
+        if (maxImageWidth > 0) {
+            // Calculer le padding et les marges du conteneur
+            const containerStyle = window.getComputedStyle(container);
+            const paddingLeft = parseFloat(containerStyle.paddingLeft);
+            const paddingRight = parseFloat(containerStyle.paddingRight);
+            const marginLeft = parseFloat(containerStyle.marginLeft);
+            const marginRight = parseFloat(containerStyle.marginRight);
+
+            // Calculer le padding du step-content
+            const stepContent = document.querySelector("#step-content") as HTMLElement;
+            let stepContentPadding = 0;
+            if (stepContent) {
+                const stepContentStyle = window.getComputedStyle(stepContent);
+                stepContentPadding =
+                    parseFloat(stepContentStyle.paddingLeft) + parseFloat(stepContentStyle.paddingRight);
+            }
+
+            // Largeur totale nécessaire = image + padding conteneur + padding step-content + marges + marge de sécurité
+            const totalPadding = paddingLeft + paddingRight + marginLeft + marginRight + stepContentPadding + 40;
+            const requiredWidth = maxImageWidth + totalPadding;
+
+            w = Math.max(w, requiredWidth);
+        }
+
+        // Hauteur totale = header + stepDisplay + padding
+        let h = 0;
+        if (header) h += header.offsetHeight;
+        h += stepDisplay.scrollHeight;
+        h += 30; // padding/marge de sécurité
+
+        w = Math.max(minW, w);
+        h = Math.max(minH, h);
+
+        // Redimensionner la fenêtre via IPC
+        if (this.fileManager.isElectron()) {
+            const { remote } = window.require("electron");
+            if (remote && remote.getCurrentWindow) {
                 const win = remote.getCurrentWindow();
-                const curW = win.getSize()[0];
-                const curH = win.getSize()[1];
+                const [curW, curH] = win.getSize();
                 if (curW !== w || curH !== h) {
                     win.setSize(w, h);
                 }
             }
-        }, 10);
+        }
     }
 
     /**
@@ -844,7 +993,8 @@ export class UIManager {
     private applyFontSize(): void {
         const scale = this.minimalOptions.fontSize / 100;
 
-        const elements = [
+        // Éléments uniques (un seul par page)
+        const uniqueElements = [
             ".overlay-container",
             ".guide-header",
             ".step-display",
@@ -855,14 +1005,6 @@ export class UIManager {
             "#act-location",
             ".options-menu",
             ".chapter-menu",
-            // Ajout des éléments manquants pour le scaling
-            ".menu-type-label",
-            ".note-line",
-            ".menu-actions-line",
-            ".menu-formation-line",
-            ".combat-turn-line",
-            ".loot-line",
-            ".purchase-line",
             ".step-act",
             ".step-chapter",
             ".act-title",
@@ -871,11 +1013,31 @@ export class UIManager {
             ".chapter-description",
         ];
 
-        elements.forEach((selector) => {
+        // Éléments multiples (peuvent avoir plusieurs instances)
+        const multipleElements = [
+            ".menu-type-label",
+            ".note-line",
+            ".menu-actions-line",
+            ".menu-formation-line",
+            ".combat-turn-line",
+            ".loot-line",
+            ".purchase-line",
+        ];
+
+        // Appliquer aux éléments uniques
+        uniqueElements.forEach((selector) => {
             const element = document.querySelector(selector) as HTMLElement;
             if (element) {
                 element.style.fontSize = `${scale * 100}%`;
             }
+        });
+
+        // Appliquer aux éléments multiples
+        multipleElements.forEach((selector) => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach((element) => {
+                (element as HTMLElement).style.fontSize = `${scale * 100}%`;
+            });
         });
 
         // Tailles spécifiques

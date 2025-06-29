@@ -93,10 +93,18 @@
           ]
         }
       ],
-      "icon": "logo.ico"
+      "icon": "logo.ico",
+      "requestedExecutionLevel": "asInvoker",
+      "artifactName": "SpeedrunClairObscur.exe"
     },
     "portable": {
       "artifactName": "SpeedrunClairObscur.exe"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": false,
+      "createStartMenuShortcut": false
     }
   }
 }

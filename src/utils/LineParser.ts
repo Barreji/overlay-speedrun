@@ -16,6 +16,16 @@ export class LineParser {
     private static readonly NOTE_REGEX = /^\(A\)/;
 
     /**
+     * Regex pour détecter les images
+     */
+    private static readonly IMAGE_REGEX = /^\(IMG\)/;
+
+    /**
+     * Regex pour détecter les images avec marqueur de personnage
+     */
+    private static readonly IMAGE_WITH_CHAR_REGEX = /^\(IMG\)\s*\(([MLSV]o?)\)/;
+
+    /**
      * Regex pour détecter les actes
      */
     private static readonly ACT_REGEX = /Act/;
@@ -112,6 +122,24 @@ export class LineParser {
     }
 
     /**
+     * Vérifie si une ligne est une image
+     * @param line - La ligne à vérifier
+     * @returns true si c'est une image
+     */
+    public static isImageLine(line: string): boolean {
+        return this.IMAGE_REGEX.test(line);
+    }
+
+    /**
+     * Vérifie si une ligne est une image avec marqueur de personnage (image solo)
+     * @param line - La ligne à vérifier
+     * @returns true si c'est une image solo
+     */
+    public static isImageWithCharacter(line: string): boolean {
+        return this.IMAGE_WITH_CHAR_REGEX.test(line);
+    }
+
+    /**
      * Vérifie si une ligne est un combat ou un boss
      * @param line - La ligne à vérifier
      * @returns true si c'est un combat ou un boss
@@ -179,6 +207,39 @@ export class LineParser {
         return line.substring(this.STEP_EMOJIS.PURCHASE.length).trim().replace(/^\W+/g, "").trim();
     }
 
+    /**
+     * Extrait le chemin de l'image depuis une ligne d'image
+     * @param line - La ligne d'image
+     * @returns Le chemin de l'image sans le préfixe (IMG)
+     */
+    public static extractImagePath(line: string): string {
+        return line.replace(this.IMAGE_REGEX, "").trim();
+    }
+
+    /**
+     * Extrait le marqueur de personnage depuis une ligne d'image
+     * @param line - La ligne d'image
+     * @returns Le marqueur de personnage ou null
+     */
+    public static extractImageCharacter(line: string): string | null {
+        const match = line.match(this.IMAGE_WITH_CHAR_REGEX);
+        return match ? match[1] : null;
+    }
+
+    /**
+     * Extrait le titre de l'image depuis une ligne d'image avec personnage
+     * @param line - La ligne d'image
+     * @returns Le titre de l'image ou null
+     */
+    public static extractImageTitle(line: string): string | null {
+        const match = line.match(this.IMAGE_WITH_CHAR_REGEX);
+        if (!match) return null;
+
+        // Extraire le reste de la ligne après le marqueur de personnage
+        const afterChar = line.substring(match[0].length).trim();
+        return afterChar || null;
+    }
+
     // ============================================================================
     // DÉTECTION DE TYPE D'ÉTAPE
     // ============================================================================
@@ -195,6 +256,7 @@ export class LineParser {
         if (this.isPurchaseLine(line)) return "purchase";
         if (this.isMenuLine(line)) return "menu";
         if (this.isNote(line)) return "note";
+        if (this.isImageLine(line)) return "image";
         return null;
     }
 

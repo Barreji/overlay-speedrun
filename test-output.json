@@ -1,0 +1,3328 @@
+{
+  "game": "Clair Obscur",
+  "category": "Any% Glitchless Expert",
+  "actionGroups": [
+    {
+      "id": 1,
+      "type": "mixte",
+      "acte": "Act 0",
+      "chapitre": "Prologue",
+      "titre": "🛡️",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Maelle",
+          "turns": [
+            [
+              {
+                "action": "Attack",
+                "character": "Verso"
+              },
+              {
+                "action": "PARRY",
+                "character": ""
+              },
+              {
+                "action": "Attack",
+                "character": "Verso"
+              },
+              {
+                "action": "DODGE",
+                "character": ""
+              },
+              {
+                "action": "Surcharge",
+                "character": "Verso"
+              }
+            ]
+          ],
+          "notes": [
+            {
+              "type": "note",
+              "note": "Si vous ratez un DODGE, 1 Shot"
+            },
+            {
+              "type": "note",
+              "note": "1er PARRY crit ? Surcharge t2 + PARRY"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "imagePath": "Screenshot_1.png",
+          "character": ""
+        },
+        {
+          "type": "image",
+          "imagePath": "Screenshot_1.png",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "type": "mixte",
+      "acte": "Act 0",
+      "chapitre": "Prologue",
+      "titre": "Groupe d'actions",
+      "steps": [
+        {
+          "type": "image",
+          "imagePath": "Screenshot_1.png",
+          "character": "Maelle"
+        },
+        {
+          "type": "image",
+          "imagePath": "Screenshot_1.png",
+          "character": "Maelle"
+        },
+        {
+          "type": "image",
+          "imagePath": "Screenshot_1.png",
+          "character": "Verso"
+        },
+        {
+          "type": "image",
+          "imagePath": "Screenshot_1.png",
+          "character": "Verso"
+        },
+        {
+          "type": "image",
+          "imagePath": "Screenshot_1.png",
+          "character": "Verso"
+        },
+        {
+          "type": "image",
+          "imagePath": "Screenshot_1.png",
+          "character": "Lune"
+        },
+        {
+          "type": "image",
+          "imagePath": "Screenshot_1.png",
+          "character": "Sciel"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "type": "mixte",
+      "acte": "Act I",
+      "chapitre": "Vallons Fleuris",
+      "titre": "🛡️🛡️📦🛡️📦📦🛡️📦",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Lancelier",
+          "turns": [
+            [
+              {
+                "action": "Weak Spot",
+                "character": "Verso"
+              },
+              {
+                "action": "Attack",
+                "character": "Verso"
+              },
+              {
+                "action": "PARRY",
+                "character": ""
+              }
+            ]
+          ],
+          "notes": []
+        },
+        {
+          "type": "combat",
+          "titre": "🛡️ Portier",
+          "turns": [
+            [
+              {
+                "action": "Weak Spot",
+                "character": "Verso"
+              },
+              {
+                "action": "Attack",
+                "character": "Verso"
+              },
+              {
+                "action": "Lance Glace",
+                "character": "Lune"
+              },
+              {
+                "action": "PARRY",
+                "character": ""
+              }
+            ]
+          ],
+          "notes": []
+        },
+        {
+          "type": "loot",
+          "item": "Brûlures Critiques"
+        },
+        {
+          "type": "combat",
+          "titre": "🛡️ 2 Lancelier(FS)",
+          "turns": [
+            [
+              {
+                "action": "Weak Spot",
+                "character": "Verso"
+              },
+              {
+                "action": "Attack",
+                "character": "Verso"
+              },
+              {
+                "action": "Lance Glace",
+                "character": "Lune"
+              }
+            ],
+            [
+              {
+                "action": "PARRY",
+                "character": ""
+              },
+              {
+                "action": "Attack",
+                "character": "Verso"
+              }
+            ]
+          ],
+          "notes": []
+        },
+        {
+          "type": "loot",
+          "item": "$360 Chroma"
+        },
+        {
+          "type": "loot",
+          "item": "Teinte Energie"
+        },
+        {
+          "type": "combat",
+          "titre": "🛡️ 3 Volester",
+          "turns": [
+            [
+              {
+                "action": "PARRY",
+                "character": ""
+              },
+              {
+                "action": "PARRY",
+                "character": ""
+              },
+              {
+                "action": "Shoot (5PA)",
+                "character": "Verso"
+              }
+            ]
+          ],
+          "notes": []
+        },
+        {
+          "type": "loot",
+          "item": "Energie Mortelle II"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "type": "mixte",
+      "acte": "Act I",
+      "chapitre": "Vallons Fleuris",
+      "titre": "⚔️🎨🎨🎨",
+      "steps": [
+        {
+          "type": "arme",
+          "name": "Lanceram",
+          "character": "Verso"
+        },
+        {
+          "type": "picto",
+          "name": "Brulures Critiques",
+          "character": "Verso"
+        },
+        {
+          "type": "picto",
+          "name": "Energy mortelle II",
+          "character": "Verso"
+        },
+        {
+          "type": "picto",
+          "name": "Insaisissable",
+          "character": "Lune"
+        },
+        {
+          "type": "image",
+          "name": "Screenshot_1.png",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "type": "mixte",
+      "acte": "Act I",
+      "chapitre": "Vallons Fleuris",
+      "titre": "🛡️📦",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ 2 Volester + Abbest",
+          "turns": [
+            [
+              {
+                "action": "Shoot x3",
+                "character": "Verso"
+              },
+              {
+                "action": "Shoot x3",
+                "character": "Verso"
+              },
+              {
+                "action": "Shoot WS",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Skip",
+                "character": "Verso"
+              },
+              {
+                "action": "Lance Glace",
+                "character": "Lune"
+              }
+            ]
+          ],
+          "notes": []
+        },
+        {
+          "type": "loot",
+          "item": "Luminacolor sous le pont"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "menu",
+      "acte": "Act I",
+      "chapitre": "Vallons Fleuris",
+      "titre": "📊📊📊✨✨",
+      "steps": [
+        {
+          "type": "stat",
+          "name": "Force",
+          "character": "Verso",
+          "toAdd": 9,
+          "total": 9
+        },
+        {
+          "type": "stat",
+          "name": "Force",
+          "character": "Lune",
+          "toAdd": 8,
+          "total": 8
+        },
+        {
+          "type": "stat",
+          "name": "Agi",
+          "character": "Lune",
+          "toAdd": 1,
+          "total": 1
+        },
+        {
+          "type": "sort",
+          "name": "Tir Marquant",
+          "character": "Verso"
+        },
+        {
+          "type": "sort",
+          "name": "Surpuissance",
+          "character": "Verso"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "combat",
+      "acte": "Act I",
+      "chapitre": "Vallons Fleuris",
+      "titre": "🎯Eveque",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🎯Eveque",
+          "turns": [
+            [
+              {
+                "action": "Shoot (last WS)",
+                "character": "Lune"
+              },
+              {
+                "action": "Immolation",
+                "character": "Lune"
+              },
+              {
+                "action": "Surpuissant",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Immolation",
+                "character": "Lune"
+              },
+              {
+                "action": "Tir Marquant",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Immolation",
+                "character": "Lune"
+              },
+              {
+                "action": "Tir Marquant",
+                "character": "Verso"
+              },
+              {
+                "action": "DODGE",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Teinte Énergie ?",
+                "character": "Lune"
+              },
+              {
+                "action": "Surcharge",
+                "character": "Verso"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "mixte",
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu",
+      "titre": "📦🛡️🛡️",
+      "steps": [
+        {
+          "type": "loot",
+          "item": "$333 Chroma sur la route"
+        },
+        {
+          "type": "combat",
+          "titre": "🛡️ 2 Demineur",
+          "turns": [
+            [
+              {
+                "action": "Shoot bombs + tête",
+                "character": "Verso"
+              }
+            ]
+          ],
+          "notes": []
+        },
+        {
+          "type": "combat",
+          "titre": "🛡️ 3 Demineur",
+          "turns": [
+            [
+              {
+                "action": "Shoot bombs",
+                "character": "Verso"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "type": "menu",
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu",
+      "titre": "🎨🎨📊📊📊📊📊📊✨✨",
+      "steps": [
+        {
+          "type": "picto",
+          "name": "Brulures Critiques(2)",
+          "character": "Maelle"
+        },
+        {
+          "type": "picto",
+          "name": "Energie Mortelle II(3)",
+          "character": "Maelle"
+        },
+        {
+          "type": "stat",
+          "name": "Force",
+          "character": "Verso",
+          "toAdd": 2,
+          "total": 11
+        },
+        {
+          "type": "stat",
+          "name": "Agi",
+          "character": "Verso",
+          "toAdd": 7,
+          "total": 7
+        },
+        {
+          "type": "stat",
+          "name": "Force",
+          "character": "Maelle",
+          "toAdd": 14,
+          "total": 15
+        },
+        {
+          "type": "stat",
+          "name": "Agi",
+          "character": "Maelle",
+          "toAdd": 1,
+          "total": 1
+        },
+        {
+          "type": "stat",
+          "name": "Force",
+          "character": "Lune",
+          "toAdd": 6,
+          "total": 14
+        },
+        {
+          "type": "stat",
+          "name": "Agi",
+          "character": "Lune",
+          "toAdd": 3,
+          "total": 4
+        },
+        {
+          "type": "sort",
+          "name": "Foulée Vive",
+          "character": "Maelle"
+        },
+        {
+          "type": "sort",
+          "name": "Feu Sauvage",
+          "character": "Lune"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "type": "mixte",
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu",
+      "titre": "🛡️🛡️💰",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ The Curator",
+          "turns": [
+            [
+              {
+                "action": "Skip",
+                "character": "Verso"
+              },
+              {
+                "action": "Immo",
+                "character": "Lune"
+              },
+              {
+                "action": "Foulée",
+                "character": "Maelle"
+              }
+            ],
+            [
+              {
+                "action": "Mark",
+                "character": "Verso"
+              },
+              {
+                "action": "Skip",
+                "character": "Lune"
+              },
+              {
+                "action": "Percée",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": []
+        },
+        {
+          "type": "combat",
+          "titre": "🛡️ Noco",
+          "turns": [
+            [
+              {
+                "action": "Pivot Offensif",
+                "character": "Maelle"
+              },
+              {
+                "action": "PARRY",
+                "character": ""
+              },
+              {
+                "action": "Flammeche",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": []
+        },
+        {
+          "type": "purchase",
+          "item": "Attaque fragilisante",
+          "price": 0
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "type": "loot",
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu",
+      "titre": "📦 Loot",
+      "steps": [
+        {
+          "type": "loot",
+          "item": "Après le drapeau $333 Chroma"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "type": "combat",
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu",
+      "titre": "🛡️ Brûler, Cruleur",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Brûler, Cruleur",
+          "turns": [
+            [
+              {
+                "action": "DODGE",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Mark Brûler",
+                "character": "Verso"
+              },
+              {
+                "action": "Feu Sauv",
+                "character": "Lune"
+              },
+              {
+                "action": "Shot WS",
+                "character": "Maelle"
+              },
+              {
+                "action": "Foulée",
+                "character": "Maelle"
+              }
+            ],
+            [
+              {
+                "action": "Mark",
+                "character": "Verso"
+              },
+              {
+                "action": "Skip",
+                "character": "Lune"
+              },
+              {
+                "action": "Percée",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "type": "loot",
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu",
+      "titre": "📦 Loot",
+      "steps": [
+        {
+          "type": "loot",
+          "item": "Entre les algues $665 Chroma"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "type": "menu",
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu",
+      "titre": "⚔️⚔️⚔️🎨🎨💎💎💎💎",
+      "steps": [
+        {
+          "type": "arme",
+          "name": "Cruleuram",
+          "character": "Verso"
+        },
+        {
+          "type": "arme",
+          "name": "Bruleurum",
+          "character": "Maelle"
+        },
+        {
+          "type": "arme",
+          "name": "Lumerim",
+          "character": "Lune"
+        },
+        {
+          "type": "picto",
+          "name": "Insaisissable",
+          "character": "Maelle"
+        },
+        {
+          "type": "picto",
+          "name": "Attaque fragilisante",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "+Brûlures critiques",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "+Energie Mortelle II",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "+Brûlures critiques",
+          "character": "Verso"
+        },
+        {
+          "type": "lumina",
+          "name": "+Energie Mortelle II",
+          "character": "Verso"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "type": "combat",
+      "acte": "Act I",
+      "chapitre": "Océan Suspendu",
+      "titre": "🎯 Goblu",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🎯 Goblu",
+          "turns": [
+            [
+              {
+                "action": "Feu Sauv",
+                "character": "Lune"
+              },
+              {
+                "action": "Surpui",
+                "character": "Verso"
+              },
+              {
+                "action": "Foulée",
+                "character": "Maelle"
+              }
+            ],
+            [
+              {
+                "action": "Shoot all",
+                "character": "Lune"
+              },
+              {
+                "action": "Attaque",
+                "character": "Lune"
+              },
+              {
+                "action": "Mark",
+                "character": "Verso"
+              },
+              {
+                "action": "Percée",
+                "character": "Maelle"
+              }
+            ],
+            [
+              {
+                "action": "Immo",
+                "character": "Lune"
+              },
+              {
+                "action": "Surcharge",
+                "character": "Verso"
+              },
+              {
+                "action": "Foulée",
+                "character": "Maelle"
+              }
+            ],
+            [
+              {
+                "action": "Shoot all",
+                "character": "Lune"
+              },
+              {
+                "action": "Attaque",
+                "character": "Lune"
+              },
+              {
+                "action": "Mark",
+                "character": "Verso"
+              },
+              {
+                "action": "Percée",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "type": "mixte",
+      "acte": "Act I",
+      "chapitre": "Sanctuaire Ancien",
+      "titre": "📝",
+      "steps": [
+        {
+          "type": "note",
+          "note": "Si no hit avec Maelle sinon avant Ultime"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "type": "combat",
+      "acte": "Act I",
+      "chapitre": "Sanctuaire Ancien",
+      "titre": "🛡️ Sakapatate Robuste",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Sakapatate Robuste",
+          "turns": [
+            [
+              {
+                "action": "Immo",
+                "character": "Lune",
+                "fail": true
+              },
+              {
+                "action": "Surpui",
+                "character": "Verso"
+              },
+              {
+                "action": "Foulée",
+                "character": "Maelle",
+                "fail": true
+              }
+            ],
+            [
+              {
+                "action": "Attaque",
+                "character": "Lune"
+              },
+              {
+                "action": "Mark",
+                "character": "Verso"
+              },
+              {
+                "action": "Percée",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": [
+            {
+              "type": "note",
+              "note": "PARRY que attack bouclier"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "type": "combat",
+      "acte": "Act I",
+      "chapitre": "Sanctuaire Ancien",
+      "titre": "🎯 Sakapatate Ultime",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🎯 Sakapatate Ultime",
+          "turns": [
+            [
+              {
+                "action": "Immo",
+                "character": "Lune"
+              },
+              {
+                "action": "Surpui",
+                "character": "Verso"
+              },
+              {
+                "action": "Foulée",
+                "character": "Maelle"
+              }
+            ],
+            [
+              {
+                "action": "Shoot + 3 Shoot WS",
+                "character": "Lune"
+              },
+              {
+                "action": "Attaque",
+                "character": "Lune"
+              },
+              {
+                "action": "Mark",
+                "character": "Verso"
+              },
+              {
+                "action": "Percée",
+                "character": "Maelle"
+              }
+            ],
+            [
+              {
+                "action": "Immo",
+                "character": "Lune"
+              },
+              {
+                "action": "Surcharge/Surpui/Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Foulée",
+                "character": "Maelle"
+              }
+            ],
+            [
+              {
+                "action": "Attack",
+                "character": "Lune"
+              },
+              {
+                "action": "Mark",
+                "character": "Verso"
+              },
+              {
+                "action": "Percée",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": [
+            {
+              "type": "note",
+              "note": "Gustave need 5 ap turn 3."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "type": "menu",
+      "acte": "Act I",
+      "chapitre": "Village des Gestrals",
+      "titre": "✨✨",
+      "steps": [
+        {
+          "type": "sort",
+          "name": "Inflammable",
+          "character": "Maelle"
+        },
+        {
+          "type": "sort",
+          "name": "Déluge de Feu",
+          "character": "Maelle"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "type": "achat",
+      "acte": "Act I",
+      "chapitre": "Village des Gestrals",
+      "titre": "💰 Achat",
+      "steps": [
+        {
+          "type": "purchase",
+          "item": "Instant Critique",
+          "price": 0
+        },
+        {
+          "type": "purchase",
+          "item": "2 Chroma Poli",
+          "price": 0
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "type": "menu",
+      "acte": "Act I",
+      "chapitre": "Village des Gestrals",
+      "titre": "🎨",
+      "steps": [
+        {
+          "type": "picto",
+          "name": "Instant Critique > Insaisissable",
+          "character": "Maelle"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "type": "combat",
+      "acte": "Act I",
+      "chapitre": "Village des Gestrals",
+      "titre": "🛡️🛡️",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Tournoi",
+          "turns": [
+            [
+              {
+                "action": "PARRY",
+                "character": ""
+              },
+              {
+                "action": "Inflammable",
+                "character": "Maelle"
+              },
+              {
+                "action": "PARRY",
+                "character": ""
+              },
+              {
+                "action": "Déluge de Feu",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": []
+        },
+        {
+          "type": "combat",
+          "titre": "🛡️ Sciel",
+          "turns": [
+            [
+              {
+                "action": "PARRY",
+                "character": ""
+              },
+              {
+                "action": "Déluge de Feu",
+                "character": "Maelle"
+              },
+              {
+                "action": "PARRY",
+                "character": ""
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "type": "menu",
+      "acte": "Act I",
+      "chapitre": "Nid d'Esquie",
+      "titre": "⚔️🎨📊📊📊📊📊✨✨✨",
+      "steps": [
+        {
+          "type": "arme",
+          "name": "Medalum",
+          "character": "Maelle"
+        },
+        {
+          "type": "picto",
+          "name": "-Instant Critique",
+          "character": "Maelle"
+        },
+        {
+          "type": "stat",
+          "name": "Force",
+          "character": "Verso",
+          "toAdd": 2,
+          "total": 13
+        },
+        {
+          "type": "stat",
+          "name": "Agi",
+          "character": "Verso",
+          "toAdd": 13,
+          "total": 20
+        },
+        {
+          "type": "stat",
+          "name": "Force",
+          "character": "Lune",
+          "toAdd": 15,
+          "total": 29
+        },
+        {
+          "type": "stat",
+          "name": "Force",
+          "character": "Maelle",
+          "toAdd": 9,
+          "total": 32
+        },
+        {
+          "type": "stat",
+          "name": "Force",
+          "character": "Sciel",
+          "toAdd": 45,
+          "total": 45
+        },
+        {
+          "type": "sort",
+          "name": "Danse Foudroyante",
+          "character": "Lune",
+          "position": "Bas Gauche"
+        },
+        {
+          "type": "sort",
+          "name": "Lame Spectrale",
+          "character": "Sciel"
+        },
+        {
+          "type": "sort",
+          "name": "Intervention",
+          "character": "Sciel",
+          "position": "Haut Gauche"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "type": "combat",
+      "acte": "Act I",
+      "chapitre": "Nid d'Esquie",
+      "titre": "🛡️ Francois",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Francois",
+          "turns": [
+            [
+              {
+                "action": "DODGE",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Mark",
+                "character": "Verso"
+              },
+              {
+                "action": "Shoot x3",
+                "character": "Lune"
+              },
+              {
+                "action": "Attaque",
+                "character": "Lune"
+              },
+              {
+                "action": "Percée",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "type": "loot",
+      "acte": "Act I",
+      "chapitre": "The Continent",
+      "titre": "📦 Loot",
+      "steps": [
+        {
+          "type": "loot",
+          "item": "Luminacolor à coté combat"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "type": "menu",
+      "acte": "Act I",
+      "chapitre": "The Continent",
+      "titre": "🔧",
+      "steps": [
+        {
+          "type": "upArme",
+          "name": "Lumerim",
+          "character": "Lune",
+          "toAdd": 6,
+          "total": 7
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "type": "combat",
+      "acte": "Act I",
+      "chapitre": "The Continent",
+      "titre": "🛡️ Demineur, Crueler, Lancelier",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Demineur, Crueler, Lancelier",
+          "turns": [
+            [
+              {
+                "action": "Shoot WS",
+                "character": "Verso"
+              },
+              {
+                "action": "Shoot Mine",
+                "character": "Verso"
+              },
+              {
+                "action": "Mark Crueler",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Feu Sauv",
+                "character": "Lune",
+                "fail": true
+              }
+            ],
+            [
+              {
+                "action": "Headshot Mine",
+                "character": "Maelle"
+              },
+              {
+                "action": "Shoot Lance x7",
+                "character": "Maelle"
+              },
+              {
+                "action": "Percée",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "type": "loot",
+      "acte": "Act I",
+      "chapitre": "The Continent",
+      "titre": "📦 Loot",
+      "steps": [
+        {
+          "type": "loot",
+          "item": "Energie de Depart I"
+        },
+        {
+          "type": "loot",
+          "item": "$1305 Chroma avant les Falaises."
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "type": "loot",
+      "acte": "Act I",
+      "chapitre": "Stone Wave Cliffs",
+      "titre": "📦 Loot",
+      "steps": [
+        {
+          "type": "loot",
+          "item": "$790 Chroma premier drapeau"
+        },
+        {
+          "type": "loot",
+          "item": "Initiative"
+        },
+        {
+          "type": "loot",
+          "item": "$790 Chroma corde gros tuyau"
+        },
+        {
+          "type": "loot",
+          "item": "$790 Chroma après drapeau ferme"
+        },
+        {
+          "type": "loot",
+          "item": "Luminacolor avant dernière corde"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "type": "mixte",
+      "acte": "Act I",
+      "chapitre": "Stone Wave Cliffs",
+      "titre": "🎨🎨🎨🎨🎨💎💎💎💎💎",
+      "steps": [
+        {
+          "type": "formation",
+          "name": "-Maelle, (S) +Sciel",
+          "character": ""
+        },
+        {
+          "type": "picto",
+          "name": "Initiative Améliorée",
+          "character": "Sciel"
+        },
+        {
+          "type": "picto",
+          "name": "Fracture Améliorée",
+          "character": "Sciel"
+        },
+        {
+          "type": "picto",
+          "name": "Energie de Départ",
+          "character": "Sciel"
+        },
+        {
+          "type": "picto",
+          "name": "Initiative",
+          "character": "Lune"
+        },
+        {
+          "type": "picto",
+          "name": "Instant Critique",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "+Insaisissable",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "-Brûlures Critiques",
+          "character": "Verso"
+        },
+        {
+          "type": "lumina",
+          "name": "+Attaque Affaiblissante",
+          "character": "Verso"
+        },
+        {
+          "type": "lumina",
+          "name": "+Energie Mortelle II",
+          "character": "Sciel"
+        },
+        {
+          "type": "lumina",
+          "name": "+Insaisissable",
+          "character": "Sciel"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "type": "combat",
+      "acte": "Act I",
+      "chapitre": "Stone Wave Cliffs",
+      "titre": "🎯 Lampmaster",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🎯 Lampmaster",
+          "turns": [
+            [
+              {
+                "action": "Immo",
+                "character": "Lune"
+              },
+              {
+                "action": "PARRY",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Lance de Glace",
+                "character": "Lune"
+              },
+              {
+                "action": "Energie(Sciel)",
+                "character": "Verso"
+              },
+              {
+                "action": "Interv(Lune)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Attack",
+                "character": "Lune"
+              },
+              {
+                "action": "PARRY",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Surpui",
+                "character": "Verso"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              }
+            ],
+            [
+              {
+                "action": "teinte lune",
+                "character": "Sciel"
+              },
+              {
+                "action": "DODGE",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Feu Sauv",
+                "character": "Lune"
+              },
+              {
+                "action": "Interv(Lune)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              }
+            ]
+          ],
+          "notes": [
+            {
+              "type": "note",
+              "note": "Il faut 1/2 PARRY au début"
+            },
+            {
+              "type": "note",
+              "note": "T1 si Gustave pas focus, sinon T2."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "type": "menu",
+      "acte": "Act II",
+      "chapitre": "Stone Wave Cliffs",
+      "titre": "📊📊📊✨✨✨✨✨⚔️🎨🎨💎💎💎💎",
+      "steps": [
+        {
+          "type": "stat",
+          "name": "Agi",
+          "character": "Lune",
+          "toAdd": 9,
+          "total": 13
+        },
+        {
+          "type": "stat",
+          "name": "Force",
+          "character": "Verso",
+          "toAdd": 32,
+          "total": 32
+        },
+        {
+          "type": "stat",
+          "name": "Agi",
+          "character": "Verso",
+          "toAdd": 10,
+          "total": 10
+        },
+        {
+          "type": "sort",
+          "name": "Tir Marquant",
+          "character": "Verso"
+        },
+        {
+          "type": "sort",
+          "name": "Récupération Parfaite",
+          "character": "Verso"
+        },
+        {
+          "type": "sort",
+          "name": "Attaque Rapide",
+          "character": "Verso"
+        },
+        {
+          "type": "sort",
+          "name": "Tranchée Berserk",
+          "character": "Verso",
+          "position": "Milieu Gauche"
+        },
+        {
+          "type": "sort",
+          "name": "Frappe de Défi",
+          "character": "Verso",
+          "position": "Bas Droite"
+        },
+        {
+          "type": "arme",
+          "name": "Lanceram",
+          "character": "Verso"
+        },
+        {
+          "type": "picto",
+          "name": "Au Seuil de la mort",
+          "character": "Verso"
+        },
+        {
+          "type": "picto",
+          "name": "Initiative",
+          "character": "Verso"
+        },
+        {
+          "type": "lumina",
+          "name": "-Attaque Affaiblissante",
+          "character": "Verso"
+        },
+        {
+          "type": "lumina",
+          "name": "+Brûlures Critiques",
+          "character": "Verso"
+        },
+        {
+          "type": "lumina",
+          "name": "+Insaisissable",
+          "character": "Verso"
+        },
+        {
+          "type": "lumina",
+          "name": "+Instant Critique",
+          "character": "Verso"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "Forgotten Battlefield",
+      "titre": "🛡️ Chalier",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Chalier",
+          "turns": [
+            [
+              {
+                "action": "DODGE",
+                "character": ""
+              },
+              {
+                "action": "Frappe de Défi",
+                "character": "Verso"
+              },
+              {
+                "action": "DIE",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Skip",
+                "character": "Lune"
+              },
+              {
+                "action": "Percée(1.1)",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "type": "achat",
+      "acte": "Act II",
+      "chapitre": "Forgotten Battlefield",
+      "titre": "💰 Achat",
+      "steps": [
+        {
+          "type": "purchase",
+          "item": "Affinité Inversée",
+          "price": 0
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "type": "mixte",
+      "acte": "Act II",
+      "chapitre": "Forgotten Battlefield",
+      "titre": "🎨",
+      "steps": [
+        {
+          "type": "formation",
+          "name": "-Verso, (V) +Verso, (M) -Maelle, (S) +Sciel",
+          "character": ""
+        },
+        {
+          "type": "picto",
+          "name": "Affinité Inversée",
+          "character": "Verso"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "Forgotten Battlefield",
+      "titre": "🎯 Dualiste",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🎯 Dualiste",
+          "turns": [
+            [
+              {
+                "action": "Tranchée Berserk",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Teinte Energie (Celui pas focus)",
+                "character": "Lune"
+              },
+              {
+                "action": "Tranchée Berserk",
+                "character": "Verso"
+              },
+              {
+                "action": "Interv(Verso)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Frappe",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Attack/ Teinte(Sciel)",
+                "character": "Lune"
+              },
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              },
+              {
+                "action": "Interv(Verso)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Attaque",
+                "character": "Lune"
+              },
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              },
+              {
+                "action": "Interv(Verso)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              }
+            ]
+          ],
+          "notes": [
+            {
+              "type": "note",
+              "note": "Si Verso ou Sciel Focus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "Forgotten Battlefield",
+      "titre": "🎯 Mediocre fight",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🎯 Mediocre fight",
+          "turns": [
+            [
+              {
+                "action": "Teinte Verso",
+                "character": "Lune"
+              },
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              },
+              {
+                "action": "Teinte Verso",
+                "character": "Lune"
+              }
+            ],
+            [
+              {
+                "action": "Lance de Glace",
+                "character": "Lune"
+              },
+              {
+                "action": "Berserk/ Frappe",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Interv(Verso)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Attaque",
+                "character": "Lune"
+              },
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              },
+              {
+                "action": "Interv(Verso)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              }
+            ]
+          ],
+          "notes": [
+            {
+              "type": "note",
+              "note": "Si Lune ou AOE T1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "type": "menu",
+      "acte": "Act II",
+      "chapitre": "Forgotten Battlefield",
+      "titre": "🔧🔧🔧",
+      "steps": [
+        {
+          "type": "upArme",
+          "name": "Lumerim",
+          "character": "Lune",
+          "toAdd": 2,
+          "total": 9
+        },
+        {
+          "type": "upLumina",
+          "name": "+2 Lumina",
+          "character": "Lune",
+          "toAdd": 2,
+          "total": 19
+        },
+        {
+          "type": "upLumina",
+          "name": "+2 Lumina",
+          "character": "Sciel",
+          "toAdd": 2,
+          "total": 20
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "The Continent",
+      "titre": "🛡️ Demineur, Troubador, Gault",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Demineur, Troubador, Gault",
+          "turns": [
+            [
+              {
+                "action": "Shoot mine",
+                "character": "Verso"
+              },
+              {
+                "action": "Shoot him x3",
+                "character": "Verso"
+              },
+              {
+                "action": "Frappe Trouba",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Feu Sauv",
+                "character": "Lune",
+                "fail": true
+              }
+            ],
+            [
+              {
+                "action": "Lame Spectrale Gault",
+                "character": "Sciel"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "type": "menu",
+      "acte": "Act II",
+      "chapitre": "Monoco Station",
+      "titre": "⚔️🎨🎨🎨🎨💎",
+      "steps": [
+        {
+          "type": "arme",
+          "name": "Dualiso",
+          "character": "Verso"
+        },
+        {
+          "type": "picto",
+          "name": "Attaque Combo > Au seuil de la mort",
+          "character": "Verso"
+        },
+        {
+          "type": "picto",
+          "name": "Attaque fragilisante > Affinité inversée (Swap)",
+          "character": "Verso"
+        },
+        {
+          "type": "picto",
+          "name": "Instant Critique > Initiative (Swap)",
+          "character": "Verso"
+        },
+        {
+          "type": "picto",
+          "name": "Au seuil de la mort",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "+Instant Critique",
+          "character": "Lune"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "Monoco Station",
+      "titre": "🛡️ Monoco",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Monoco",
+          "turns": [
+            [
+              {
+                "action": "Immo",
+                "character": "Lune"
+              },
+              {
+                "action": "DODGE",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Teinte Lune",
+                "character": "Verso"
+              },
+              {
+                "action": "Lance de Glace",
+                "character": "Lune"
+              },
+              {
+                "action": "Interv(Lune)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "type": "mixte",
+      "acte": "Act II",
+      "chapitre": "Monoco Station",
+      "titre": "💎💎📝✨✨✨",
+      "steps": [
+        {
+          "type": "lumina",
+          "name": "+Initiative",
+          "character": "Sciel"
+        },
+        {
+          "type": "lumina",
+          "name": "-Insaisissable",
+          "character": "Sciel"
+        },
+        {
+          "type": "note",
+          "note": "Marchand vieille lumiere backup renouveau"
+        },
+        {
+          "type": "sort",
+          "name": "Cycle élémentaire",
+          "character": "Lune",
+          "position": "Haut Gauche"
+        },
+        {
+          "type": "sort",
+          "name": "Surpuissance",
+          "character": "Verso",
+          "position": "Haut Gauche"
+        },
+        {
+          "type": "sort",
+          "name": "Commandement",
+          "character": "Verso",
+          "position": "Bas Gauche"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "Monoco Station",
+      "titre": "🛡️ Stalact",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Stalact",
+          "turns": [
+            [
+              {
+                "action": "Ice Lance",
+                "character": "Lune",
+                "fail": true
+              },
+              {
+                "action": "Interv(Lune)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Gradient",
+                "character": "Lune"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "type": "menu",
+      "acte": "Act II",
+      "chapitre": "Old Lumiere",
+      "titre": "🎨💎💎💎💎💎💎💎💎",
+      "steps": [
+        {
+          "type": "picto",
+          "name": "Energie de Départ > Initiative (No Swap)",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "-Insaisissable",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "+Initiative",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "-Brûlures Critiques",
+          "character": "Verso"
+        },
+        {
+          "type": "lumina",
+          "name": "-Insaisissable",
+          "character": "Verso"
+        },
+        {
+          "type": "lumina",
+          "name": "+Initiative",
+          "character": "Verso"
+        },
+        {
+          "type": "lumina",
+          "name": "+Affinité inversée",
+          "character": "Verso"
+        },
+        {
+          "type": "lumina",
+          "name": "+Affinité inversée",
+          "character": "Maelle"
+        },
+        {
+          "type": "lumina",
+          "name": "+Initiative",
+          "character": "Maelle"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "Old Lumiere",
+      "titre": "🛡️ Chevalières",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Chevalières",
+          "turns": [
+            [
+              {
+                "action": "Déluge de Feu",
+                "character": "Maelle"
+              },
+              {
+                "action": "Shot",
+                "character": "Verso"
+              },
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "type": "loot",
+      "acte": "Act II",
+      "chapitre": "Old Lumiere",
+      "titre": "📦 Loot",
+      "steps": [
+        {
+          "type": "loot",
+          "item": "Rapidité Immédiate"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "Old Lumiere",
+      "titre": "🎯 Renoir 1",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🎯 Renoir 1",
+          "turns": [
+            [
+              {
+                "action": "Déluge de Feu",
+                "character": "Maelle"
+              },
+              {
+                "action": "Feu sauv",
+                "character": "Lune",
+                "fail": true
+              },
+              {
+                "action": "Surpui",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Teinte Lune",
+                "character": "Verso"
+              },
+              {
+                "action": "Lance de Glace",
+                "character": "Lune"
+              },
+              {
+                "action": "Teinte HEAL Lune / rien",
+                "character": "Maelle"
+              }
+            ],
+            [
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Commandement",
+                "character": "Verso"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "type": "loot",
+      "acte": "Act II",
+      "chapitre": "Visages",
+      "titre": "📦 Loot",
+      "steps": [
+        {
+          "type": "loot",
+          "item": "Hardiesse"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "type": "mixte",
+      "acte": "Act II",
+      "chapitre": "Visages",
+      "titre": "🎨🎨🎨💎💎💎⚔️",
+      "steps": [
+        {
+          "type": "formation",
+          "name": "-Lune, (L) +Lune, (M) -Maelle, (S) +Sciel",
+          "character": ""
+        },
+        {
+          "type": "picto",
+          "name": "Rapidité Immédiate",
+          "character": "Sciel"
+        },
+        {
+          "type": "picto",
+          "name": "Initiative > Energie de Depart",
+          "character": "Lune"
+        },
+        {
+          "type": "picto",
+          "name": "Hardiesse > Au seuil de la mort",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "+Energie de Depart",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "+Au seuil de la mort",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "+Au seuil de la mort",
+          "character": "Verso"
+        },
+        {
+          "type": "arme",
+          "name": "Lanceram",
+          "character": "Verso"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "Visages",
+      "titre": "🛡️ 2 Moisonneusse + Hat Guy",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ 2 Moisonneusse + Hat Guy",
+          "turns": [
+            [
+              {
+                "action": "Récupération Parfaite",
+                "character": "Verso"
+              },
+              {
+                "action": "Feu Sauv",
+                "character": "Lune",
+                "fail": true
+              },
+              {
+                "action": "Fuir",
+                "character": "Sciel"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "type": "menu",
+      "acte": "Act II",
+      "chapitre": "Visages",
+      "titre": "⚔️🎨",
+      "steps": [
+        {
+          "type": "arme",
+          "name": "Dualiso",
+          "character": "Verso"
+        },
+        {
+          "type": "picto",
+          "name": "+Rapidité immédiate > Attaque Combo (Swap)",
+          "character": "Verso"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "Visages",
+      "titre": "🛡️🛡️",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🎯 Visages",
+          "turns": [
+            [
+              {
+                "action": "Attack",
+                "character": "Verso"
+              },
+              {
+                "action": "Shoot x2",
+                "character": "Verso"
+              },
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Cycle Elem",
+                "character": "Lune"
+              },
+              {
+                "action": "Interv(Lune)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              }
+            ],
+            [
+              {
+                "action": "PARRY",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Commandement",
+                "character": "Verso"
+              },
+              {
+                "action": "Feu sauv",
+                "character": "Lune"
+              }
+            ]
+          ],
+          "notes": [
+            {
+              "type": "note",
+              "note": "On peut attaquer avant commandement"
+            }
+          ]
+        },
+        {
+          "type": "combat",
+          "titre": "🎯 Maître des Masques",
+          "turns": [
+            [
+              {
+                "action": "Interv(Lune)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              },
+              {
+                "action": "PARRY",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Command/ Surpui",
+                "character": "Verso"
+              },
+              {
+                "action": "Feu sauv",
+                "character": "Lune"
+              },
+              {
+                "action": "Interv(Lune)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              }
+            ]
+          ],
+          "notes": [
+            {
+              "type": "note",
+              "note": "Command ou Surpui selon si il a fait son aoe pour les PA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "type": "menu",
+      "acte": "Act II",
+      "chapitre": "Visages",
+      "titre": "🔧🔧",
+      "steps": [
+        {
+          "type": "upArme",
+          "name": "Lumerim",
+          "character": "Lune",
+          "toAdd": 4,
+          "total": 13
+        },
+        {
+          "type": "upArme",
+          "name": "Scieleson",
+          "character": "Sciel",
+          "toAdd": 3,
+          "total": 8
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "type": "menu",
+      "acte": "Act II",
+      "chapitre": "Sirene",
+      "titre": "📊📊📊✨✨✨",
+      "steps": [
+        {
+          "type": "stat",
+          "name": "Force",
+          "character": "Sciel",
+          "toAdd": 15,
+          "total": 61
+        },
+        {
+          "type": "stat",
+          "name": "Chance",
+          "character": "Lune",
+          "toAdd": 15,
+          "total": 24
+        },
+        {
+          "type": "stat",
+          "name": "Force",
+          "character": "Verso",
+          "toAdd": 18,
+          "total": 50
+        },
+        {
+          "type": "sort",
+          "name": "Sort Scellé",
+          "character": "Sciel",
+          "position": "Bas Gauche"
+        },
+        {
+          "type": "sort",
+          "name": "Tissage de Carte",
+          "character": "Sciel",
+          "position": "Bas Droite"
+        },
+        {
+          "type": "sort",
+          "name": "+Entaille du Crépuscule",
+          "character": "Sciel",
+          "position": "Milieu Droite"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "Sirene",
+      "titre": "🛡️ Ballets(FS)",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Ballets(FS)",
+          "turns": [
+            [
+              {
+                "action": "Skip",
+                "character": "Verso"
+              },
+              {
+                "action": "Feu (L) Sauv(FAIL)",
+                "character": ""
+              },
+              {
+                "action": "Skip",
+                "character": "Sciel"
+              },
+              {
+                "action": "DIE",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Headshot x3/ Fuir",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": [
+            {
+              "type": "note",
+              "note": "Maelle tue si on manque d'xp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "type": "menu",
+      "acte": "Act II",
+      "chapitre": "Sirene",
+      "titre": "🎨🎨🎨💎💎💎",
+      "steps": [
+        {
+          "type": "picto",
+          "name": "Au seuil de la mort > Hardiesse",
+          "character": "Lune"
+        },
+        {
+          "type": "picto",
+          "name": "Hardiesse > Initiative améliorée",
+          "character": "Sciel"
+        },
+        {
+          "type": "picto",
+          "name": "Immaculé > Fracture améliorée",
+          "character": "Sciel"
+        },
+        {
+          "type": "lumina",
+          "name": "-Energie de Depart",
+          "character": "Sciel"
+        },
+        {
+          "type": "lumina",
+          "name": "+Instant Critique",
+          "character": "Sciel"
+        },
+        {
+          "type": "lumina",
+          "name": "+Au seuil de la mort",
+          "character": "Sciel"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "Sirene",
+      "titre": "🛡️ Glissando",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Glissando",
+          "turns": [
+            [
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Teinte Sciel",
+                "character": "Verso"
+              },
+              {
+                "action": "Cycle Elem",
+                "character": "Lune"
+              }
+            ],
+            [
+              {
+                "action": "Tissage",
+                "character": "Sciel"
+              },
+              {
+                "action": "Interv(Lune)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              }
+            ],
+            [
+              {
+                "action": "PARRY",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Shoot jusqu'a Rang C",
+                "character": "Verso"
+              },
+              {
+                "action": "Commandement",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Feu Sauv",
+                "character": "Lune"
+              },
+              {
+                "action": "Gradient",
+                "character": "Sciel"
+              },
+              {
+                "action": "Interv(Lune)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              }
+            ]
+          ],
+          "notes": [
+            {
+              "type": "note",
+              "note": "y a des scenarios ou faut tirer un peu avec verso si on PARRY enchantement juste"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "Sirene",
+      "titre": "🎯 Sirene",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🎯 Sirene",
+          "turns": [
+            [
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              },
+              {
+                "action": "Cycle Elem",
+                "character": "Lune"
+              },
+              {
+                "action": "Tissage",
+                "character": "Sciel"
+              },
+              {
+                "action": "Entaille",
+                "character": "Sciel"
+              }
+            ],
+            [
+              {
+                "action": "PARRY",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Commandement",
+                "character": "Verso"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              },
+              {
+                "action": "Gradient",
+                "character": "Sciel"
+              },
+              {
+                "action": "Sort Scellé",
+                "character": "Sciel"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "type": "mixte",
+      "acte": "Act II",
+      "chapitre": "The Monolith",
+      "titre": "Groupe d'actions",
+      "steps": [
+        {
+          "type": "formation",
+          "name": "-Lune, (V) -Verso, (Mo) +Monoco, (S) -Sciel",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "type": "loot",
+      "acte": "Act II",
+      "chapitre": "The Monolith",
+      "titre": "📦 Loot",
+      "steps": [
+        {
+          "type": "loot",
+          "item": "Energie Faiblesse fin de section Falaises Rochevague"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "type": "mixte",
+      "acte": "Act II",
+      "chapitre": "The Monolith",
+      "titre": "⚔️🎨🎨📊📊📊✨✨",
+      "steps": [
+        {
+          "type": "formation",
+          "name": "+Verso, (L) +Lune, (Mo) -Monoco, (S)+Sciel",
+          "character": ""
+        },
+        {
+          "type": "arme",
+          "name": "Tisseron",
+          "character": "Sciel"
+        },
+        {
+          "type": "picto",
+          "name": "+Energie Tour > Attaque Combo",
+          "character": "Sciel"
+        },
+        {
+          "type": "picto",
+          "name": "+Attaque Combo > Instant Critique",
+          "character": "Verso"
+        },
+        {
+          "type": "stat",
+          "name": "Agi",
+          "character": "Lune",
+          "toAdd": 9,
+          "total": 46
+        },
+        {
+          "type": "stat",
+          "name": "Agi",
+          "character": "Verso",
+          "toAdd": 6,
+          "total": 35
+        },
+        {
+          "type": "stat",
+          "name": "Chance",
+          "character": "Sciel",
+          "toAdd": 9,
+          "total": 18
+        },
+        {
+          "type": "sort",
+          "name": "Appel de la Tempête",
+          "character": "Lune",
+          "position": "Haut Droite"
+        },
+        {
+          "type": "sort",
+          "name": "Préparation Finale",
+          "character": "Sciel",
+          "position": "Haut Droite"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "The Monolith",
+      "titre": "🛡️ Chevaliers Lumiere",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Chevaliers Lumiere",
+          "turns": [
+            [
+              {
+                "action": "Skip",
+                "character": "Verso"
+              },
+              {
+                "action": "Lance de Glace",
+                "character": "Lune"
+              },
+              {
+                "action": "Skip",
+                "character": "Sciel"
+              },
+              {
+                "action": "Fuir",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "The Monolith",
+      "titre": "🎯 Renoir 2",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🎯 Renoir 2",
+          "turns": [
+            [
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "1 Shot",
+                "character": "Verso"
+              },
+              {
+                "action": "Commandement",
+                "character": "Verso"
+              },
+              {
+                "action": "Appel Tempête",
+                "character": "Lune"
+              },
+              {
+                "action": "Présage Ciblé",
+                "character": "Sciel"
+              }
+            ],
+            [
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Surpui",
+                "character": "Verso"
+              },
+              {
+                "action": "Sort Scellé",
+                "character": "Sciel"
+              },
+              {
+                "action": "Lance de Glace",
+                "character": "Lune"
+              }
+            ],
+            [
+              {
+                "action": "Attack",
+                "character": "Verso"
+              },
+              {
+                "action": "Shot? Berserk? Frappe? Attaque?",
+                "character": "Verso"
+              }
+            ],
+            [
+              {
+                "action": "Shoot until 2 PA",
+                "character": "Sciel"
+              },
+              {
+                "action": "Gradient",
+                "character": "Sciel"
+              },
+              {
+                "action": "Sort Scellé",
+                "character": "Sciel"
+              }
+            ]
+          ],
+          "notes": [
+            {
+              "type": "note",
+              "note": "Il faut se rapprocher sans dépassé les 50% pv"
+            },
+            {
+              "type": "note",
+              "note": "Pensez au Headshot, il faut un moins une PARRY T1 ou 2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "type": "menu",
+      "acte": "Act II",
+      "chapitre": "The Monolith",
+      "titre": "🎨💎",
+      "steps": [
+        {
+          "type": "picto",
+          "name": "Energie Faiblesse > Affinité inversée",
+          "character": "Lune"
+        },
+        {
+          "type": "lumina",
+          "name": "+Affinité inversée",
+          "character": "Lune"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "type": "combat",
+      "acte": "Act II",
+      "chapitre": "The Monolith",
+      "titre": "🎯 The Paintress",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🎯 The Paintress",
+          "turns": [
+            [
+              {
+                "action": "Skip",
+                "character": "Verso"
+              },
+              {
+                "action": "Cycle Elem",
+                "character": "Lune"
+              },
+              {
+                "action": "Interv(Lune)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              },
+              {
+                "action": "DODGE",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Shoot/Attaque Rang C",
+                "character": "Verso"
+              },
+              {
+                "action": "Command.",
+                "character": "Verso"
+              },
+              {
+                "action": "Cycle Elem",
+                "character": "Lune"
+              },
+              {
+                "action": "Prépa",
+                "character": "Sciel"
+              },
+              {
+                "action": "PARRY",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              },
+              {
+                "action": "Danse",
+                "character": "Lune"
+              },
+              {
+                "action": "Gradient",
+                "character": "Sciel"
+              },
+              {
+                "action": "Sort Scellé(NO Fail)",
+                "character": "Sciel"
+              },
+              {
+                "action": "PARRY",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Berserk",
+                "character": "Verso"
+              },
+              {
+                "action": "Cycle Elem",
+                "character": "Lune"
+              },
+              {
+                "action": "Gradient",
+                "character": "Sciel"
+              },
+              {
+                "action": "Sort Scellé",
+                "character": "Sciel"
+              }
+            ],
+            [
+              {
+                "action": "PARRY",
+                "character": ""
+              },
+              {
+                "action": "DODGE",
+                "character": ""
+              }
+            ],
+            [
+              {
+                "action": "Danse",
+                "character": "Lune"
+              },
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Surpuissance",
+                "character": "Verso"
+              },
+              {
+                "action": "Gradient",
+                "character": "Sciel"
+              },
+              {
+                "action": "Sort Scellé",
+                "character": "Sciel"
+              }
+            ],
+            [
+              {
+                "action": "Skip/Attaque",
+                "character": "Lune"
+              },
+              {
+                "action": "Berserk/Attaque-Skip",
+                "character": "Verso"
+              },
+              {
+                "action": "Sort Scellé",
+                "character": "Sciel"
+              }
+            ]
+          ],
+          "notes": [
+            {
+              "type": "note",
+              "note": "Transi askip on veut 2 parry sur l'aoe épée"
+            },
+            {
+              "type": "note",
+              "note": "Verso pas soigné / Verso soigné"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "type": "mixte",
+      "acte": "Act III",
+      "chapitre": "Lumiere",
+      "titre": "📝🎨🎨🎨🎨🎨💎💎💎💎",
+      "steps": [
+        {
+          "type": "note",
+          "note": "N'importe quand avant Creation"
+        },
+        {
+          "type": "picto",
+          "name": "Attaque Combo > Hardiesse (No Swap)",
+          "character": "Sciel"
+        },
+        {
+          "type": "picto",
+          "name": "Rapidité Immédiate > Immaculé (No Swap)",
+          "character": "Sciel"
+        },
+        {
+          "type": "picto",
+          "name": "Puissance Surpeinte > Brûlures Critiques",
+          "character": "Maelle"
+        },
+        {
+          "type": "picto",
+          "name": "Immaculé",
+          "character": "Maelle"
+        },
+        {
+          "type": "picto",
+          "name": "Hardiesse > Énergie Mortelle II",
+          "character": "Maelle"
+        },
+        {
+          "type": "lumina",
+          "name": "+Energie Mortelle II",
+          "character": "Maelle"
+        },
+        {
+          "type": "lumina",
+          "name": "+Instant Critique",
+          "character": "Maelle"
+        },
+        {
+          "type": "lumina",
+          "name": "+Au seuil de la mort",
+          "character": "Maelle"
+        },
+        {
+          "type": "lumina",
+          "name": "+Energie Depart",
+          "character": "Sciel"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "type": "achat",
+      "acte": "Act III",
+      "chapitre": "Lumiere",
+      "titre": "💰 Achat",
+      "steps": [
+        {
+          "type": "purchase",
+          "item": "10 Chroma poli",
+          "price": 0
+        },
+        {
+          "type": "purchase",
+          "item": "14 Chroma resplendissant",
+          "price": 0
+        },
+        {
+          "type": "purchase",
+          "item": "1 Renouveau",
+          "price": 0
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "type": "mixte",
+      "acte": "Act III",
+      "chapitre": "Lumiere",
+      "titre": "📝✨✨🔧",
+      "steps": [
+        {
+          "type": "note",
+          "note": "Sous le lvl 28, add un peu de force a Maelle (62 max LVL 28)"
+        },
+        {
+          "type": "sort",
+          "name": "Dernière Chance",
+          "character": "Maelle",
+          "position": "Haut Gauche"
+        },
+        {
+          "type": "sort",
+          "name": "Stendhal",
+          "character": "Maelle",
+          "position": "Milieu Gauche"
+        },
+        {
+          "type": "upArme",
+          "name": "Medalum",
+          "character": "Maelle",
+          "toAdd": 11,
+          "total": 16
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "type": "combat",
+      "acte": "Act III",
+      "chapitre": "Lumiere",
+      "titre": "🛡️ Creation",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Creation",
+          "turns": [
+            [
+              {
+                "action": "Dernière Chance",
+                "character": "Maelle"
+              },
+              {
+                "action": "Interv(Maelle)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Fuir",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "type": "mixte",
+      "acte": "Act III",
+      "chapitre": "Lumiere",
+      "titre": "Groupe d'actions",
+      "steps": [
+        {
+          "type": "formation",
+          "name": "+Verso, (M) -Maelle, (M) +Maelle",
+          "character": ""
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "type": "combat",
+      "acte": "Act III",
+      "chapitre": "Lumiere",
+      "titre": "🎯 Renoir Final",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🎯 Renoir Final",
+          "turns": [
+            [
+              {
+                "action": "Prépa",
+                "character": "Sciel"
+              },
+              {
+                "action": "Attaque",
+                "character": "Verso"
+              },
+              {
+                "action": "Shoot x2",
+                "character": "Verso"
+              },
+              {
+                "action": "Commandement",
+                "character": "Verso"
+              },
+              {
+                "action": "Stendhal (1.2 + 1.1)",
+                "character": "Maelle"
+              }
+            ],
+            [
+              {
+                "action": "Interv(Maelle)",
+                "character": "Sciel"
+              },
+              {
+                "action": "Gradient",
+                "character": "Maelle"
+              },
+              {
+                "action": "TRANSI",
+                "character": ""
+              },
+              {
+                "action": "Stendhal (1.2 + 1.2)",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "type": "combat",
+      "acte": "Act III",
+      "chapitre": "Lumiere",
+      "titre": "🛡️ Verso",
+      "steps": [
+        {
+          "type": "combat",
+          "titre": "🛡️ Verso",
+          "turns": [
+            [
+              {
+                "action": "Déluge de Feu",
+                "character": "Maelle"
+              }
+            ]
+          ],
+          "notes": []
+        }
+      ]
+    }
+  ]
+}

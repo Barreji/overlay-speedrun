@@ -153,45 +153,19 @@ export class KeyBindManager {
         // Supprime les anciens écouteurs s'ils existent
         this.removeGlobalKeyListeners();
 
-        // Ajoute le nouvel écouteur
-        const keyHandler = this.handleGlobalKeyDown.bind(this);
-        window.addEventListener("keydown", keyHandler, true);
+        // Note: Les raccourcis globaux sont maintenant gérés par le processus principal
+        // via globalShortcut, donc nous n'avons plus besoin d'écouteurs DOM ici
+        // Les raccourcis fonctionnent même quand la fenêtre n'a pas le focus
 
-        // Stocke la référence pour pouvoir la supprimer plus tard
-        this.eventListeners.set("global-keydown", keyHandler);
+        console.log("Raccourcis globaux configurés via le processus principal");
     }
 
     /**
-     * Supprime les écouteurs d'événements globaux
+     * Supprime les écouteurs d'événements clavier globaux
      */
     private removeGlobalKeyListeners(): void {
-        const keyHandler = this.eventListeners.get("global-keydown");
-        if (keyHandler) {
-            window.removeEventListener("keydown", keyHandler, true);
-            this.eventListeners.delete("global-keydown");
-        }
-    }
-
-    /**
-     * Gère les événements clavier globaux
-     */
-    private handleGlobalKeyDown(event: KeyboardEvent): void {
-        // Ignore si on est en train de configurer un raccourci
-        if (this.isBindingKey) {
-            return;
-        }
-
-        const pressedKey = this.getKeyFromEvent(event);
-
-        // Vérifie si la touche correspond à un raccourci configuré
-        for (const [bindType, bindKey] of Object.entries(this.keyBinds)) {
-            if (bindKey && pressedKey === bindKey) {
-                event.preventDefault();
-                event.stopPropagation();
-                this.executeKeyBind(bindType as keyof KeyBinds);
-                break;
-            }
-        }
+        // Les raccourcis globaux sont gérés par le processus principal
+        // Pas besoin de nettoyer les écouteurs DOM
     }
 
     /**
@@ -199,6 +173,16 @@ export class KeyBindManager {
      */
     private getKeyFromEvent(event: KeyboardEvent): string {
         let key = (event.key || "").toLowerCase();
+
+        // Ignorer les touches de modification seules
+        if (key === "shift" || key === "control" || key === "alt" || key === "meta") {
+            return "";
+        }
+
+        // Ignorer les touches système
+        if (key === "capslock" || key === "numlock" || key === "scrolllock") {
+            return "";
+        }
 
         // Gestion des touches spéciales
         if (
@@ -248,24 +232,10 @@ export class KeyBindManager {
             return "insert";
         } else if (key === "printscreen") {
             return "printscreen";
-        } else if (key === "scrolllock") {
-            return "scrolllock";
         } else if (key === "pause") {
             return "pause";
-        } else if (key === "numlock") {
-            return "numlock";
-        } else if (key === "capslock") {
-            return "capslock";
         } else if (key === "contextmenu") {
             return "contextmenu";
-        } else if (key === "meta") {
-            return "meta";
-        } else if (key === "alt") {
-            return "alt";
-        } else if (key === "control") {
-            return "control";
-        } else if (key === "shift") {
-            return "shift";
         } else if (key === "spacebar") {
             return "space";
         }
@@ -395,6 +365,11 @@ export class KeyBindManager {
             event.stopPropagation();
 
             const pressedKey = this.getKeyFromEvent(event);
+
+            // Ignorer les touches de modification seules
+            if (!pressedKey) {
+                return;
+            }
 
             // Interdit la touche espace (comme l'ancien code)
             if (pressedKey === " " || pressedKey === "spacebar" || pressedKey === "space") {
