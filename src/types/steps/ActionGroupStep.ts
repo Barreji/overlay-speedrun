@@ -5,7 +5,7 @@ import { LootStep, PurchaseStep, ImageStep } from "./ItemStep";
 /**
  * Types possibles pour un groupe d'actions
  */
-export type ActionGroupType = "loot" | "achat" | "menu" | "combat" | "image" | "mixte";
+export type ActionGroupType = "loot" | "purchase" | "menu" | "combat" | "image" | "mixte";
 
 /**
  * Type union pour les types de steps principaux
@@ -116,7 +116,7 @@ export class ActionGroupStep {
         if (stepTypes.every((type) => type === "loot")) {
             return "loot";
         } else if (stepTypes.every((type) => type === "purchase")) {
-            return "achat";
+            return "purchase";
         } else if (stepTypes.every((type) => type === "menu")) {
             return "menu";
         } else if (stepTypes.every((type) => type === "combat")) {
@@ -149,5 +149,24 @@ export class ActionGroupStep {
             titre: this.titre,
             steps: this.steps.map((step) => step.toJSON()),
         };
+    }
+
+    static fromJSON(data: any): ActionGroupStep {
+        const steps = data.steps.map((stepData: any) => {
+            if (stepData.type === "combat") {
+                return CombatStep.fromJSON(stepData);
+            } else if (stepData.type === "menu") {
+                return MenuStep.fromJSON(stepData);
+            } else if (stepData.type === "loot") {
+                return LootStep.fromJSON(stepData);
+            } else if (stepData.type === "purchase") {
+                return PurchaseStep.fromJSON(stepData);
+            } else if (stepData.type === "image") {
+                return ImageStep.fromJSON(stepData);
+            }
+        });
+
+        const actionGroup = new ActionGroupStep(data.id, data.acte, data.chapitre, steps);
+        return actionGroup;
     }
 }

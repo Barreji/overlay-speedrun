@@ -23,6 +23,10 @@ export class AttackStep {
 
         return result;
     }
+
+    static fromJSON(data: any): AttackStep {
+        return new AttackStep(data.action, data.character, data.fail);
+    }
 }
 
 /**
@@ -75,12 +79,9 @@ export class TurnStep {
         });
     }
 
-    /**
-     * Crée un tour à partir d'un tableau d'actions
-     */
-    static fromActions(actions: AttackStep[]): TurnStep {
-        const tour = new TurnStep();
-        actions.forEach((action) => tour.addAttack(action));
-        return tour;
+    static fromJSON(data: any): TurnStep {
+        const turn = new TurnStep();
+        turn.attacks = data.attacks.map((attackData: any) => AttackStep.fromJSON(attackData));
+        return turn;
     }
 }

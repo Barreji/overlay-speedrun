@@ -12,7 +12,7 @@ export class CharacterUtils {
         L: "lune",
         S: "sciel",
         V: "verso",
-        Mo: "monoco",
+        o: "monoco",
     };
 
     /**
@@ -29,7 +29,7 @@ export class CharacterUtils {
     /**
      * Regex pour détecter les marqueurs de personnages dans le texte
      */
-    private static readonly CHARACTER_REGEX = /\((M|L|S|V|Mo)\)/;
+    private static readonly CHARACTER_REGEX = /\((M|L|S|V|o)\)/;
 
     /**
      * Regex pour détecter les marqueurs FAIL dans les actions

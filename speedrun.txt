@@ -39,7 +39,7 @@ ARME
 (V) Lanceram
 PICTO
 (V) Brulures Critiques
-(V) Energy mortelle II
+(V) Energie mortelle II
 (L) Insaisissable
 (IMG) Screenshot_1.png
 
@@ -317,7 +317,7 @@ LUMINA
 (V) +Affinité inversée
 (M) +Affinité inversée
 (M) +Initiative
-(Mo) +Initiative
+(o) +Initiative
 (S) +Affinité inversée
 (S) +Energie de Depart
 

@@ -38,7 +38,8 @@ export class SimpleMenuParser {
      */
     static getMenuType(line: string): string | null {
         const trimmedLine = line.trim();
-        return this.menuTypes.find((type) => trimmedLine.startsWith(type)) || null;
+        const idx = this.menuKeywords.findIndex((keyword) => trimmedLine.startsWith(keyword));
+        return idx !== -1 ? this.menuTypes[idx] : null;
     }
 
     /**
@@ -108,7 +109,7 @@ export class SimpleMenuParser {
                 return "Lune";
             case "S":
                 return "Sciel";
-            case "Mo":
+            case "o":
                 return "Monoco";
             default:
                 return code;

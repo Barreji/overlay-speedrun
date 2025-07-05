@@ -44,88 +44,65 @@ type Step =
     | UpArmeStep
     | UpLuminaStep;
 
-/**
- * Point d'entrée du parseur de guide (base saine)
- * Usage : node parse-guide.js [input.txt] [output.json]
- */
-async function main() {
-    console.log("Début du script");
-    // Récupérer les arguments
-    const args = process.argv.slice(2);
-    const inputFile = args[0] || "speedrun.txt";
-    const outputFile = args[1] || "test-output.json";
+export class ParseGuide {
+    private stateMachine: StateMachine;
+    private currentActe: string = "";
+    private currentChapitre: string = "";
+    private guide: Guide;
+    private currentGroupSteps: any[] = [];
+    private stepId: number = 1;
+    private currentMenu: MenuStep | null = null;
+    private currentCombat: CombatStep | null = null;
+    private combatParser: SimpleCombatParser;
+    private menuParser: SimpleMenuParser;
+    private inputPath: string = "";
+    private outputPath: string = "";
 
-    // Résoudre les chemins
-    const inputPath = path.isAbsolute(inputFile) ? inputFile : path.join(process.cwd(), inputFile);
-    const outputPath = path.isAbsolute(outputFile) ? outputFile : path.join(process.cwd(), outputFile);
-
-    // Vérifier que le fichier existe
-    if (!fs.existsSync(inputPath)) {
-        console.error(`Fichier d'entrée introuvable: ${inputPath}`);
-        process.exit(1);
+    private constructor(inputPath: string, outputPath: string) {
+        this.inputPath = inputPath;
+        this.outputPath = outputPath;
+        this.stateMachine = new StateMachine();
+        this.guide = new Guide("Clair Obscur", "Any% Glitchless Expert");
+        this.combatParser = new SimpleCombatParser();
+        this.menuParser = new SimpleMenuParser();
     }
 
-    // Créer la machine à états
-    const stateMachine = new StateMachine();
-
-    // Variables pour tracker l'acte et chapitre courants
-    let currentActe = "";
-    let currentChapitre = "";
-
-    // Créer le guide
-    const guide = new Guide("Clair Obscur", "Any% Glitchless Expert");
-
-    // Variables pour collecter les steps du groupe en cours
-    let currentGroupSteps: any[] = [];
-    let stepId = 1;
-
-    // Variables pour gérer le menu en cours
-    let currentMenu: MenuStep | null = null;
-    let currentCombat: CombatStep | null = null;
-
-    // Parsers
-    const combatParser = new SimpleCombatParser();
-    const menuParser = new SimpleMenuParser();
-
-    /**
-     * Finalise le groupe d'actions en cours et l'ajoute au guide
-     */
-    function finalizeCurrentGroup() {
-        if (currentGroupSteps.length > 0) {
-            const actionGroup = new ActionGroupStep(stepId++, currentActe, currentChapitre, currentGroupSteps);
-            guide.addActionGroup(actionGroup);
-            currentGroupSteps = [];
+    private finalizeCurrentGroup() {
+        if (this.currentGroupSteps.length > 0 && !this.onlyNotesInGroup()) {
+            const actionGroup = new ActionGroupStep(this.stepId++, this.currentActe, this.currentChapitre, this.currentGroupSteps);
+            this.guide.addActionGroup(actionGroup);
+            this.currentGroupSteps = [];
         }
     }
 
-    /**
-     * Finalise le menu en cours et l'ajoute au groupe
-     */
-    function finalizeCurrentMenu() {
-        if (currentMenu) {
-            // Ajouter les actions du menu individuellement au lieu du MenuStep entier
-            currentGroupSteps.push(currentMenu);
-            currentMenu = null;
+    private onlyNotesInGroup(): boolean {
+        return this.currentGroupSteps.every((step) => step instanceof NoteStep);
+    }
+
+    private finalizeCurrentMenu(lineNumber: number, readLine: string) {
+        if (this.currentMenu) {
+            this.currentGroupSteps.push(this.currentMenu);
+            this.currentMenu = null;
+            this.stateMachine.resetToSearch(lineNumber, readLine);
         }
     }
 
-    /**
-     * Finalise le combat en cours et l'ajoute au groupe
-     */
-    function finalizeCurrentCombat() {
-        if (currentCombat) {
-            currentGroupSteps.push(currentCombat);
-            currentCombat = null;
+    private finalizeCurrentCombat(lineNumber: number, readLine: string) {
+        if (this.currentCombat) {
+            this.currentGroupSteps.push(this.currentCombat);
+            this.currentCombat = null;
+            this.stateMachine.resetToSearch(lineNumber, readLine);
         }
     }
 
-    function addStep(step: Step) {
-        if (stateMachine.getState() === "IN_COMBAT" && currentCombat) {
+    private addStep(step: Step) {
+        if (this.stateMachine.getState() === "IN_COMBAT" && this.currentCombat) {
             if (step instanceof NoteStep || step instanceof ImageStep || step instanceof TurnStep) {
-                currentCombat.addTurn(step);
+                this.currentCombat.addTurn(step);
+                return;
             }
         }
-        if (stateMachine.getState() === "IN_MENU" && currentMenu) {
+        if (this.stateMachine.getState() === "IN_MENU" && this.currentMenu) {
             if (
                 step instanceof NoteStep ||
                 step instanceof ImageStep ||
@@ -138,194 +115,199 @@ async function main() {
                 step instanceof UpLuminaStep ||
                 step instanceof FormationStep
             ) {
-                currentMenu.addMenu(step);
+                this.currentMenu.addMenu(step);
+                return;
             }
         }
-        currentGroupSteps.push(step);
+        this.currentGroupSteps.push(step);
     }
 
-    // Lire le fichier ligne par ligne
-    const rl = readline.createInterface({
-        input: fs.createReadStream(inputPath),
-        crlfDelay: Infinity,
-    });
+    private async parseInternal() {
+        // Vérifier que le fichier existe
+        if (!fs.existsSync(this.inputPath)) {
+            console.error(`Fichier d'entrée introuvable: ${this.inputPath}`);
+            process.exit(1);
+        }
 
-    let lineNumber = 0;
-    for await (const line of rl) {
-        try {
-            lineNumber++;
-            const readLine = line.trim();
+        // Lire le fichier ligne par ligne
+        const rl = readline.createInterface({
+            input: fs.createReadStream(this.inputPath),
+            crlfDelay: Infinity,
+        });
 
-            // Si la ligne est vide, finaliser le groupe en cours
-            if (readLine === "") {
-                if (stateMachine.getState() === "IN_COMBAT") {
-                    finalizeCurrentCombat();
+        let lineNumber = 0;
+        for await (const line of rl) {
+            try {
+                lineNumber++;
+                const readLine = line.trim();
+
+                if (readLine === "") {
+                    if (this.stateMachine.getState() === "IN_COMBAT") {
+                        this.finalizeCurrentCombat(lineNumber, readLine);
+                    }
+                    else if (this.stateMachine.getState() === "IN_MENU") {
+                        this.finalizeCurrentMenu(lineNumber, readLine);
+                    }
+                    this.finalizeCurrentGroup();
+                    this.stateMachine.resetToSearch(lineNumber, readLine);
+                    continue;
                 }
-                if (stateMachine.getState() === "IN_MENU") {
-                    finalizeCurrentMenu();
+
+                if (readLine.startsWith("Act ")) {
+                    this.currentActe = readLine;
+                    this.stateMachine.setState("SEARCH", lineNumber, readLine);
+                    continue;
                 }
-                finalizeCurrentGroup();
-                stateMachine.resetToSearch(lineNumber, readLine);
-                continue;
-            }
 
-            // Détecter les changements d'acte
-            if (readLine.startsWith("Act ")) {
-                currentActe = readLine;
-                stateMachine.setState("SEARCH", lineNumber, readLine);
-                continue;
-            }
-
-            // Détecter les changements de chapitre
-            if (readLine.startsWith("T:")) {
-                currentChapitre = readLine.substring(2);
-                stateMachine.setState("SEARCH", lineNumber, readLine);
-                continue;
-            }
-
-            // Détecter les lignes de note
-            if (SimpleNoteParser.isNoteLine(readLine)) {
-                const noteStep = SimpleNoteParser.parseNoteLine(readLine);
-                addStep(noteStep);
-                continue;
-            }
-
-            if (SimpleImageParser.isImageLine(readLine)) {
-                const imageStep = SimpleImageParser.parseImageLine(readLine);
-                addStep(imageStep);
-                continue;
-            }
-
-            // Détecter les lignes de loot
-            if (SimpleLootParser.isLootLine(readLine)) {
-                if (currentCombat) {
-                    finalizeCurrentCombat();
+                if (readLine.startsWith("T:")) {
+                    this.currentChapitre = readLine.substring(2);
+                    this.stateMachine.setState("SEARCH", lineNumber, readLine);
+                    continue;
                 }
-                const lootSteps = SimpleLootParser.parseLootLine(readLine);
-                lootSteps.forEach((step) => addStep(step));
-                continue;
-            }
 
-            // Détecter les lignes d'achat
-            if (SimplePurchaseParser.isPurchaseLine(readLine)) {
-                if (currentCombat) {
-                    finalizeCurrentCombat();
+                if (SimpleNoteParser.isNoteLine(readLine)) {
+                    const noteStep = SimpleNoteParser.parseNoteLine(readLine);
+                    this.addStep(noteStep);
+                    continue;
                 }
-                const purchaseSteps = SimplePurchaseParser.parsePurchaseLine(readLine);
-                purchaseSteps.forEach((step) => addStep(step));
-                continue;
-            }
 
-            // Détecter les lignes de combat (🛡️ ou 🎯)
-            if (SimpleCombatParser.isCombatLine(readLine)) {
-                const combatStep = combatParser.parseCombatLine(readLine);
-                currentCombat = combatStep;
-                stateMachine.setState("IN_COMBAT", lineNumber, readLine);
-                continue;
-            }
-
-            // Détecter les lignes de menu
-            if (SimpleMenuParser.isMenuKeyword(readLine)) {
-                if (!currentMenu) {
-                    currentMenu = new MenuStep();
+                if (SimpleImageParser.isImageLine(readLine)) {
+                    const imageStep = SimpleImageParser.parseImageLine(readLine);
+                    this.addStep(imageStep);
+                    continue;
                 }
-                const menuType = SimpleMenuParser.getMenuType(readLine);
-                if (menuType) {
-                    const menuSubState = SimpleMenuParser.getMenuSubState(menuType);
-                    stateMachine.setState("IN_MENU", lineNumber, readLine, menuSubState);
-                }
-                continue;
-            }
 
-            // In Combat
-            if (stateMachine.getState() === "IN_COMBAT") {
-                if (SimpleCombatParser.isTourLine(readLine)) {
-                    const turnStep = combatParser.parseTourLine(readLine);
-                    if (currentCombat) {
-                        currentCombat.addTurn(turnStep);
+                if (SimpleLootParser.isLootLine(readLine)) {
+                    if (this.currentCombat) {
+                        this.finalizeCurrentCombat(lineNumber, readLine);
+                    }
+                    const lootSteps = SimpleLootParser.parseLootLine(readLine);
+                    lootSteps.forEach((step) => this.addStep(step));
+                    continue;
+                }
+
+                if (SimplePurchaseParser.isPurchaseLine(readLine)) {
+                    if (this.currentCombat) {
+                        this.finalizeCurrentCombat(lineNumber, readLine);
+                    }
+                    const purchaseSteps = SimplePurchaseParser.parsePurchaseLine(readLine);
+                    purchaseSteps.forEach((step) => this.addStep(step));
+                    continue;
+                }
+
+                if (SimpleCombatParser.isCombatLine(readLine)) {
+                    if (this.currentCombat) {
+                        this.finalizeCurrentCombat(lineNumber, readLine);
+                    }
+                    const combatStep = this.combatParser.parseCombatLine(readLine);
+                    this.currentCombat = combatStep;
+                    this.stateMachine.setState("IN_COMBAT", lineNumber, readLine);
+                    continue;
+                }
+
+                if (SimpleMenuParser.isMenuKeyword(readLine)) {
+                    if (!this.currentMenu) {
+                        this.currentMenu = new MenuStep();
+                    }
+                    const menuType = SimpleMenuParser.getMenuType(readLine);
+                    if (menuType) {
+                        const menuSubState = SimpleMenuParser.getMenuSubState(menuType);
+                        this.stateMachine.setState("IN_MENU", lineNumber, readLine, menuSubState);
                     }
                     continue;
                 }
-            }
 
-            // Si on est en mode menu, parser les lignes de menu
-            if (stateMachine.getState() === "IN_MENU") {
-                const menuSubState = stateMachine.getMenuSubState();
-
-                // Parser selon le sous-état du menu
-                switch (menuSubState) {
-                    case "IN_ARME":
-                        if (currentMenu) {
-                            currentMenu.addMenu(SimpleMenuParser.parseArmeLine(readLine));
+                if (this.stateMachine.getState() === "IN_COMBAT") {
+                    if (SimpleCombatParser.isTourLine(readLine)) {
+                        const turnStep = this.combatParser.parseTourLine(readLine);
+                        if (this.currentCombat) {
+                            this.currentCombat.addTurn(turnStep);
                         }
                         continue;
-                    case "IN_PICTO":
-                        if (currentMenu) {
-                            currentMenu.addMenu(SimpleMenuParser.parsePictoLine(readLine));
-                        }
-                        continue;
-
-                    case "IN_STAT":
-                        if (currentMenu) {
-                            const statSteps = SimpleMenuParser.parseStatLine(readLine);
-                            statSteps.forEach((step) => addStep(step));
-                        }
-                        continue;
-
-                    case "IN_SORT":
-                        if (currentMenu) {
-                            currentMenu.addMenu(SimpleMenuParser.parseSortLine(readLine));
-                        }
-                        continue;
-
-                    case "IN_LUMINA":
-                        if (currentMenu) {
-                            currentMenu.addMenu(SimpleMenuParser.parseLuminaLine(readLine));
-                        }
-                        continue;
-
-                    case "IN_UP_ARME":
-                        if (currentMenu) {
-                            currentMenu.addMenu(SimpleMenuParser.parseUpArmeLine(readLine));
-                        }
-                        continue;
-
-                    case "IN_UP_LUMINA":
-                        if (currentMenu) {
-                            currentMenu.addMenu(SimpleMenuParser.parseUpLuminaLine(readLine));
-                        }
-                        continue;
-
-                    case "IN_FORMATION":
-                        if (currentMenu) {
-                            const formationSteps = SimpleMenuParser.parseFormationLine(readLine);
-                            formationSteps.forEach((step) => addStep(step));
-                        }
-                        continue;
+                    }
                 }
+
+                if (this.stateMachine.getState() === "IN_MENU") {
+                    const menuSubState = this.stateMachine.getMenuSubState();
+                    switch (menuSubState) {
+                        case "IN_ARME":
+                            if (this.currentMenu) {
+                                this.currentMenu.addMenu(SimpleMenuParser.parseArmeLine(readLine));
+                            }
+                            continue;
+                        case "IN_PICTO":
+                            if (this.currentMenu) {
+                                this.currentMenu.addMenu(SimpleMenuParser.parsePictoLine(readLine));
+                            }
+                            continue;
+                        case "IN_STAT":
+                            if (this.currentMenu) {
+                                const statSteps = SimpleMenuParser.parseStatLine(readLine);
+                                statSteps.forEach((step) => this.addStep(step));
+                            }
+                            continue;
+                        case "IN_SORT":
+                            if (this.currentMenu) {
+                                this.currentMenu.addMenu(SimpleMenuParser.parseSortLine(readLine));
+                            }
+                            continue;
+                        case "IN_LUMINA":
+                            if (this.currentMenu) {
+                                this.currentMenu.addMenu(SimpleMenuParser.parseLuminaLine(readLine));
+                            }
+                            continue;
+                        case "IN_UP_ARME":
+                            if (this.currentMenu) {
+                                this.currentMenu.addMenu(SimpleMenuParser.parseUpArmeLine(readLine));
+                            }
+                            continue;
+                        case "IN_UP_LUMINA":
+                            if (this.currentMenu) {
+                                this.currentMenu.addMenu(SimpleMenuParser.parseUpLuminaLine(readLine));
+                            }
+                            continue;
+                        case "IN_FORMATION":
+                            if (this.currentMenu) {
+                                const formationSteps = SimpleMenuParser.parseFormationLine(readLine);
+                                formationSteps.forEach((step) => this.addStep(step));
+                            }
+                            continue;
+                        default:
+                            continue;
+                    }
+                }
+            } catch (err) {
+                console.error(`Erreur à la ligne ${lineNumber}: "${line}"`);
+                console.error(err);
+                throw err;
             }
-        } catch (err) {
-            console.error(`Erreur à la ligne ${lineNumber}: "${line}"`);
-            console.error(err);
-            throw err; // Relancer l'erreur pour qu'elle soit capturée par le catch global
         }
+
+        if (this.stateMachine.getState() === "IN_COMBAT") {
+            this.finalizeCurrentCombat(lineNumber, "");
+        }
+        this.finalizeCurrentGroup();
+
+        console.log("Avant sauvegarde du guide");
+        this.guide.saveToFile(this.outputPath);
+        console.log(`Parsing terminé. Résultat écrit dans ${this.outputPath}`);
+        console.log("Fichier écrit !");
+        return this.outputPath;
     }
 
-    // Finaliser le groupe en cours à la fin du fichier
-    if (stateMachine.getState() === "IN_COMBAT") {
-        finalizeCurrentCombat();
+    static async parse(inputFile?: string, outputFile?: string) {
+        const args = process.argv.slice(2);
+        const input = inputFile || args[0] || "speedrun.txt";
+        const output = outputFile || args[1] || "test-test.json";
+        const inputPath = path.isAbsolute(input) ? input : path.join(process.cwd(), input);
+        const outputPath = path.isAbsolute(output) ? output : path.join(process.cwd(), output);
+        const parser = new ParseGuide(inputPath, outputPath);
+        return await parser.parseInternal();
     }
-    finalizeCurrentGroup();
-
-    // Sauvegarder le guide dans un fichier
-    console.log("Avant sauvegarde du guide");
-    guide.saveToFile(outputPath);
-    console.log(`Parsing terminé. Résultat écrit dans ${outputPath}`);
-    console.log("Fichier écrit !");
 }
 
 if (require.main === module) {
-    main().catch((err) => {
+    ParseGuide.parse().catch((err) => {
         console.error("Erreur fatale:", err);
         process.exit(1);
     });

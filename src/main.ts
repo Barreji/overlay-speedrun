@@ -3,7 +3,8 @@ import * as path from "path";
 import * as fs from "fs";
 import { exec } from "child_process";
 import { promisify } from "util";
-import { Guide, Step, LoadResult } from "./types/GuideTypes";
+import {LoadResult } from "./types/GuideTypes";
+import { Guide } from "./types/Guide";
 
 const execAsync = promisify(exec);
 
@@ -11,8 +12,8 @@ app.disableHardwareAcceleration();
 
 class SpeedrunGuideApp {
     private mainWindow: BrowserWindow | null = null;
-    private currentGuide: Guide | null = null;
-    private currentStepIndex: number = 0;
+    //private currentGuide: Guide | null = null;
+    //private currentStepIndex: number = 0;
     private binds = {
         prev: "F1",
         next: "F2",
@@ -49,35 +50,24 @@ class SpeedrunGuideApp {
     private setupGlobalShortcuts(): void {
         globalShortcut.unregisterAll();
 
-        Object.entries(this.binds).forEach(([action, key]) => {
-            if (key && key.toLowerCase() !== " " && key.toLowerCase() !== "space") {
-                // Enregistrer le raccourci principal
-                const success = globalShortcut.register(key, () => {
-                    setTimeout(() => {
-                        if (action === "toggleOverlay") {
-                            this.toggleOverlay();
-                        } else {
-                            this.mainWindow?.webContents.send(`${action}-step-from-main`);
-                        }
-                    }, 10);
-                });
-
-                // Enregistrer aussi les variantes avec des touches de modification
-                // pour que les raccourcis fonctionnent même quand SHIFT/CTRL/ALT sont maintenus
-                const modifierKeys = ["Shift+", "Control+", "Alt+", "Meta+"];
-                modifierKeys.forEach((modifier) => {
-                    const modifiedKey = modifier + key;
-                    globalShortcut.register(modifiedKey, () => {
-                        setTimeout(() => {
-                            if (action === "toggleOverlay") {
-                                this.toggleOverlay();
-                            } else {
-                                this.mainWindow?.webContents.send(`${action}-step-from-main`);
-                            }
-                        }, 10);
-                    });
-                });
+        const sendToRenderer = (action: string) => {
+            if (!this.mainWindow) return;
+            if (action === "toggleOverlay") {
+                this.toggleOverlay();
+            } else {
+                this.mainWindow.webContents.send(`${action}-step-from-main`);
             }
+        };
+
+        const modifierKeys = ["", "Shift+", "Control+", "Alt+", "Meta+"];
+
+        Object.entries(this.binds).forEach(([action, key]) => {
+            if (!key || key.toLowerCase() === " " || key.toLowerCase() === "space") return;
+
+            modifierKeys.forEach((modifier) => {
+                const shortcut = modifier ? modifier + key : key;
+                globalShortcut.register(shortcut, () => sendToRenderer(action));
+            });
         });
     }
 
@@ -139,12 +129,11 @@ class SpeedrunGuideApp {
     }
 
     private startAlwaysOnTopMaintenance(): void {
-        // Réduire la fréquence de vérification pour être moins suspect
         setInterval(() => {
             if (this.mainWindow && !this.overlayHidden && this.mainWindow.isVisible()) {
                 this.mainWindow.setAlwaysOnTop(true, "normal");
             }
-        }, 5000); // 5 secondes au lieu de 2
+        }, 5000); // 5 secondes
     }
 
     private toggleOverlay() {
@@ -161,7 +150,7 @@ class SpeedrunGuideApp {
 
     private setupIPC(): void {
         // Load guide from JSON file
-        ipcMain.handle("load-guide", async (event, filePath: string) => {
+        /*ipcMain.handle("load-guide", async (event, filePath: string) => {
             try {
                 // Essayer plusieurs emplacements pour le fichier JSON
                 const possiblePaths = [
@@ -203,9 +192,9 @@ class SpeedrunGuideApp {
                 console.error("Erreur lors du chargement du guide:", error);
                 return { success: false, error: error instanceof Error ? error.message : "Unknown error" };
             }
-        });
+        });*/
 
-        // Get current step
+       /* // Get current step
         ipcMain.handle("get-current-step", () => {
             if (!this.currentGuide || this.currentStepIndex >= this.currentGuide.steps.length) {
                 return { success: false, error: "No guide loaded or step out of bounds" };
@@ -217,7 +206,7 @@ class SpeedrunGuideApp {
                 totalSteps: this.currentGuide.steps.length,
             };
         });
-
+        
         // Navigate to next step
         ipcMain.handle("next-step", () => {
             if (!this.currentGuide) {
@@ -270,10 +259,10 @@ class SpeedrunGuideApp {
                 };
             }
             return { success: false, error: "Step index out of bounds" };
-        });
+        });*/
 
         // Get guide info
-        ipcMain.handle("get-guide-info", () => {
+        /*ipcMain.handle("get-guide-info", () => {
             if (!this.currentGuide) {
                 return { success: false, error: "No guide loaded" };
             }
@@ -283,7 +272,7 @@ class SpeedrunGuideApp {
                 category: this.currentGuide.category,
                 totalSteps: this.currentGuide.steps.length,
             };
-        });
+        });*/
 
         // Fermer l'application proprement
         ipcMain.handle("close-app", () => {

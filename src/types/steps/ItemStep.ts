@@ -15,6 +15,10 @@ export class LootStep {
             name: this.name,
         };
     }
+
+    static fromJSON(data: any): LootStep {
+        return new LootStep(data.name);
+    }
 }
 
 /**
@@ -33,6 +37,10 @@ export class PurchaseStep {
             type: this.type,
             name: this.name,
         };
+    }
+
+    static fromJSON(data: any): PurchaseStep {
+        return new PurchaseStep(data.name);
     }
 }
 
@@ -53,6 +61,10 @@ export class ArmeStep {
             character: this.character,
         };
     }
+
+    static fromJSON(data: any): ArmeStep {
+        return new ArmeStep(data.name, data.character);
+    }
 }
 
 export class PictoStep {
@@ -72,6 +84,10 @@ export class PictoStep {
             character: this.character,
         };
     }
+
+    static fromJSON(data: any): PictoStep {
+        return new PictoStep(data.name, data.character);
+    }
 }
 
 export class LuminaStep {
@@ -90,6 +106,10 @@ export class LuminaStep {
             name: this.name,
             character: this.character,
         };
+    }
+
+    static fromJSON(data: any): LuminaStep {
+        return new LuminaStep(data.name, data.character);
     }
 }
 
@@ -112,6 +132,10 @@ export class SortStep {
             character: this.character,
             position: this.position,
         };
+    }
+
+    static fromJSON(data: any): SortStep {
+        return new SortStep(data.name, data.character, data.position);
     }
 }
 
@@ -138,6 +162,10 @@ export class StatStep {
             total: this.total,
         };
     }
+
+    static fromJSON(data: any): StatStep {
+        return new StatStep(data.name, data.character, data.toAdd, data.total);
+    }
 }
 
 export class UpArmeStep {
@@ -163,6 +191,10 @@ export class UpArmeStep {
             total: this.total,
         };
     }
+
+    static fromJSON(data: any): UpArmeStep {
+        return new UpArmeStep(data.name, data.character, data.toAdd, data.total);
+    }
 }
 
 export class UpLuminaStep {
@@ -185,6 +217,10 @@ export class UpLuminaStep {
             total: this.total,
         };
     }
+
+    static fromJSON(data: any): UpLuminaStep {
+        return new UpLuminaStep(data.character, data.toAdd, data.total);
+    }
 }
 
 export class FormationStep {
@@ -203,6 +239,10 @@ export class FormationStep {
             character: this.character,
             toAdd: this.toAdd,
         };
+    }
+
+    static fromJSON(data: any): FormationStep {
+        return new FormationStep(data.character, data.toAdd);
     }
 }
 
@@ -223,6 +263,10 @@ export class ImageStep {
             character: this.character,
         };
     }
+
+    static fromJSON(data: any): ImageStep {
+        return new ImageStep(data.imagePath, data.character);
+    }
 }
 
 export class NoteStep {
@@ -238,5 +282,9 @@ export class NoteStep {
             type: this.type,
             note: this.note,
         };
+    }
+
+    static fromJSON(data: any): NoteStep {
+        return new NoteStep(data.note);
     }
 }

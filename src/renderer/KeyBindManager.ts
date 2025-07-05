@@ -1,5 +1,12 @@
 import { KeyBinds, BindChangeEvent, StepChangeEvent } from "../types/GuideTypes";
 import { FileManager } from "./FileManager";
+import { UIManager } from "./UIManager";
+
+declare global {
+    interface Window {
+        uiManager: UIManager;
+    }
+}
 
 /**
  * Gestionnaire des raccourcis clavier et événements
@@ -42,7 +49,6 @@ export class KeyBindManager {
      */
     public async initialize(): Promise<void> {
         await this.syncBindsWithMain();
-        this.setupGlobalKeyListeners();
         this.setupIPCListeners();
     }
 
@@ -147,28 +153,6 @@ export class KeyBindManager {
     // ============================================================================
 
     /**
-     * Configure les écouteurs d'événements clavier globaux
-     */
-    private setupGlobalKeyListeners(): void {
-        // Supprime les anciens écouteurs s'ils existent
-        this.removeGlobalKeyListeners();
-
-        // Note: Les raccourcis globaux sont maintenant gérés par le processus principal
-        // via globalShortcut, donc nous n'avons plus besoin d'écouteurs DOM ici
-        // Les raccourcis fonctionnent même quand la fenêtre n'a pas le focus
-
-        console.log("Raccourcis globaux configurés via le processus principal");
-    }
-
-    /**
-     * Supprime les écouteurs d'événements clavier globaux
-     */
-    private removeGlobalKeyListeners(): void {
-        // Les raccourcis globaux sont gérés par le processus principal
-        // Pas besoin de nettoyer les écouteurs DOM
-    }
-
-    /**
      * Extrait la touche depuis un événement clavier
      */
     private getKeyFromEvent(event: KeyboardEvent): string {
@@ -248,7 +232,7 @@ export class KeyBindManager {
      * Exécute l'action correspondant au raccourci
      */
     private async executeKeyBind(bindType: keyof KeyBinds): Promise<void> {
-        if (!this.ipcRenderer) {
+        /*if (!this.ipcRenderer) {
             console.warn("IPC non disponible");
             return;
         }
@@ -274,7 +258,7 @@ export class KeyBindManager {
                 break;
             default:
                 console.warn(`Action inconnue pour le raccourci: ${bindType}`);
-        }
+        }*/
     }
 
     // ============================================================================
@@ -293,27 +277,33 @@ export class KeyBindManager {
             {
                 event: "next-step-from-main",
                 handler: async () => {
-                    await this.handleNextStepWithSkips();
+                    const uiManager = window.uiManager;
+                    if (uiManager) {
+                        uiManager.guide!.nextStep(uiManager.options);
+                    }
                 },
             },
             {
                 event: "prev-step-from-main",
                 handler: async () => {
-                    await this.handlePreviousStepWithSkips();
+                    const uiManager = window.uiManager;
+                    if (uiManager) {
+                        uiManager.guide!.prevStep(uiManager.options);
+                    }
                 },
             },
             {
                 event: "reset-step-from-main",
                 handler: async () => {
-                    const result = await this.fileManager.jumpToStep(0);
-                    if (result.success && result.step) {
-                        this.emitStepChange(result.currentIndex || 0, result.totalSteps || 0, result.step, "reset");
+                    const uiManager = window.uiManager;
+                    if (uiManager) {
+                        uiManager.guide!.currentStep = 0;
                     }
                 },
             },
-            { event: "chapter-step-from-main", handler: () => this.showChapterMenu() },
+            /*{ event: "chapter-step-from-main", handler: () => this.showChapterMenu() },
             { event: "toggle-overlay-from-main", handler: () => this.toggleOverlay() },
-            { event: "toggle-options-or-header", handler: () => this.toggleOptionsOrHeader() },
+            { event: "toggle-options-or-header", handler: () => this.toggleOptionsOrHeader() },*/
         ];
 
         listeners.forEach(({ event, handler }) => {
@@ -441,40 +431,6 @@ export class KeyBindManager {
     }
 
     // ============================================================================
-    // ACTIONS DES RACCOURCIS
-    // ============================================================================
-
-    /**
-     * Affiche le menu des chapitres
-     */
-    private showChapterMenu(): void {
-        // Cette méthode sera implémentée dans UIManager
-        // Pour l'instant, on émet un événement personnalisé
-        const event = new CustomEvent("show-chapter-menu");
-        window.dispatchEvent(event);
-    }
-
-    /**
-     * Bascule l'overlay
-     */
-    private toggleOverlay(): void {
-        // Cette méthode sera implémentée dans UIManager
-        // Pour l'instant, on émet un événement personnalisé
-        const event = new CustomEvent("toggle-overlay");
-        window.dispatchEvent(event);
-    }
-
-    /**
-     * Bascule les options ou l'en-tête
-     */
-    private toggleOptionsOrHeader(): void {
-        // Cette méthode sera implémentée dans UIManager
-        // Pour l'instant, on émet un événement personnalisé
-        const event = new CustomEvent("toggle-options-or-header");
-        window.dispatchEvent(event);
-    }
-
-    // ============================================================================
     // ÉVÉNEMENTS PERSONNALISÉS
     // ============================================================================
 
@@ -509,7 +465,7 @@ export class KeyBindManager {
     /**
      * Gère la navigation vers l'avant avec skips
      */
-    private async handleNextStepWithSkips(): Promise<void> {
+   /* private async handleNextStepWithSkips(): Promise<void> {
         if (!this.ipcRenderer) return;
 
         try {
@@ -527,12 +483,12 @@ export class KeyBindManager {
         } catch (error) {
             console.error("Erreur lors de la navigation:", error);
         }
-    }
+    }*/
 
     /**
      * Gère la navigation vers l'arrière avec skips
      */
-    private async handlePreviousStepWithSkips(): Promise<void> {
+    /*private async handlePreviousStepWithSkips(): Promise<void> {
         if (!this.ipcRenderer) return;
 
         try {
@@ -550,12 +506,12 @@ export class KeyBindManager {
         } catch (error) {
             console.error("Erreur lors de la navigation:", error);
         }
-    }
+    }*/
 
     /**
      * Vérifie si une étape doit être skipée selon les options minimalistes
      */
-    private async shouldSkipStep(step: any): Promise<boolean> {
+    /*private async shouldSkipStep(step: any): Promise<boolean> {
         if (!step) return false;
 
         // Récupérer les options minimalistes depuis UIManager
@@ -575,7 +531,7 @@ export class KeyBindManager {
         }
 
         return false;
-    }
+    }*/
 
     // ============================================================================
     // NETTOYAGE
@@ -585,7 +541,6 @@ export class KeyBindManager {
      * Nettoie les ressources
      */
     public destroy(): void {
-        this.removeGlobalKeyListeners();
         this.removeIPCListeners();
         this.eventListeners.clear();
     }

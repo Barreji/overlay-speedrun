@@ -1,4 +1,4 @@
-import { Guide, KeyBinds, MinimalOptions, LoadResult, ParseResult, SavedConfig } from "../types/GuideTypes";
+import { KeyBinds, Options, LoadResult, ParseResult } from "../types/GuideTypes";
 
 /**
  * Gestionnaire de fichiers et localStorage pour le renderer
@@ -72,8 +72,8 @@ export class FileManager {
     /**
      * Charge les options minimales depuis localStorage
      */
-    public loadMinimalOptions(): MinimalOptions {
-        const defaultOptions: MinimalOptions = {
+    public loadOptions(): Options {
+        const defaultOptions: Options = {
             hideHeader: false,
             skipLoot: false,
             skipPurchase: false,
@@ -83,7 +83,7 @@ export class FileManager {
         };
 
         try {
-            const saved = localStorage.getItem("speedrun_minimal_options");
+            const saved = localStorage.getItem("speedrun_options");
             if (saved) {
                 const parsed = JSON.parse(saved);
                 return { ...defaultOptions, ...parsed };
@@ -98,35 +98,11 @@ export class FileManager {
     /**
      * Sauvegarde les options minimales dans localStorage
      */
-    public saveMinimalOptions(options: MinimalOptions): void {
+    public saveOptions(options: Options): void {
         try {
-            localStorage.setItem("speedrun_minimal_options", JSON.stringify(options));
+            localStorage.setItem("speedrun_options", JSON.stringify(options));
         } catch (error) {
             console.error("Erreur lors de la sauvegarde des options:", error);
-        }
-    }
-
-    /**
-     * Sauvegarde l'index de l'étape actuelle
-     */
-    public saveCurrentStepIndex(index: number): void {
-        try {
-            localStorage.setItem("speedrun_current_step", index.toString());
-        } catch (error) {
-            console.error("Erreur lors de la sauvegarde de l'étape actuelle:", error);
-        }
-    }
-
-    /**
-     * Charge l'index de l'étape actuelle
-     */
-    public loadCurrentStepIndex(): number {
-        try {
-            const saved = localStorage.getItem("speedrun_current_step");
-            return saved ? parseInt(saved, 10) : 0;
-        } catch (error) {
-            console.warn("Erreur lors du chargement de l'étape actuelle:", error);
-            return 0;
         }
     }
 
@@ -135,7 +111,7 @@ export class FileManager {
     // ============================================================================
 
     /**
-     * Charge un guide depuis un fichier JSON
+     * Charge un guide depuis un fichier JSON MODIF
      */
     public async loadGuideFromFile(filePath: string): Promise<LoadResult> {
         if (!this.ipcRenderer) {
@@ -160,28 +136,22 @@ export class FileManager {
      * Charge le guide par défaut
      */
     public async loadDefaultGuide(): Promise<LoadResult> {
-        const possiblePaths = [
-            "clair-obscur-guide-complete.json",
-            "Release/clair-obscur-guide-complete.json",
-            "../clair-obscur-guide-complete.json",
-        ];
+        const possiblePaths = "clair-obscur-guide-complete.json";
 
-        for (const path of possiblePaths) {
-            try {
-                const result = await this.loadGuideFromFile(path);
-                if (result.success && result.guide) {
-                    return result;
-                }
-            } catch (error) {
-                // Continuer avec le chemin suivant
+        try {
+            const result = await this.loadGuideFromFile(possiblePaths);
+            if (result.success && result.guide) {
+                return result;
             }
+        } catch (error) {
+            return { success: false, error: `Erreur lors du chargement: ${error}` };
         }
 
         return { success: false, error: "Aucun guide trouvé" };
     }
 
     /**
-     * Ouvre un sélecteur de fichier JSON
+     * Ouvre un sélecteur de fichier JSON MODIF
      */
     public async selectJsonFile(): Promise<{ success: boolean; filePath?: string; error?: string }> {
         if (!this.ipcRenderer) {
@@ -203,7 +173,7 @@ export class FileManager {
     }
 
     /**
-     * Ouvre un sélecteur de fichier TXT
+     * Ouvre un sélecteur de fichier TXT MODIF
      */
     public async selectTxtFile(): Promise<{ success: boolean; filePath?: string; error?: string }> {
         if (!this.ipcRenderer) {
@@ -225,7 +195,7 @@ export class FileManager {
     }
 
     /**
-     * Convertit un fichier TXT en JSON
+     * Convertit un fichier TXT en JSON MODIF
      */
     public async convertTxtToJson(
         txtFilePath: string
@@ -244,175 +214,6 @@ export class FileManager {
             return {
                 success: false,
                 error: `Erreur lors de la conversion: ${error}`,
-            };
-        }
-    }
-
-    /**
-     * Crée un guide à partir d'un fichier TXT
-     */
-    public async createGuideFromTxt(): Promise<LoadResult> {
-        try {
-            // Sélectionne le fichier TXT
-            const selectResult = await this.selectTxtFile();
-            if (!selectResult.success || !selectResult.filePath) {
-                return {
-                    success: false,
-                    error: selectResult.error || "Aucun fichier sélectionné",
-                };
-            }
-
-            // Convertit en JSON
-            const convertResult = await this.convertTxtToJson(selectResult.filePath);
-            if (!convertResult.success || !convertResult.jsonPath) {
-                return {
-                    success: false,
-                    error: convertResult.error || "Erreur lors de la conversion",
-                };
-            }
-
-            // Charge le guide converti
-            const loadResult = await this.loadGuideFromFile(convertResult.jsonPath);
-            return loadResult;
-        } catch (error) {
-            return {
-                success: false,
-                error: `Erreur lors de la création du guide: ${error}`,
-            };
-        }
-    }
-
-    /**
-     * Charge un guide depuis un fichier JSON sélectionné
-     */
-    public async loadGuideFromSelectedFile(): Promise<LoadResult> {
-        try {
-            const selectResult = await this.selectJsonFile();
-            if (!selectResult.success || !selectResult.filePath) {
-                return {
-                    success: false,
-                    error: selectResult.error || "Aucun fichier sélectionné",
-                };
-            }
-
-            const loadResult = await this.loadGuideFromFile(selectResult.filePath);
-            return loadResult;
-        } catch (error) {
-            return {
-                success: false,
-                error: `Erreur lors du chargement: ${error}`,
-            };
-        }
-    }
-
-    // ============================================================================
-    // GESTION DES ÉTAPES (IPC)
-    // ============================================================================
-
-    /**
-     * Récupère l'étape actuelle depuis le main process
-     */
-    public async getCurrentStep(): Promise<{
-        success: boolean;
-        step?: any;
-        currentIndex?: number;
-        totalSteps?: number;
-        error?: string;
-    }> {
-        if (!this.ipcRenderer) {
-            return {
-                success: false,
-                error: "IPC non disponible (pas dans Electron)",
-            };
-        }
-
-        try {
-            const result = await this.ipcRenderer.invoke("get-current-step");
-            return result;
-        } catch (error) {
-            return {
-                success: false,
-                error: `Erreur lors de la récupération: ${error}`,
-            };
-        }
-    }
-
-    /**
-     * Passe à l'étape suivante
-     */
-    public async nextStep(): Promise<{
-        success: boolean;
-        step?: any;
-        currentIndex?: number;
-        totalSteps?: number;
-        error?: string;
-    }> {
-        if (!this.ipcRenderer) {
-            return {
-                success: false,
-                error: "IPC non disponible (pas dans Electron)",
-            };
-        }
-
-        try {
-            const result = await this.ipcRenderer.invoke("next-step");
-            return result;
-        } catch (error) {
-            return {
-                success: false,
-                error: `Erreur lors du passage à l'étape suivante: ${error}`,
-            };
-        }
-    }
-
-    /**
-     * Passe à l'étape précédente
-     */
-    public async previousStep(): Promise<{
-        success: boolean;
-        step?: any;
-        currentIndex?: number;
-        totalSteps?: number;
-        error?: string;
-    }> {
-        if (!this.ipcRenderer) {
-            return {
-                success: false,
-                error: "IPC non disponible (pas dans Electron)",
-            };
-        }
-
-        try {
-            const result = await this.ipcRenderer.invoke("previous-step");
-            return result;
-        } catch (error) {
-            return {
-                success: false,
-                error: `Erreur lors du passage à l'étape précédente: ${error}`,
-            };
-        }
-    }
-
-    /**
-     * Saute à une étape spécifique
-     */
-    public async jumpToStep(
-        stepIndex: number
-    ): Promise<{ success: boolean; step?: any; currentIndex?: number; totalSteps?: number; error?: string }> {
-        if (!this.ipcRenderer) {
-            return {
-                success: false,
-                error: "IPC non disponible (pas dans Electron)",
-            };
-        }
-
-        try {
-            const result = await this.ipcRenderer.invoke("jump-to-step", stepIndex);
-            return result;
-        } catch (error) {
-            return {
-                success: false,
-                error: `Erreur lors du saut d'étape: ${error}`,
             };
         }
     }
@@ -442,15 +243,6 @@ export class FileManager {
         }
 
         return this.loadKeyBinds();
-    }
-
-    /**
-     * Ferme l'application
-     */
-    public closeApp(): void {
-        if (this.ipcRenderer) {
-            this.ipcRenderer.invoke("close-app");
-        }
     }
 
     // ============================================================================

@@ -28,4 +28,18 @@ export class CombatStep {
             turns: this.turns.map((turn) => turn.toJSON()),
         };
     }
+
+    static fromJSON(data: any): CombatStep {
+        const combat = new CombatStep(data.titre);
+        combat.turns = data.turns.map((turnData: any) => {
+            if (turnData.type === "image") {
+                return ImageStep.fromJSON(turnData);
+            } else if (turnData.type === "note") {
+                return NoteStep.fromJSON(turnData);
+            } else if (turnData.type === "turn") {
+                return TurnStep.fromJSON(turnData);
+            }
+        });
+        return combat;
+    }
 }

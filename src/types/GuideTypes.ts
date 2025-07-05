@@ -1,329 +1,4 @@
-// ============================================================================
-// TYPES PRINCIPAUX DU GUIDE
-// ============================================================================
-
-/**
- * Guide complet avec toutes les étapes (format legacy)
- */
-export interface Guide {
-    game: string;
-    category: string;
-    steps: Step[];
-}
-
-/**
- * Nouveau format avec groupes d'actions
- */
-export interface ActionGroupGuide {
-    game: string;
-    category: string;
-    actionGroups: ActionGroup[];
-}
-
-/**
- * Type de groupe d'actions
- */
-export type ActionGroupType = "mixte" | "combat" | "loot" | "menu" | "achat";
-
-/**
- * Groupe d'actions
- */
-export interface ActionGroup {
-    id: number;
-    type: ActionGroupType;
-    acte: string;
-    chapitre: string;
-    titre: string;
-    steps: ActionStep[];
-}
-
-/**
- * Type d'étape dans un groupe d'actions
- */
-export type ActionStepType =
-    | "combat"
-    | "loot"
-    | "purchase"
-    | "menu"
-    | "note"
-    | "image"
-    | "arme"
-    | "picto"
-    | "lumina"
-    | "stat"
-    | "sort"
-    | "formation"
-    | "upArme"
-    | "upLumina";
-
-/**
- * Une étape dans un groupe d'actions
- */
-export interface ActionStep {
-    type: ActionStepType;
-    titre?: string;
-    turns?: Turn[][];
-    notes?: Note[];
-    item?: string;
-    price?: number;
-    name?: string;
-    character?: string;
-    toAdd?: number;
-    total?: number;
-    position?: string;
-    imagePath?: string;
-    fail?: boolean;
-}
-
-/**
- * Note dans une étape
- */
-export interface Note {
-    type: "note";
-    note: string;
-}
-
-/**
- * Type d'étape possible dans le guide (format legacy)
- */
-export type StepType =
-    | "combat"
-    | "boss"
-    | "loot"
-    | "purchase"
-    | "menu"
-    | "note"
-    | "act"
-    | "chapter"
-    | "image"
-    | "imageGroup"
-    | "combatGroup";
-
-/**
- * Une étape du guide (format legacy)
- */
-export interface Step {
-    id: number;
-    type: StepType;
-    titre?: string;
-    acte?: string;
-    chapitre?: string;
-    turns?: Turn[][];
-    actions?: MenuAction[] | CombatAction[];
-    menuOrder?: string[];
-    content?: string;
-}
-
-// ============================================================================
-// TYPES SPÉCIFIQUES POUR CHAQUE TYPE D'ÉTAPE
-// ============================================================================
-
-/**
- * Étape de menu
- */
-export interface MenuStep extends Step {
-    type: "menu";
-    title: string;
-    actions: MenuAction[];
-    notes?: string[];
-    attachedImages?: string[];
-}
-
-/**
- * Étape de note
- */
-export interface NoteStep extends Step {
-    type: "note";
-    content: string;
-}
-
-/**
- * Étape d'acte
- */
-export interface ActStep extends Step {
-    type: "act";
-    actNumber: number;
-    title: string;
-    description?: string;
-}
-
-/**
- * Étape de chapitre
- */
-export interface ChapterStep extends Step {
-    type: "chapter";
-    chapterNumber: number;
-    title: string;
-    description?: string;
-}
-
-/**
- * Étape de loot
- */
-export interface LootStep extends Step {
-    type: "loot";
-    character?: string;
-    items: string[];
-    location?: string;
-    attachedImages?: string[];
-}
-
-/**
- * Étape d'achat
- */
-export interface PurchaseStep extends Step {
-    type: "purchase";
-    character?: string;
-    items: string[];
-    shop?: string;
-    attachedImages?: string[];
-}
-
-/**
- * Étape de combat
- */
-export interface CombatStep extends Step {
-    type: "combat";
-    enemy?: string;
-    actions: CombatAction[];
-    strategy?: string;
-    attachedImages?: string[];
-}
-
-/**
- * Étape de boss
- */
-export interface BossStep extends Step {
-    type: "boss";
-    bossName?: string;
-    actions: CombatAction[];
-    strategy?: string;
-    notes?: string[];
-    attachedImages?: string[];
-}
-
-/**
- * Étape d'image
- */
-export interface ImageStep extends Step {
-    type: "image";
-    imagePath: string;
-    title?: string;
-    character?: string;
-    isSolo?: boolean;
-}
-
-/**
- * Étape de groupe d'images (images consécutives avec titres intermédiaires)
- */
-export interface ImageGroupStep extends Step {
-    type: "imageGroup";
-    images: Array<{
-        imagePath: string;
-        character?: string;
-        title?: string;
-    }>;
-}
-
-/**
- * Note de loot (loot collé à un combat)
- */
-export interface LootNote {
-    type: "lootNote";
-    items: string[];
-    attachedImages?: string[];
-}
-
-/**
- * Note d'achat (achat collé à un combat)
- */
-export interface PurchaseNote {
-    type: "purchaseNote";
-    items: string[];
-    attachedImages?: string[];
-}
-
-export type CombatGroupItem =
-    | { type: "combat" | "boss"; titre: string; turns: Turn[][]; attachedImages?: string[] }
-    | LootNote
-    | PurchaseNote;
-
-export interface CombatGroupStep extends Step {
-    type: "combatGroup";
-    groupItems: CombatGroupItem[];
-    attachedImages?: string[];
-}
-
-// ============================================================================
-// TYPES POUR LES COMBATS
-// ============================================================================
-
-/**
- * Une action dans un tour de combat
- */
-export interface Turn {
-    action: string;
-    character: string;
-    fail?: boolean;
-    isNote?: boolean;
-}
-
-/**
- * Une action de combat
- */
-export interface CombatAction {
-    character?: string;
-    skill?: string;
-    target?: string;
-    notes?: string;
-}
-
-// ============================================================================
-// TYPES POUR LES MENUS
-// ============================================================================
-
-/**
- * Type d'action de menu possible
- */
-export type MenuActionType =
-    | "arme"
-    | "picto"
-    | "lumina"
-    | "up arme"
-    | "up lumina"
-    | "stat"
-    | "sort"
-    | "formation"
-    | "note";
-
-/**
- * Une action de menu
- */
-export interface MenuAction {
-    type: MenuActionType;
-    action: string;
-    character: string;
-    text: string;
-    isSelected?: boolean;
-    subActions?: string[];
-}
-
-// ============================================================================
-// TYPES POUR LES PERSONNAGES
-// ============================================================================
-
-/**
- * Code et nom d'un personnage
- */
-export interface Character {
-    code: string;
-    name: string;
-}
-
-/**
- * Type pour les codes de personnages
- */
-export type CharacterCode = "M" | "L" | "S" | "V" | "Mo";
+import { Guide } from "./Guide";
 
 // ============================================================================
 // TYPES POUR L'INTERFACE UTILISATEUR
@@ -332,7 +7,7 @@ export type CharacterCode = "M" | "L" | "S" | "V" | "Mo";
 /**
  * Options d'affichage minimal
  */
-export interface MinimalOptions {
+export interface Options {
     hideHeader: boolean;
     skipLoot: boolean;
     skipPurchase: boolean;
@@ -383,31 +58,24 @@ export interface LoadResult {
 }
 
 /**
- * Type de notification
- */
-export type NotificationType = "info" | "success" | "warning" | "error";
-
-// ============================================================================
-// TYPES POUR LES ÉVÉNEMENTS
-// ============================================================================
-
-/**
  * Événement de changement d'étape
  */
 export interface StepChangeEvent {
     currentIndex: number;
     totalSteps: number;
-    step: Step;
-    direction?: string;
+    step: any;
+    direction: string;
 }
 
-/**
- * Événement de changement de raccourci
- */
 export interface BindChangeEvent {
     bindType: keyof KeyBinds;
     newKey: string;
 }
+
+/**
+ * Type de notification
+ */
+export type NotificationType = "info" | "success" | "warning" | "error";
 
 // ============================================================================
 // TYPES UTILITAIRES
@@ -427,24 +95,3 @@ export type GroupedResult<T> = { [key: string]: T[] };
  * Fonction de rendu d'action générique
  */
 export type ActionRenderer<T> = (action: T) => string;
-
-// ============================================================================
-// TYPES POUR LA CONFIGURATION
-// ============================================================================
-
-/**
- * Configuration par défaut
- */
-export interface DefaultConfig {
-    minimalOptions: MinimalOptions;
-    keyBinds: KeyBinds;
-    characterMap: Character[];
-}
-
-/**
- * Configuration sauvegardée
- */
-export interface SavedConfig {
-    minimalOptions?: Partial<MinimalOptions>;
-    keyBinds?: Partial<KeyBinds>;
-}

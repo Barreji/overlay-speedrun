@@ -1,0 +1,10 @@
+UiEvent
+Check updateStepDisplay / hideOptionsMenu / hideChapterMenu
+
+Raccourci
+this.setupKeyBindingEvents();
+this.setupOptionsEvents();
+this.setupGuideManagementEvents();
+
+
+showChapterMenu / toggleOverlay / updateKeyBindDisplay / /!\handleStepChange/!\ / showChapterMenu / toggleOptionsOrHeader

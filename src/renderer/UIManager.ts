@@ -1,8 +1,5 @@
 import {
-    Guide,
-    Step,
-    CombatGroupStep,
-    MinimalOptions,
+    Options,
     KeyBinds,
     ChapterInfo,
     LoadResult,
@@ -13,6 +10,8 @@ import { FileManager } from "./FileManager";
 import { KeyBindManager } from "./KeyBindManager";
 import { StepRenderer } from "./StepRenderer";
 import { CharacterUtils } from "../utils/CharacterUtils";
+import { Guide } from "../types/Guide";
+import { ActionGroupStep } from "../types/steps/ActionGroupStep";
 
 /**
  * Gestionnaire principal de l'interface utilisateur
@@ -26,26 +25,28 @@ export class UIManager {
     private stepRenderer: StepRenderer;
 
     // État de l'application
-    private currentStep: Step | null = null;
+    private currentStep: ActionGroupStep | null = null;
     private currentIndex: number = 0;
     private totalSteps: number = 0;
-    private guide: Guide | null = null;
+    public guide: Guide | null = null;
     private chapterList: ChapterInfo[] = [];
-    private minimalOptions: MinimalOptions;
+    public options: Options;
 
     // Éléments DOM
-    private elements: DOMElements;
+    private elements!: DOMElements;
 
     // État de l'interface
     private isOptionsMenuVisible: boolean = false;
     private isChapterMenuVisible: boolean = false;
 
+    private ipcRenderer: any;
+
     private constructor() {
         this.fileManager = FileManager.getInstance();
         this.keyBindManager = KeyBindManager.getInstance();
-        this.minimalOptions = this.fileManager.loadMinimalOptions();
-        this.stepRenderer = new StepRenderer(this.minimalOptions);
-        this.elements = this.initializeElements();
+        this.options = this.fileManager.loadOptions();
+        this.stepRenderer = new StepRenderer(this.options);
+        this.ipcRenderer = (window as any).require("electron").ipcRenderer;
     }
 
     /**
@@ -72,7 +73,7 @@ export class UIManager {
 
         // Exposer l'instance et les options pour KeyBindManager
         (window as any).uiManager = this;
-        (window as any).uiManager.minimalOptions = this.minimalOptions;
+        (window as any).uiManager.options = this.options;
 
         await this.keyBindManager.initialize();
         await this.loadGuideOnStart();
@@ -119,7 +120,9 @@ export class UIManager {
         // Bouton de fermeture
         if (this.elements.closeBtn) {
             this.elements.closeBtn.addEventListener("click", () => {
-                this.fileManager.closeApp();
+                if (this.ipcRenderer) {
+                    this.ipcRenderer.invoke("close-app");
+                }
             });
         }
 
@@ -127,8 +130,8 @@ export class UIManager {
         if (this.elements.hideHeaderBtn) {
             this.elements.hideHeaderBtn.addEventListener("click", (e) => {
                 e.stopPropagation();
-                this.minimalOptions.hideHeader = true;
-                this.fileManager.saveMinimalOptions(this.minimalOptions);
+                this.options.hideHeader = true;
+                this.fileManager.saveOptions(this.options);
                 this.updateStepDisplay();
             });
         }
@@ -136,8 +139,8 @@ export class UIManager {
         if (this.elements.showHeaderBtn) {
             this.elements.showHeaderBtn.addEventListener("click", (e) => {
                 e.stopPropagation();
-                this.minimalOptions.hideHeader = false;
-                this.fileManager.saveMinimalOptions(this.minimalOptions);
+                this.options.hideHeader = false;
+                this.fileManager.saveOptions(this.options);
                 this.updateStepDisplay();
             });
         }
@@ -190,9 +193,8 @@ export class UIManager {
         }) as EventListener);
 
         // Événements de menu
-        window.addEventListener("show-chapter-menu", () => this.showChapterMenu());
-        window.addEventListener("toggle-overlay", () => this.toggleOverlay());
-        window.addEventListener("toggle-options-or-header", () => this.toggleOptionsOrHeader());
+        //window.addEventListener("show-chapter-menu", () => this.showChapterMenu());
+        //window.addEventListener("toggle-options-or-header", () => this.toggleOptionsOrHeader());
     }
 
     // ============================================================================
@@ -211,14 +213,12 @@ export class UIManager {
                 this.updateGuideInfo(result.guide);
                 this.buildChapterList();
 
-                // Charger directement l'étape 0 au lieu d'utiliser getCurrentStep
+                // Charger directement l'étape 0
                 this.currentIndex = 0;
-                this.currentStep = this.guide.steps[0] || null;
-                this.totalSteps = this.guide.steps.length;
+                this.currentStep = this.guide.actionGroups[0] || null;
+                this.totalSteps = this.guide.actionGroups.length;
                 this.updateStepDisplay();
 
-                // Sauvegarder l'index de l'étape actuelle
-                this.fileManager.saveCurrentStepIndex(0);
             } else {
                 this.showError("Erreur de chargement du guide", result.error || "Guide non trouvé");
             }
@@ -248,34 +248,14 @@ export class UIManager {
         const chapters: ChapterInfo[] = [];
         let lastChapter = "";
 
-        this.guide.steps.forEach((step, index) => {
-            if (step.chapitre && step.chapitre !== lastChapter) {
-                chapters.push({ name: step.chapitre, index });
-                lastChapter = step.chapitre;
+        this.guide.actionGroups.forEach((actionGroup, index) => {
+            if (actionGroup.chapitre && actionGroup.chapitre !== lastChapter) {
+                chapters.push({ name: actionGroup.chapitre, index });
+                lastChapter = actionGroup.chapitre;
             }
         });
 
         this.chapterList = chapters;
-    }
-
-    /**
-     * Charge l'étape actuelle
-     */
-    private async loadCurrentStep(): Promise<void> {
-        try {
-            const result = await this.fileManager.getCurrentStep();
-
-            if (result.success && result.currentIndex !== undefined) {
-                this.currentIndex = result.currentIndex;
-                this.currentStep = this.guide?.steps[result.currentIndex] || null;
-                this.totalSteps = this.guide?.steps.length || 0;
-
-                // Afficher l'étape (les skips sont gérés dans KeyBindManager)
-                this.updateStepDisplay();
-            }
-        } catch (error) {
-            console.error("Erreur lors du chargement de l'étape actuelle:", error);
-        }
     }
 
     /**
@@ -307,7 +287,7 @@ export class UIManager {
         }
 
         // Mettre à jour les options minimalistes dans le StepRenderer
-        this.stepRenderer.updateMinimalOptions(this.minimalOptions);
+        this.stepRenderer.updateMinimalOptions(this.options);
 
         this.updateStepInfo();
         this.renderStepContent();
@@ -342,14 +322,14 @@ export class UIManager {
     private updateHeaderVisibility(): void {
         const guideHeader = document.querySelector(".guide-header") as HTMLElement;
         if (guideHeader) {
-            guideHeader.style.display = this.minimalOptions.hideHeader ? "none" : "block";
+            guideHeader.style.display = this.options.hideHeader ? "none" : "block";
         }
 
         if (this.elements.hideHeaderBtn) {
-            this.elements.hideHeaderBtn.style.display = this.minimalOptions.hideHeader ? "none" : "block";
+            this.elements.hideHeaderBtn.style.display = this.options.hideHeader ? "none" : "block";
         }
         if (this.elements.showHeaderBtn) {
-            this.elements.showHeaderBtn.style.display = this.minimalOptions.hideHeader ? "block" : "none";
+            this.elements.showHeaderBtn.style.display = this.options.hideHeader ? "block" : "none";
         }
     }
 
@@ -397,20 +377,6 @@ export class UIManager {
                 this.elements.stepTitle.classList.add(charClass);
                 // Mettre une majuscule au nom du personnage pour les images solo
                 title = charName.charAt(0).toUpperCase() + charName.slice(1);
-            } else if (
-                this.currentStep.type === "imageGroup" &&
-                (this.currentStep as any).images &&
-                (this.currentStep as any).images.length > 0
-            ) {
-                // Pour les groupes d'images, utiliser le personnage de la première image
-                const firstImage = (this.currentStep as any).images[0];
-                if (firstImage.character) {
-                    const charName = CharacterUtils.getCharacterName(firstImage.character);
-                    const charClass = CharacterUtils.getCharacterColorClass(charName);
-                    this.elements.stepTitle.classList.add(charClass);
-                    // Le titre est déjà le nom du personnage (défini dans le parser)
-                    title = charName.charAt(0).toUpperCase() + charName.slice(1);
-                }
             } else {
                 this.elements.stepTitle.classList.add("step-title");
             }
@@ -424,12 +390,6 @@ export class UIManager {
     private renderStepContent(): void {
         if (!this.currentStep || !this.elements.stepContent) return;
 
-        // En mode minimaliste, ignorer les notes si configuré
-        if (this.minimalOptions.skipNotes && this.currentStep.type === "note") {
-            this.elements.stepContent.innerHTML = "";
-            return;
-        }
-
         // Utilise le StepRenderer pour le rendu
         const html = this.stepRenderer.renderStep(this.currentStep);
         this.elements.stepContent.innerHTML = html;
@@ -441,12 +401,7 @@ export class UIManager {
     /**
      * Obtient le titre d'une étape
      */
-    private getStepTitle(step: Step): string {
-        // Pour les groupes de combats, utiliser le titre personnalisé avec les emojis
-        if (step.type === "combatGroup") {
-            return this.stepRenderer.generateCombatGroupTitle(step as CombatGroupStep);
-        }
-
+    private getStepTitle(step: ActionGroupStep): string {
         return step.titre || "";
     }
 
@@ -499,25 +454,25 @@ export class UIManager {
             <div class="minimal-options-section">
                 <div class="section-title">Options d'affichage</div>
                 <label class="font-size-label">
-                    Taille de police: <span id="font-size-value">${this.minimalOptions.fontSize}%</span>
+                    Taille de police: <span id="font-size-value">${this.options.fontSize}%</span>
                     <input type="range" id="font-size-slider" min="50" max="200" value="${
-                        this.minimalOptions.fontSize
+                        this.options.fontSize
                     }" step="10">
                 </label>
                 <label class="font-size-label">
-                    Taille des images: <span id="image-size-value">${this.minimalOptions.imageSize}%</span>
+                    Taille des images: <span id="image-size-value">${this.options.imageSize}%</span>
                     <input type="range" id="image-size-slider" min="25" max="100" value="${
-                        this.minimalOptions.imageSize
+                        this.options.imageSize
                     }" step="5">
                 </label>
                 <label><input type="checkbox" id="option-skipLoot" ${
-                    this.minimalOptions.skipLoot ? "checked" : ""
+                    this.options.skipLoot ? "checked" : ""
                 }> Ignorer les loots</label>
                 <label><input type="checkbox" id="option-skipPurchase" ${
-                    this.minimalOptions.skipPurchase ? "checked" : ""
+                    this.options.skipPurchase ? "checked" : ""
                 }> Ignorer les achats</label>
                 <label><input type="checkbox" id="option-skipNotes" ${
-                    this.minimalOptions.skipNotes ? "checked" : ""
+                    this.options.skipNotes ? "checked" : ""
                 }> Masquer les notes</label>
             </div>
             
@@ -641,7 +596,7 @@ export class UIManager {
             this.hideOptionsMenu();
         } else {
             // Sinon, basculer l'en-tête
-            this.minimalOptions.hideHeader = !this.minimalOptions.hideHeader;
+            this.options.hideHeader = !this.options.hideHeader;
             this.updateHeaderVisibility();
         }
     }
@@ -654,7 +609,7 @@ export class UIManager {
      * Saute à une étape spécifique
      */
     private async jumpToStep(stepIndex: number): Promise<void> {
-        try {
+        /*try {
             const result = await this.fileManager.jumpToStep(stepIndex);
             if (result.success) {
                 this.currentIndex = result.currentIndex || stepIndex;
@@ -664,7 +619,7 @@ export class UIManager {
             }
         } catch (error) {
             console.error("Error jumping to step:", error);
-        }
+        }*/
     }
 
     // ============================================================================
@@ -732,19 +687,19 @@ export class UIManager {
     private setupOptionsEvents(): void {
         // Cases à cocher pour les options minimalistes
         const optionCheckboxes = [
-            { id: "option-skipLoot", key: "skipLoot" as keyof MinimalOptions },
-            { id: "option-skipPurchase", key: "skipPurchase" as keyof MinimalOptions },
-            { id: "option-skipNotes", key: "skipNotes" as keyof MinimalOptions },
+            { id: "option-skipLoot", key: "skipLoot" as keyof Options },
+            { id: "option-skipPurchase", key: "skipPurchase" as keyof Options },
+            { id: "option-skipNotes", key: "skipNotes" as keyof Options },
         ];
 
         optionCheckboxes.forEach(({ id, key }) => {
             const checkbox = document.getElementById(id) as HTMLInputElement;
             if (checkbox) {
-                checkbox.checked = this.minimalOptions[key] as boolean;
+                checkbox.checked = this.options[key as keyof Options] as boolean;
                 checkbox.addEventListener("change", (e) => {
                     const target = e.target as HTMLInputElement;
-                    (this.minimalOptions as any)[key] = target.checked;
-                    this.fileManager.saveMinimalOptions(this.minimalOptions);
+                    (this.options as any)[key] = target.checked;
+                    this.fileManager.saveOptions(this.options);
                     this.updateStepDisplay();
                 });
             }
@@ -755,14 +710,14 @@ export class UIManager {
         const fontSizeValue = document.getElementById("font-size-value");
 
         if (fontSizeSlider && fontSizeValue) {
-            fontSizeSlider.value = this.minimalOptions.fontSize.toString();
-            fontSizeValue.textContent = this.minimalOptions.fontSize + "%";
+            fontSizeSlider.value = this.options.fontSize.toString();
+            fontSizeValue.textContent = this.options.fontSize + "%";
 
             fontSizeSlider.addEventListener("input", (e) => {
                 const newSize = parseInt((e.target as HTMLInputElement).value);
-                this.minimalOptions.fontSize = newSize;
+                this.options.fontSize = newSize;
                 fontSizeValue.textContent = newSize + "%";
-                this.fileManager.saveMinimalOptions(this.minimalOptions);
+                this.fileManager.saveOptions(this.options);
                 this.applyFontSize();
             });
         }
@@ -771,13 +726,13 @@ export class UIManager {
         const imageSizeSlider = document.getElementById("image-size-slider") as HTMLInputElement;
         const imageSizeValue = document.getElementById("image-size-value");
         if (imageSizeSlider && imageSizeValue) {
-            imageSizeSlider.value = this.minimalOptions.imageSize.toString();
-            imageSizeValue.textContent = this.minimalOptions.imageSize + "%";
+            imageSizeSlider.value = this.options.imageSize.toString();
+            imageSizeValue.textContent = this.options.imageSize + "%";
             imageSizeSlider.addEventListener("input", (e) => {
                 const newSize = parseInt((e.target as HTMLInputElement).value);
-                this.minimalOptions.imageSize = newSize;
+                this.options.imageSize = newSize;
                 imageSizeValue.textContent = newSize + "%";
-                this.fileManager.saveMinimalOptions(this.minimalOptions);
+                this.fileManager.saveOptions(this.options);
                 this.updateStepDisplay();
                 this.autoResizeWindow();
             });
@@ -813,7 +768,7 @@ export class UIManager {
      * Crée un guide à partir d'un fichier TXT
      */
     private async createGuideFromTxt(): Promise<void> {
-        try {
+        /*try {
             const result = await this.fileManager.createGuideFromTxt();
             if (result.success && result.guide) {
                 this.guide = result.guide;
@@ -827,14 +782,14 @@ export class UIManager {
         } catch (error) {
             console.error("Error creating guide:", error);
             this.showNotification("Erreur lors de la création du guide", "error");
-        }
+        }*/
     }
 
     /**
      * Charge un guide depuis un fichier
      */
     private async loadGuideFromFile(): Promise<void> {
-        try {
+        /*try {
             const result = await this.fileManager.loadGuideFromSelectedFile();
             if (result.success && result.guide) {
                 this.guide = result.guide;
@@ -848,7 +803,7 @@ export class UIManager {
         } catch (error) {
             console.error("Error loading guide:", error);
             this.showNotification("Erreur lors du chargement du guide", "error");
-        }
+        }*/
     }
 
     // ============================================================================
@@ -896,14 +851,14 @@ export class UIManager {
                 images.forEach((img) => {
                     // Attendre que l'image soit chargée pour obtenir sa vraie taille
                     if (img.complete && img.naturalWidth > 0) {
-                        const imageScale = this.minimalOptions.imageSize / 100;
+                        const imageScale = this.options.imageSize / 100;
                         const scaledWidth = img.naturalWidth * imageScale;
                         maxImageWidth = Math.max(maxImageWidth, scaledWidth);
                         imagesChecked++;
                     } else {
                         // Si l'image n'est pas encore chargée, attendre qu'elle se charge
                         img.onload = () => {
-                            const imageScale = this.minimalOptions.imageSize / 100;
+                            const imageScale = this.options.imageSize / 100;
                             const scaledWidth = img.naturalWidth * imageScale;
                             maxImageWidth = Math.max(maxImageWidth, scaledWidth);
                             imagesChecked++;
@@ -991,7 +946,7 @@ export class UIManager {
      * Applique la taille de police configurée
      */
     private applyFontSize(): void {
-        const scale = this.minimalOptions.fontSize / 100;
+        const scale = this.options.fontSize / 100;
 
         // Éléments uniques (un seul par page)
         const uniqueElements = [

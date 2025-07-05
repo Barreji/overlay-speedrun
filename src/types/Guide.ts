@@ -1,4 +1,5 @@
 import { ActionGroupStep } from "./steps/ActionGroupStep";
+import { Options } from "./GuideTypes";
 
 /**
  * Classe principale représentant un guide de speedrun
@@ -8,11 +9,43 @@ export class Guide {
     public game: string;
     public category: string;
     public actionGroups: ActionGroupStep[];
+    public currentStep: number;
 
     constructor(game: string, category: string, actionGroups: ActionGroupStep[] = []) {
         this.game = game;
         this.category = category;
         this.actionGroups = actionGroups;
+        this.currentStep = 0;
+    }
+
+    getCurrentStep(): ActionGroupStep {
+        return this.actionGroups[this.currentStep];
+    }
+
+    nextStep(options: Options): void {
+        if (this.currentStep + 1 >= this.actionGroups.length) {
+            return;
+        }
+        this.currentStep++;
+        if (options.skipLoot && this.getCurrentStep().type === "loot") {
+            this.nextStep(options);
+        }
+        if (options.skipPurchase && this.getCurrentStep().type === "purchase") {
+            this.nextStep(options);
+        }
+    }
+
+    prevStep(options: Options): void {
+        if (this.currentStep - 1 < 0) {
+            return;
+        }
+        this.currentStep--;
+        if (options.skipLoot && this.getCurrentStep().type === "loot") {
+            this.prevStep(options);
+        }
+        if (options.skipPurchase && this.getCurrentStep().type === "purchase") {
+            this.prevStep(options);
+        }
     }
 
     /**
@@ -20,17 +53,6 @@ export class Guide {
      */
     addActionGroup(actionGroup: ActionGroupStep): void {
         this.actionGroups.push(actionGroup);
-    }
-
-    /**
-     * Obtient tous les steps de tous les groupes
-     */
-    getAllSteps(): any[] {
-        const allSteps: any[] = [];
-        this.actionGroups.forEach((group) => {
-            allSteps.push(...group.steps);
-        });
-        return allSteps;
     }
 
     /**
@@ -78,16 +100,10 @@ export class Guide {
 
         if (data.actionGroups && Array.isArray(data.actionGroups)) {
             data.actionGroups.forEach((groupData: any) => {
-                const actionGroup = new ActionGroupStep(
-                    groupData.id,
-                    groupData.acte,
-                    groupData.chapitre,
-                    groupData.steps || []
-                );
+                const actionGroup = ActionGroupStep.fromJSON(groupData);
                 guide.addActionGroup(actionGroup);
             });
         }
-
         return guide;
     }
 
